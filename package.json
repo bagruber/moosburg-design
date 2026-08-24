@@ -1,0 +1,14 @@
+{
+  "name": "moosburg-design",
+  "version": "0.1.0",
+  "description": "Design-Tokens und Gestaltungsregeln der Moosburg-Projekte",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./css/*": "./css/*"
+  },
+  "scripts": {
+    "tokens": "node scripts/tokens.mjs",
+    "kontrast": "node scripts/kontrast.mjs"
+  }
+}

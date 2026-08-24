@@ -1,0 +1,79 @@
+/* Moosburg Design: die Farb- und Schrift-Tokens aller Moosburg-Projekte.
+
+   Diese Datei ist die Quelle. Wer hier ändert, ändert den Kanon.
+   Danach `npm run tokens` (erzeugt css/tokens.css für Projekte ohne
+   Build-Step) und `npm run kontrast` (prüft die freigegebenen
+   Farbpaare gegen WCAG 2.1 AA).
+
+   Konsumiert wird sie von Tailwind-v4-Projekten per
+
+     @import "tailwindcss";
+     @import "moosburg-design/css/theme.css";
+
+   Ein Projekt darf einzelne Werte danach in einem eigenen @theme-Block
+   überschreiben; jede Abweichung braucht einen Kommentar mit Grund. */
+
+@theme {
+  /* Marke: Rot und Gold als Seele, Creme als Grund. */
+  --color-red-50: #fdf3f5;
+  --color-red-100: #fbe5e9;
+  --color-red-500: #c8102e;
+  --color-red-600: #b00e28;
+  --color-red-700: #a50d24;
+  --color-red-900: #6d0818;
+
+  --color-gold-100: #f6ecd5;
+  --color-gold-200: #e8d5a3;
+  --color-gold-500: #b8964e;
+  --color-gold-600: #967a40;
+  --color-gold-700: #6e5a30;
+
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f1ece1;
+
+  --color-ink: #1c1c1c;
+  --color-ink-soft: #555555;
+  /* Früher #888888. Der Wert erreichte auf Creme nur rund 3,3:1 und fiel
+     für Fließtext unter WCAG AA; haushaltvis und baumkarte hatten ihn
+     deshalb bereits lokal abgedunkelt. Seit August 2026 ist der dunklere,
+     warme Ton der Kanon. */
+  --color-ink-muted: #6f6b63;
+  --color-ink-line: #e4e0d7;
+
+  --color-purple-accent: #6b3e7a;
+  --color-turquoise-accent: #18ada4;
+
+  /* Rainbow-Stripe: neun feste Segmente in dieser Reihenfolge, 4 px hoch,
+     nie als Verlauf. */
+  --color-rb-1: #e91e8c;
+  --color-rb-2: #e5202e;
+  --color-rb-3: #f4830a;
+  --color-rb-4: #f5d400;
+  --color-rb-5: #0a9e4c;
+  --color-rb-6: #009ac7;
+  --color-rb-7: #3b3f9a;
+  --color-rb-8: #8b4a2a;
+  --color-rb-9: #1a1a1a;
+
+  /* Drei Schriftrollen: Playfair-Versalien für Display, Inter für alles
+     andere, Madelon Script als seltener Akzent. Das @font-face für Madelon
+     bleibt beim Projekt, das die Datei ausliefert. */
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-script: "Madelon Script", "Playfair Display", cursive;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-1: 4rem;
+  --text-display-2: 3rem;
+  --text-display-3: 2.25rem;
+  --text-display-4: 1.5rem;
+
+  /* Flacher als die Tailwind-Vorgabe: knappe Ecken wirken gesetzt. */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
+  --radius-2xl: 14px;
+
+  --shadow-soft: 0 2px 12px rgb(0 0 0 / 0.07);
+  --shadow-lift: 0 4px 24px rgb(0 0 0 / 0.10);
+}

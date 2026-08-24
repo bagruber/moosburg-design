@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Moosburg Design</title>
+<meta name="description" content="Farb- und Schrift-Tokens der Moosburg-Projekte: Kanon, Kontrastwerte, Regeln und Anwendungsprofile." />
+<link rel="stylesheet" href="css/tokens.css" />
+<style>
+  @font-face {
+    font-family: "Playfair Display";
+    src: url("fonts/playfair-display-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Playfair Display";
+    src: url("fonts/playfair-display-latin-700-normal.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter Variable";
+    src: url("fonts/inter-latin-wght-normal.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .rainbow-stripe { display: flex; height: 4px; }
+  .rainbow-stripe > span { flex: 1; }
+  .rainbow-stripe > span:nth-child(1) { background: var(--color-rb-1); }
+  .rainbow-stripe > span:nth-child(2) { background: var(--color-rb-2); }
+  .rainbow-stripe > span:nth-child(3) { background: var(--color-rb-3); }
+  .rainbow-stripe > span:nth-child(4) { background: var(--color-rb-4); }
+  .rainbow-stripe > span:nth-child(5) { background: var(--color-rb-5); }
+  .rainbow-stripe > span:nth-child(6) { background: var(--color-rb-6); }
+  .rainbow-stripe > span:nth-child(7) { background: var(--color-rb-7); }
+  .rainbow-stripe > span:nth-child(8) { background: var(--color-rb-8); }
+  .rainbow-stripe > span:nth-child(9) { background: var(--color-rb-9); }
+
+  .wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--color-ink-line);
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+  }
+  .wordmark .dot { color: var(--color-red-500); }
+  .masthead a { color: var(--color-ink-soft); font-size: 0.875rem; }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--color-gold-700);
+    margin: 0;
+  }
+  .headline {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .hero { padding-top: 4rem; padding-bottom: 3rem; }
+  .hero h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); margin: 0.75rem 0 0; }
+  .hero .lead { margin: 1.5rem 0 0; font-size: 1.125rem; color: var(--color-ink-soft); max-width: 60ch; }
+
+  section.block { padding: 2.5rem 0; border-top: 1px solid var(--color-ink-line); }
+  section.block h2 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; font-weight: 700; font-size: 1.5rem; margin: 0.5rem 0 1.25rem; }
+  section.block > .wrap > p { max-width: 62ch; color: var(--color-ink-soft); }
+
+  /* Farbreihen */
+  .family { margin: 0 0 1.5rem; }
+  .family-name { font-weight: 600; font-size: 0.9375rem; margin: 0 0 0.5rem; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .swatch { width: 8.5rem; }
+  .swatch .chip { height: 3.25rem; border-radius: var(--radius-md); border: 1px solid rgb(28 28 28 / 0.08); }
+  .swatch .meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--color-ink-muted); margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
+  .swatch .meta b { color: var(--color-ink); font-weight: 600; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.875rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--color-ink-line); vertical-align: top; }
+  th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-ink-muted); font-weight: 600; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .pair { display: inline-block; padding: 0.15rem 0.5rem; border-radius: var(--radius-sm); font-weight: 600; }
+
+  /* Typografie-Proben */
+  .type-sample { padding: 1rem 0; border-bottom: 1px solid var(--color-ink-line); display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; align-items: baseline; }
+  .type-sample:last-child { border-bottom: 0; }
+  .type-label { font-size: 0.75rem; color: var(--color-ink-muted); }
+  @media (max-width: 40rem) { .type-sample { grid-template-columns: 1fr; gap: 0.25rem; } }
+
+  .badge {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    font-size: 0.6875rem;
+    line-height: 1.2;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Musterkarten */
+  .patterns { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .patterns { grid-template-columns: 1fr 1fr; } }
+  .pattern-card { border: 1px solid var(--color-ink-line); border-radius: var(--radius-md); background: #fff; }
+  .pattern-card .demo { margin: 1.25rem; border: 1px solid var(--color-ink-line); border-radius: var(--radius-md); overflow: hidden; }
+  .pattern-card .demo-inner { padding: 0.9rem 1rem 1rem; font-size: 0.8125rem; color: var(--color-ink-soft); }
+  .pattern-card .demo-inner b { display: block; color: var(--color-ink); font-size: 0.9375rem; margin-bottom: 0.15rem; }
+  .pattern-card .verdict { padding: 0 1.25rem 1.25rem; font-size: 0.8125rem; color: var(--color-ink-soft); }
+  .verdict b { color: var(--color-ink); }
+  .demo--falsch .demo-bar { height: 4px; background: var(--color-red-500); }
+  .demo--richtig .demo-inner { background: var(--color-gold-100); }
+  .demo--richtig .demo-inner, .demo--richtig .demo-inner b { color: var(--color-ink); }
+  .demo--richtig .demo-inner .quelle { color: var(--color-ink-soft); }
+
+  .profiles { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .profiles { grid-template-columns: 1fr 1fr; } }
+  .profile h3 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.0625rem; margin: 0 0 0.5rem; }
+  .profile p { margin: 0; font-size: 0.9375rem; color: var(--color-ink-soft); }
+  .profile .apps { margin-top: 0.6rem; font-size: 0.8125rem; color: var(--color-ink-muted); }
+
+  .site-footer { border-top: 1px solid var(--color-ink-line); margin-top: 2rem; }
+  .site-footer .wrap { padding: 2rem 1.5rem; font-size: 0.8125rem; color: var(--color-ink-muted); }
+  .site-footer a { color: var(--color-ink-soft); }
+
+  a { color: inherit; }
+  :where(a, button):focus-visible { outline: 2px solid var(--color-red-500); outline-offset: 2px; border-radius: var(--radius-sm); }
+</style>
+</head>
+<body>
+
+<div class="rainbow-stripe" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="wrap masthead">
+  <span class="wordmark">Moosburg<span class="dot"> Design</span></span>
+  <a href="https://github.com/bagruber/moosburg-design">Quellcode auf GitHub</a>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <p class="eyebrow">Designsystem</p>
+    <h1 class="headline">Ein Kanon, viele Projekte</h1>
+    <p class="lead">
+      Rot und Gold als Marke, Creme als Grund, Playfair-Versalien für das
+      Große, Inter für alles andere. Diese Seite zeigt die Tokens aus
+      <code>css/theme.css</code>, die verbindlichen Kontrastwerte und die
+      Regeln, an denen sich alle Moosburg-Projekte ausrichten.
+    </p>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Farben</p>
+      <h2>Die Palette</h2>
+
+      <div class="family">
+        <p class="family-name">Rot</p>
+        <div class="swatches">
+          <div class="swatch"><div class="chip" style="background:var(--color-red-50)"></div><p class="meta"><b>red-50</b><span>#fdf3f5</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-red-100)"></div><p class="meta"><b>red-100</b><span>#fbe5e9</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-red-500)"></div><p class="meta"><b>red-500</b><span>#c8102e</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-red-600)"></div><p class="meta"><b>red-600</b><span>#b00e28</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-red-700)"></div><p class="meta"><b>red-700</b><span>#a50d24</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-red-900)"></div><p class="meta"><b>red-900</b><span>#6d0818</span></p></div>
+        </div>
+      </div>
+
+      <div class="family">
+        <p class="family-name">Gold</p>
+        <div class="swatches">
+          <div class="swatch"><div class="chip" style="background:var(--color-gold-100)"></div><p class="meta"><b>gold-100</b><span>#f6ecd5</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-gold-200)"></div><p class="meta"><b>gold-200</b><span>#e8d5a3</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-gold-500)"></div><p class="meta"><b>gold-500</b><span>#b8964e</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-gold-600)"></div><p class="meta"><b>gold-600</b><span>#967a40</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-gold-700)"></div><p class="meta"><b>gold-700</b><span>#6e5a30</span></p></div>
+        </div>
+      </div>
+
+      <div class="family">
+        <p class="family-name">Grund und Schrift</p>
+        <div class="swatches">
+          <div class="swatch"><div class="chip" style="background:var(--color-cream)"></div><p class="meta"><b>cream</b><span>#faf7f2</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-cream-dark)"></div><p class="meta"><b>cream-dark</b><span>#f1ece1</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-ink)"></div><p class="meta"><b>ink</b><span>#1c1c1c</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-ink-soft)"></div><p class="meta"><b>ink-soft</b><span>#555555</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-ink-muted)"></div><p class="meta"><b>ink-muted</b><span>#6f6b63</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-ink-line)"></div><p class="meta"><b>ink-line</b><span>#e4e0d7</span></p></div>
+        </div>
+      </div>
+
+      <div class="family">
+        <p class="family-name">Akzente</p>
+        <div class="swatches">
+          <div class="swatch"><div class="chip" style="background:var(--color-purple-accent)"></div><p class="meta"><b>purple</b><span>#6b3e7a</span></p></div>
+          <div class="swatch"><div class="chip" style="background:var(--color-turquoise-accent)"></div><p class="meta"><b>turquoise</b><span>#18ada4</span></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Kontrast</p>
+      <h2>Freigegebene Paare</h2>
+      <p>
+        WCAG 2.1 AA ist Minimum. <code>npm run kontrast</code> prüft diese
+        Tabelle gegen die Tokens; ein Paar unter seinem Mindestwert bricht
+        den Lauf ab. Zwei Werte haben im August 2026 den Kanon geändert:
+        <b>ink-muted</b> wurde von #888888 auf #6f6b63 abgedunkelt, und
+        goldener Text auf Creme nimmt seitdem <b>gold-700</b>.
+      </p>
+      <table>
+        <thead><tr><th>Probe</th><th>Paar</th><th>Wert</th><th>Einsatz</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pair" style="color:var(--color-ink);background:var(--color-cream);border:1px solid var(--color-ink-line)">Aa</span></td><td>ink auf cream</td><td class="num">15,9:1</td><td>Fließtext</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-ink-soft);background:var(--color-cream);border:1px solid var(--color-ink-line)">Aa</span></td><td>ink-soft auf cream</td><td class="num">7,0:1</td><td>gedämpfter Text</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-ink-muted);background:var(--color-cream);border:1px solid var(--color-ink-line)">Aa</span></td><td>ink-muted auf cream</td><td class="num">5,0:1</td><td>Nebentext, Quellen</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-ink-soft);background:var(--color-gold-100)">Aa</span></td><td>ink-soft auf gold-100</td><td class="num">6,4:1</td><td>Text auf Pergamentgrund</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-red-500);background:var(--color-cream);border:1px solid var(--color-ink-line)">Aa</span></td><td>red-500 auf cream</td><td class="num">5,5:1</td><td>Textakzente, Links</td></tr>
+          <tr><td><span class="pair" style="color:#fff;background:var(--color-red-500)">Aa</span></td><td>weiß auf red-500</td><td class="num">5,9:1</td><td>Badges, Buttons</td></tr>
+          <tr><td><span class="pair" style="color:#fff;background:var(--color-gold-700)">Aa</span></td><td>weiß auf gold-700</td><td class="num">6,6:1</td><td>Badges in Gold</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-gold-700);background:var(--color-cream);border:1px solid var(--color-ink-line)">Aa</span></td><td>gold-700 auf cream</td><td class="num">6,2:1</td><td>goldener Text, Kicker</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-cream);background:var(--color-red-900)">Aa</span></td><td>cream auf red-900</td><td class="num">11,6:1</td><td>Fußzeilen auf Tiefrot</td></tr>
+          <tr><td><span class="pair" style="color:var(--color-gold-200);background:var(--color-red-900)">Aa</span></td><td>gold-200 auf red-900</td><td class="num">8,5:1</td><td>Überschriften auf Tiefrot</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem">
+        Nicht freigegeben für Text: gold-500 auf Creme (2,6:1), Weiß auf
+        gold-500 (2,8:1). gold-600 auf Creme (3,8:1) nur für große Schrift
+        und Grafik.
+      </p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Typografie</p>
+      <h2>Drei Rollen</h2>
+
+      <div class="type-sample">
+        <span class="type-label">Display, Playfair-Versalien</span>
+        <span class="headline" style="font-size:2.25rem">Stadt an der Isar</span>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Kicker (.eyebrow), gold-700</span>
+        <span class="eyebrow">Aus dem Stadtrat</span>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Kartentitel, Inter 600</span>
+        <span style="font-weight:600;font-size:1.0625rem;letter-spacing:-0.005em">Sitzung vom 20. Juli</span>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Fließtext, Inter</span>
+        <span style="max-width:36ch;display:inline-block">Die Niederschrift ist öffentlich, die Zahlen sind nachprüfbar.</span>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Badge, dichter gesetzt</span>
+        <span><span class="badge" style="background:var(--color-red-500);color:#fff">Online</span>&nbsp;
+        <span class="badge" style="background:var(--color-gold-700);color:#fff">Vorschau</span>&nbsp;
+        <span class="badge" style="border:1px solid var(--color-ink-line);color:var(--color-ink-soft)">Archiv</span></span>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Script-Akzent</span>
+        <span style="color:var(--color-ink-soft)">Madelon Script, nur im Stadt-Prototyp, höchstens einmal je Layout. Die Schriftdatei bleibt dort.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Signatur</p>
+      <h2>Der Rainbow-Stripe</h2>
+      <p>
+        Neun feste Segmente in unveränderlicher Reihenfolge, 4 Pixel hoch,
+        über die volle Breite. Nie als Verlauf, nie umsortiert, nie als
+        Rahmen oder Unterstreichung. Er markiert den Kopf einer Seite,
+        nicht einzelne Elemente.
+      </p>
+      <div class="rainbow-stripe" style="margin-top:1rem" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Muster</p>
+      <h2>Der verbotene Kantenakzent</h2>
+      <p>
+        Ein Farbbalken entlang einer Kante einer Karte ist die Standardausgabe
+        gängiger Vorlagen und liest sich sofort als generiert. Er dekoriert
+        eine Unterscheidung, die die Hierarchie ohnehin trägt.
+      </p>
+      <div class="patterns">
+        <div class="pattern-card">
+          <div class="demo demo--falsch">
+            <div class="demo-bar"></div>
+            <div class="demo-inner"><b>Amtliche Statistik</b>Bevölkerung zum Jahresende, Fortschreibung.</div>
+          </div>
+          <p class="verdict"><b>Falsch:</b> der Balken über der Karte sagt nichts, was der Titel nicht schon sagt.</p>
+        </div>
+        <div class="pattern-card">
+          <div class="demo demo--richtig">
+            <div class="demo-inner"><b>Amtliche Statistik</b><span class="quelle">Bevölkerung zum Jahresende, Fortschreibung.</span></div>
+          </div>
+          <p class="verdict"><b>Stattdessen:</b> die ganze Fläche trägt den Unterschied, hier der Pergamentgrund für amtliche Quellen.</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem">
+        Keine Verstöße sind: der Aktiv-Unterstrich eines Tabs (Zustand), eine
+        Zeitstrahl-Schiene mit Punkten (Struktur), der Zitat-Einzug mit
+        neutraler Haarlinie (Typografie).
+      </p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Geltung</p>
+      <h2>Zwei Anwendungsprofile</h2>
+      <div class="profiles">
+        <div class="profile">
+          <h3>Auftritt</h3>
+          <p>
+            Das volle Programm: Playfair-Versalien, Kicker in Gold, Stripe als
+            Signatur, großzügiger Weißraum.
+          </p>
+          <p class="apps">Portalseite, Stadt-Prototyp, Data Hub, Haushalt, Karten</p>
+        </div>
+        <div class="profile">
+          <h3>Werkzeug</h3>
+          <p>
+            Hohe Informationsdichte schlägt Markenauftritt. Einfachere
+            Schriftgrade, dichtere Abstände und eigene Bedienelemente sind
+            erlaubt, wo Lesbarkeit sonst leidet. Die Farben kommen trotzdem
+            von hier: schlichter ja, fremd nein.
+          </p>
+          <p class="apps">Stadtratstransparenz, Sitzungstool</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Anschluss</p>
+      <h2>Wer nutzt was</h2>
+      <table>
+        <thead><tr><th>Repo</th><th>Bezug</th><th>Umfang</th></tr></thead>
+        <tbody>
+          <tr><td>moosburg</td><td>npm-Dependency</td><td>volles Theme, eigenes @font-face für Madelon Script</td></tr>
+          <tr><td>datahub</td><td>npm-Dependency</td><td>Theme, eigene Daten-Palette, kompaktere Display-Größen</td></tr>
+          <tr><td>haushaltvis</td><td>npm-Dependency</td><td>Theme, eigene Diagramm-Farben</td></tr>
+          <tr><td>baumkarte</td><td>npm-Dependency</td><td>Theme, eigene Karten- und Rampen-Tokens</td></tr>
+          <tr><td>moosburghistorisch</td><td>npm-Dependency</td><td>Theme</td></tr>
+          <tr><td>moosburg-eu</td><td>Kopie von tokens.css</td><td>Portalseite ohne Build-Step</td></tr>
+          <tr><td>council, council-voting-tool</td><td>geplant</td><td>Werkzeug-Profil, folgt mit dem Port des Sitzungstools</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem">
+        Bewusst nicht angeschlossen: hexagonalmap (neutral, für Dritte) und
+        der abstrakte Kern von elections; nur dessen künftige
+        Moosburg-Ausspielung trägt dieses Theme.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Teil der Moosburg-Projekte von Benedict Gruber ·
+    <a href="https://github.com/bagruber/moosburg-design">github.com/bagruber/moosburg-design</a>
+  </div>
+</footer>
+
+</body>
+</html>
