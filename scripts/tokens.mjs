@@ -19,9 +19,10 @@ const zeilen = block[1]
   .map((z) => z.trim())
   .filter((z) => z.startsWith("--"));
 
-const kopf = `/* GENERIERT aus css/theme.css durch scripts/tokens.mjs.
-   Nicht von Hand ändern: Änderungen gehören in theme.css, danach
-   \`npm run tokens\`. Diese Datei ist für Projekte ohne Build-Step. */
+const kopf = `/* GENERIERT im Repo bagruber/moosburg-design aus css/theme.css.
+   Nicht von Hand ändern, auch nicht als Kopie in einem anderen Repo:
+   Änderungen gehören in theme.css, danach \`npm run tokens\` und die
+   Kopien ersetzen. Diese Datei ist für Projekte ohne Build-Step. */
 
 :root {
 `;
