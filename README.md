@@ -57,7 +57,8 @@ ersetzt, nie editiert.
 | `baumkarte` | npm-Dependency | Theme, eigene Karten- und Rampen-Tokens |
 | `moosburghistorisch` | npm-Dependency | Theme |
 | `moosburg-eu` | Kopie von `tokens.css` | Portalseite, ohne Build-Step |
-| `council`, `council-voting-tool` | geplant: Kopie von `tokens.css` | Werkzeug-Profil, Umstellung folgt mit dem Port des Sitzungstools |
+| `council` | geplant: Kopie von `tokens.css` | Werkzeug-Profil, Umstellung mit der anstehenden Modularisierung |
+| `council-voting-tool` | bewusst nicht angeschlossen | mandantenfähig, jeder Rat bringt eigene Farben mit; der Moosburg-Mandant nutzt die council-Werkzeug-Palette |
 
 Nicht angeschlossen sind `hexagonalmap` (bewusst neutral, für Dritte) und
 `elections` (abstrakter Kern; nur die künftige Moosburg-Ausspielung auf
