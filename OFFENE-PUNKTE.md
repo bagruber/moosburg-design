@@ -5,7 +5,7 @@ Datei soll kurz bleiben.*
 
 ## Fuenf Repos haengen ungepinnt an main
 
-`baumkarte`, `datahub`, `haushaltvis`, `moosburg` und `moosburghistorisch`
+`baumkarte`, `datahub`, `haushaltvis`, `moosburg` und `moosburg-historisch`
 fuehren alle `"moosburg-design": "github:bagruber/moosburg-design"` - ohne Ref.
 pnpm loest das auf den Default-Branch zum Installationszeitpunkt auf, `version`
 steht seit dem ersten Commit auf `0.1.0`, und `git tag` ist leer.
