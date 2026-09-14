@@ -114,4 +114,16 @@ Script-Akzent nicht ein.
 ## Verantwortung
 
 Teil der Moosburg-Projekte von Benedict Gruber, siehe
-`moosburg-eu/BRIEFING.md` für den übergreifenden Kontext. Lizenz: MIT.
+`moosburg-eu/BRIEFING.md` für den übergreifenden Kontext.
+
+## Lizenz
+
+Mozilla Public License 2.0, siehe `LICENSE`. Wer Dateien dieses Repos abwandelt
+und weitergibt, muss diese Dateien unter derselben Lizenz offenlegen; Projekte,
+die die Tokens nur einbinden, bleiben davon unberührt. Stände bis einschließlich
+Commit `15e3af0` wurden unter MIT veröffentlicht und bleiben es.
+
+Ausgenommen sind Dateien fremder Herkunft mit eigener Lizenz: die Schriften in
+`fonts/` (Inter, Playfair Display) unter der SIL Open Font License 1.1, Texte in
+`fonts/OFL-Inter.txt` und `fonts/OFL-PlayfairDisplay.txt`, und die
+Icon-Pfade in `docs/formsprache/artefakt/icons.json` aus Phosphor Icons (MIT).
