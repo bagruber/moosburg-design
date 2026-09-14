@@ -222,6 +222,28 @@ vorläufig; jede Probe läuft auf einem eigenen Branch, der Kanon bleibt unberü
   experimentiert werden. Beide Briefings haben dafür einen Abschnitt.
 - **Push:** freigegeben zu einem sinnvollen Zeitpunkt.
 
+### 14.09.2026, Probe auf der Portalseite umgesetzt
+
+**Vorläufig und nur für die Portalseite.** Keine Entscheidung ist dadurch endgültig oder im
+Kanon.
+
+- **Wo:** Branch `probe/formsprache` in moosburg-eu, Commits `5ebf321`, `59a661a`, `7933f92`,
+  `04799b7`, `23557e1`, `33f97c5`. Lokal, nicht gepusht; nach Freigabe Merge in `main`.
+- **Auswertung:** `../moosburg-eu/docs/formsprache-probe/ERGEBNIS.md`, mit Kontrastwerten,
+  Screenshot-Paaren und dem Abschnitt „Ohne Build-Step gelernt“ für den Stadtrat.
+- **Abweichungen:** Panel ohne den Hinweissatz, weil er auf dem Portal schon in der Kopfzeile
+  steht; Rose der Wortmarke als Maske statt Inline-SVG; Federzeichnung erst ab 64 rem;
+  Beschreibungen noch nicht gekürzt.
+- **Beim Bauen gelernt:**
+  - Das letzte Stripe-Segment (`#1a1a1a`) verschwindet auf Tinte (`#1c1c1c`).
+  - Tinte gegen `red-900` erreicht 1,38:1, gegen `#52060f` 1,13:1; die Naht zwischen Einschub
+    und Fuß trägt nur der Stripe.
+  - Eine Federzeichnung in Gold mit 30 % kreuzt zwischen 44 und 64 rem Titel und Lead; in
+    Gold braucht sie eine höhere Ausblende-Grenze als in Tinte.
+  - Die Rose als Status erreicht in `gold-600` 3,81:1, in `gold-500` 2,62:1.
+- **Offen für Benedict:** Fußton, Stripe am Einschub, Zeichnung Gold oder Tinte, Rose
+  `gold-500` oder `gold-600`, „ein Wort“, Tinte als Flächenton, neue Texte, Merge.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
