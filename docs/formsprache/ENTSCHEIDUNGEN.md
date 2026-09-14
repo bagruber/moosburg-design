@@ -6,8 +6,9 @@ nichts wird gelöscht.*
 
 **Stand in einem Satz:** Zwei Vorschlagsrunden sind durch, am 14.09.2026 sind
 **vorläufige** Entscheidungen gefallen, und die Probe im Haushalt (haushaltvis) ist auf
-einem Branch umgesetzt, vorläufig und nur für dieses Projekt. Nichts davon ist in
-`css/theme.css` angekommen.
+einem Branch umgesetzt, vorläufig und nur für dieses Projekt. Briefings für die nächsten
+Proben (Portal, Stadtrat, Data Hub) liegen bereit. Nichts davon ist in `css/theme.css`
+angekommen.
 
 ---
 
@@ -26,6 +27,8 @@ jeder Überschrift, Icon im getönten Quadrat, einseitige Kantenakzente).
 | Vorschlagsseite (Artefakt, privat, claude.ai) | https://claude.ai/code/artifact/764bc923-36f6-4751-8e8e-01eddec5c826 |
 | Quelle der Vorschlagsseite, zum Weiterbauen | `docs/formsprache/artefakt/` in diesem Repo, siehe dortiges README |
 | Briefing für die Probe im Haushalt | `../haushaltvis/docs/briefing-formsprache-probe.md` |
+| Ergebnis der Haushalt-Probe, mit Benedicts Rückmeldung | `../haushaltvis/docs/formsprache-probe/ERGEBNIS.md` |
+| Briefings für die nächsten Proben, in dieser Reihenfolge | `../moosburg-eu/docs/briefing-formsprache-portal.md`, `../council/docs/briefing-formsprache.md`, `../datahub/docs/briefing-formsprache.md` |
 | Inspiration (App-Screenshots, Schriftdateien) | `../moosburg-eu/inspiration/`, nicht eingecheckt; die Screenshots enthalten private Daten und gehören in kein Repo |
 | Heutiger Kanon | `css/theme.css`, `README.md` |
 
@@ -154,6 +157,71 @@ einen Projekt tragen. Keine Entscheidung ist dadurch endgültig, keine ist in de
   Null mit Schrägstrich (kein OpenType-Feature schaltet sie ab), Madelon Script vorerst
   öffentlich erlaubt.
 
+### 14.09.2026, Briefings für Portal, Stadtrat und Data Hub
+
+Benedict will nach dem Haushalt die Portalseite angehen, danach Stadtrat und Data Hub. Für
+alle drei liegt ein Briefing im jeweiligen Repo (Abschnitt 2). Die Entscheidungen bleiben
+vorläufig; jede Probe läuft auf einem eigenen Branch, der Kanon bleibt unberührt.
+
+- **Übernommen aus der Rückmeldung zur Haushalt-Probe** (`../haushaltvis/docs/formsprache-probe/ERGEBNIS.md`):
+  Handschrift mit `top: -0.42em` stärker in der Überschrift, rund 0,85 em Abstand darüber;
+  im sichtbaren Text Bindestrich statt Gedankenstrich. Abschnitt 4 nennt noch die
+  Ausgangswerte.
+- **Beim Lesen der drei Projekte aufgefallen:**
+  - Der Stadtrat nutzt nicht mehr Material Symbols, sondern ein Lucide-Sprite mit
+    Material-Namen als IDs (`council/scripts/build_icon_sprite.mjs`). Abschnitt 7 ist
+    korrigiert.
+  - Portal: „In eigener Sache“ als Farbfläche kollidiert mit dem roten Fuß direkt darunter
+    (eine Fläche pro Bildschirm). Beide Varianten sollen als Paar vorgelegt werden.
+  - Portal: Die Rose vor „Aktive Tools“ und „Archiv“ verursacht den Einzug und bedeutete
+    neben der Rose als Status zweierlei.
+  - Stadtrat: Einstellungen und Kontakt nennen die App „Ratsinformationssystem der Stadt“
+    und verweisen an die Geschäftsstelle des Stadtrats; dieselbe Frage wie die Fußzeile im
+    Data Hub.
+  - Stadtrat: Die Bereichsfarben im Kopf (`--chrome`) haben auf der Vorschlagsseite kein
+    Gegenstück. Die „nächste Sitzung“ als Fläche oben auf der Startseite widerspricht der
+    begründeten Rangfolge dort.
+  - Stadtrat und Data Hub: Mit „moosburg.eu“ samt Rose und der Rose als Logo-Platzhalter
+    stünden zwei Rosen nebeneinander.
+  - Data Hub: Die Über-Seite verspricht Download und Methodik-Hinweis, beides gibt es nicht;
+    `public/logo.svg` ist die Rose, kein eigenes Logo.
+- Die offenen Fragen stehen je Briefing in Abschnitt 5.
+
+### 14.09.2026, Antworten von Benedict auf die Briefings
+
+- **Icons:** Phosphor ist auch für den Stadtrat in Ordnung (vorläufig). Der Stadt-Prototyp
+  importiert 156 verschiedene Phosphor-Icons in 67 Dateien, meist im Gewicht `regular`.
+- **Doppelte Rose:** Die Rose als Logo-Platzhalter neben der Rose von „moosburg.eu“ ist bis zu
+  den Tool-Logos kein Problem.
+- **Vorschau unter `/v2/`** gibt es nur beim Haushalt; der Data Hub wird lokal geprüft.
+- **Portal, mehrere Farbflächen auf einer Seite:** Vorbild ist die Startseite des
+  Stadt-Prototyps. Dort folgen Creme, Gold-100, Creme-dunkel, Tinte (Veranstaltungen, mit
+  Stripe als Abschluss), Creme (Wort des Bürgermeisters) und Creme-dunkel aufeinander, der
+  Fuß ist `red-900`; dunkle Flächen stehen nie direkt beieinander. Fürs Portal wird „In eigener
+  Sache“ ein Einschub in Tinte mit dem Ton eines Vorworts, zwischen „Aktive Tools“ und
+  „Archiv“. Tinte ist damit ein siebter Flächenton neben den sechs Themenfarben; Kontrast von
+  Hand gerechnet (Creme etwa 15,9:1, Gold-200 etwa 11,8:1), noch nicht in `kontrast.mjs`.
+
+### 14.09.2026, zweite Antwort von Benedict
+
+- **Ablauf der Proben:** erst lokal prüfen, nach Freigabe direkt in `main` mergen. Keine
+  öffentliche Vorschau außer `/v2/` im Haushalt.
+- **Portal:**
+  - „Werkstatt“ wird die Handschrift über dem Titel, das Etikett entfällt.
+  - „Über das Projekt“ als Panel wie im Haushalt, mit einem Eintrag, der zur ausführlichen
+    Erklärung („In eigener Sache“) führt.
+  - Das Archiv kommt vor die Erklärung. Damit stößt der Einschub in Tinte direkt an den Fuß;
+    eine bewusste Abweichung von „eine Fläche pro Bildschirm“, der Stripe bildet die Naht.
+    Die vorige Positionierung zwischen „Aktive Tools“ und „Archiv“ ist damit überholt.
+  - Der Fuß darf, ähnlich wie im Website-Konzept, dunkler werden. Befund: Der Fuß des
+    Stadt-Prototyps ist ebenfalls `red-900`; dunkler wirkt er durch Stripe oben und
+    Wappen-Wasserzeichen. Das Briefing verlangt ein Paar: `red-900` mit Wasserzeichen gegen
+    einen tieferen Ton, Vorschlag `#52060f` (Creme etwa 14,1:1, Gold-200 etwa 10,4:1, von
+    Hand gerechnet).
+- **Stadtrat und Data Hub:** Dort darf mit anderen Flächenfarben aus den Themenfarben
+  experimentiert werden. Beide Briefings haben dafür einen Abschnitt.
+- **Push:** freigegeben zu einem sinnvollen Zeitpunkt.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -191,7 +259,7 @@ einen Projekt tragen. Keine Entscheidung ist dadurch endgültig, keine ist in de
 - **Segmente:** wie im Artefakt.
 - **Beschreibungen:** Titel plus genau ein Satz.
 - **Icon-Set:** Phosphor (im Stadt-Prototyp schon genutzt); ausdrücklich entschieden für das
-  Sitzungstool, für den Stadtrat noch offen.
+  Sitzungstool, am 14.09.2026 vorläufig auch für den Stadtrat.
 
 ## 5. Geparkt, nicht verworfen
 
@@ -237,14 +305,18 @@ Dunkelmodus (weiter verfolgt, nicht entschieden), Vorschlag aus Runde 1:
 | haushaltvis | Achse schneidet „120 Mio. €“ zu „20 Mio. €“ ab (`grid.left` fest); gleiche Bauart in Einnahmen, Querschnitte, Timeline, Investitionen | im Probe-Briefing, AP 4 |
 | haushaltvis | einseitige Kantenakzente (`Home.tsx`, `Themen.tsx`, `intern/ThemenVorschau.tsx`; farbige Oberkanten in Einzelplan und Querschnitte) | im Probe-Briefing, AP 4 |
 | haushaltvis | Playfair-Mediävalziffern in Kennzahlen | im Probe-Briefing, AP 3 |
-| datahub | „1,656 Antworten“ mit englischem Tausendertrenner neben „2.868.813“ | offen |
-| datahub | Fußzeile nennt „Data Hub der Stadt Moosburg“, das Portal betont „kein Auftritt der Stadt“ | offen, inhaltlich mit Benedict klären |
+| datahub | „1,656 Antworten“ mit englischem Tausendertrenner neben „2.868.813“ | im Briefing Data Hub, AP 2 |
+| datahub | Fußzeile nennt „Data Hub der Stadt Moosburg“, das Portal betont „kein Auftritt der Stadt“ | offen, inhaltlich mit Benedict klären; im Briefing Data Hub, AP 7 |
+| datahub | Über-Seite verspricht Download und Methodik-Hinweis, beides gibt es nicht | offen, im Briefing Data Hub, AP 7 |
+| datahub | acht Diagramme tragen „Inter Variable“ fest ein | im Briefing Data Hub, AP 1 |
 | council-voting-tool | Namen im Sitzring liegen unter den Kreisen („Dick“, „Marschoun“) | offen |
 | council-voting-tool | Noto-Schriften, roter Verlauf im Kopf | Kompromiss entschieden, offen |
 | moosburg | einseitiger Kantenakzent `border-l-4` in `src/pages/HubPage.tsx:80` | offen |
 | moosburg | Geschichtsseite: Script „Erinnerung“ kreuzt das Etikett „Zu Besuch“ | offen, wird mit Überlappung Variante 1 plus Abstand gelöst |
-| moosburg-eu (Portal) | Zwischenüberschriften „Aktive Tools“, „Archiv“ gut 25 px eingerückt, in Versalien | offen |
-| council | Tab-Leiste am Desktop über volle Breite; Material Symbols statt Phosphor | offen |
+| moosburg-eu (Portal) | Zwischenüberschriften „Aktive Tools“, „Archiv“ gut 25 px eingerückt, in Versalien | im Briefing Portal, AP 2 und AP 4 |
+| council | Tab-Leiste am Desktop über volle Breite; Lucide-Sprite statt Phosphor (bis 14.09. hier fälschlich „Material Symbols“, die IDs tragen noch Material-Namen) | im Briefing Stadtrat, AP 1 und AP 6 |
+| council | einseitiger Kantenakzent an `.source-note` (3 px Gold) | im Briefing Stadtrat, AP 8 |
+| council | Einstellungen und Kontakt sprechen als Angebot der Stadt („Ratsinformationssystem der Stadt“, „Geschäftsstelle des Stadtrats“) | offen, inhaltlich mit Benedict klären; im Briefing Stadtrat, AP 6 |
 
 ## 8. Rahmenbedingungen für die Umsetzung in den Kanon
 
