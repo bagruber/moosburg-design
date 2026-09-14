@@ -244,6 +244,20 @@ Kanon.
 - **Offen für Benedict:** Fußton, Stripe am Einschub, Zeichnung Gold oder Tinte, Rose
   `gold-500` oder `gold-600`, „ein Wort“, Tinte als Flächenton, neue Texte, Merge.
 
+### 14.09.2026, Entscheidungen zur Portal-Probe und Merge
+
+- **Farbflächen:** Rot und Tinte getauscht. „In eigener Sache“ steht im tiefen Rot
+  `#52060f`, der Fuß darunter in Tinte. Beide Töne sind damit Flächentöne der Probe, nicht
+  im Kanon; Kontrast in `../moosburg-eu/docs/formsprache-probe/ERGEBNIS.md`.
+- **Wappen nur im Website-Konzept.** In allen Anwendungen auf moosburg.eu ist das
+  Wasserzeichen die reine Rose, etwa halb über den Rand gesetzt wie das Wappen im
+  Website-Konzept. Das gilt auch für die Proben in Stadtrat und Data Hub.
+- **Rose als Status in `gold-600`** statt `gold-500`. Folgearbeit: Die Haushalt-Probe setzt
+  `RoseStatus` noch in `gold-500`.
+- Federzeichnung in Gold, Handschrift „ein Wort“ und die Beschreibungen in einem Satz sind
+  übernommen; beim Website-Konzept bleibt „kein amtlicher Auftritt“ als Metazeile.
+- **Merge:** `probe/formsprache` ist in `main` von moosburg-eu gemergt und damit live.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
