@@ -5,8 +5,9 @@ weiterarbeitet, liest sie zuerst und führt sie nach; der Abschnitt „Verlauf�
 nichts wird gelöscht.*
 
 **Stand in einem Satz:** Zwei Vorschlagsrunden sind durch, am 14.09.2026 sind
-**vorläufige** Entscheidungen gefallen, und die Probe im Haushalt (haushaltvis) ist
-gebrieft, aber noch nicht begonnen. Nichts davon ist in `css/theme.css` angekommen.
+**vorläufige** Entscheidungen gefallen, und die Probe im Haushalt (haushaltvis) ist auf
+einem Branch umgesetzt, vorläufig und nur für dieses Projekt. Nichts davon ist in
+`css/theme.css` angekommen.
 
 ---
 
@@ -130,11 +131,28 @@ Getroffen, um sie im Haushalt zu erproben. **Vorläufig heißt:** Sie gelten fü
 und für alle weiteren Vorschläge als Ausgangspunkt, aber nichts wandert in den Kanon, bevor
 Benedict sie nach der Probe bestätigt. Siehe Abschnitt 4.
 
-### Nächster Eintrag
+### 14.09.2026, Probe in haushaltvis umgesetzt
 
-Probe in haushaltvis auf Branch `probe/formsprache`, Ergebnis in
-`../haushaltvis/docs/formsprache-probe/ERGEBNIS.md`. Hier dann Datum, Commit und die
-Auswertung eintragen.
+**Vorläufig und nur für haushaltvis.** Die Probe zeigt, wie die Entscheidungen in diesem
+einen Projekt tragen. Keine Entscheidung ist dadurch endgültig, keine ist in den Kanon
+übernommen, und für andere Projekte folgt daraus nichts, bis Benedict sie bestätigt.
+
+- **Wo:** Branch `probe/formsprache` in haushaltvis, Commits `6624856`, `e970d5a`, `b1cf365`,
+  `4d11fc2`. Vorschau unter https://bagruber.github.io/haushaltvis/v2/, die Wurzel bleibt
+  der Stand von `main`.
+- **Auswertung:** `../haushaltvis/docs/formsprache-probe/ERGEBNIS.md`, mit Kontrastwerten je
+  Kategorie, Abweichungen und Screenshot-Paaren.
+- **Abweichungen, im Haushalt begründet:** aktive Zustände in Tinte statt Rot; Tab-Leiste bis
+  1024 px, weil die Kopfzeile darunter nicht in eine Zeile passt; keine Kategoriezeile in den
+  Einzelplan-Abschnitten, weil sie überall denselben Einzelplan wiederholt hätte.
+- **Beim Bauen gelernt:** `overflow-hidden` am Seitenkopf schneidet den Schwung der
+  Handschrift ab, nur die Zeichnung darf beschnitten werden; über einem Titel mit Überlappung
+  braucht es rund 1,15 em Abstand, sonst kreuzt das Script das Element darüber; ECharts muss
+  auf die Schriften warten und bekommt sie explizit, sonst bleibt der Canvas in der
+  Systemschrift.
+- **Offen für Benedict:** Flächenton im Haushalt (Tiefrot oder Erdbraun), aktive Zustände,
+  Null mit Schrägstrich (kein OpenType-Feature schaltet sie ab), Madelon Script vorerst
+  öffentlich erlaubt.
 
 ---
 
