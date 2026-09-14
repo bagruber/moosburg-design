@@ -1,0 +1,1193 @@
+<title>Moosburg Formsprache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Playfair:opsz,wght@5..1200,300..900&family=Gloock&family=Source+Serif+4:opsz,wght@8..60,200..900&family=Frank+Ruhl+Libre:wght@300..900&family=Libre+Bodoni:wght@400..700&family=DM+Serif+Display&family=Prata&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Noto+Serif+Display:wght@400..900&family=Gilda+Display&family=Libre+Caslon+Display&family=Bellefair&family=Cormorant+Garamond:wght@400..700&family=Vidaloka&family=Yeseva+One&family=Baskervville:wght@400..700&family=Brygada+1918:wght@400..700&family=Fraunces:opsz,wght@9..144,300..900&family=Instrument+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libertinus+Serif+Display&family=Libertinus+Serif:wght@400;700&family=Charis+SIL:wght@400;700&family=Ponomar&family=Lancelot&family=Content:wght@400;700&family=Allkin&family=Besley:wght@400..900&family=Newsreader:opsz,wght@6..72,300..800&family=Ultra&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Atkinson+Hyperlegible+Next:wght@200..800&family=Inclusive+Sans:wght@300..700&family=Lexend:wght@100..900&family=Andika:wght@400;700&family=Readex+Pro:wght@160..700&family=B612:wght@400;700&family=Source+Sans+3:wght@400..700&family=Open+Sans:wght@400..700&family=Noto+Sans:wght@400..700&family=Public+Sans:wght@400..700&family=Fira+Sans:wght@400;600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Yellowtail&family=Mr+Dafoe&family=Herr+Von+Muellerhoff&family=Nothing+You+Could+Do&family=Meow+Script&family=Ms+Madi&family=Sacramento&family=Satisfy&family=Parisienne&family=Allura&family=Great+Vibes&family=Petit+Formal+Script&family=Pinyon+Script&family=Mea+Culpa&family=Ephesis&family=Birthstone&family=Corinthia&family=Tangerine&family=Kristi&family=Estonia&display=swap">
+<style>
+@font-face { font-family: "Madelon Script"; src: url({{FONT:MadelonScript.otf}}) format("opentype"); font-display: swap; }
+@font-face { font-family: "SF Burlington Script"; src: url({{FONT:SF_Burlington_Script.ttf}}) format("truetype"); font-display: swap; }
+@font-face { font-family: "Open Script"; src: url({{FONT:OpenScript.ttf}}) format("truetype"); font-display: swap; }
+@font-face { font-family: "Sneaky Times"; src: url({{FONT:Sneaky-Times.woff2}}) format("woff2"); font-display: swap; }
+@font-face { font-family: "Amdal"; src: url({{FONT:AMDAL-Regular.woff2}}) format("woff2"); font-display: swap; }
+@font-face { font-family: "Doulos SIL"; src: url({{FONT:DoulosSIL-Regular.woff2}}) format("woff2"); font-display: swap; }
+@font-face { font-family: "Galatia SIL"; src: url({{FONT:GalSILR.woff}}) format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Galatia SIL"; src: url({{FONT:GalSILB.woff}}) format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Eeyek"; src: url({{FONT:Eeyek-Regular.woff}}) format("woff"); font-display: swap; }
+
+:root {
+  --cream: #faf7f2;
+  --cream-dark: #f1ece1;
+  --white: #ffffff;
+  --ink: #1c1c1c;
+  --ink-soft: #555555;
+  --ink-muted: #6f6b63;
+  --line: #e4e0d7;
+  --line-strong: #cfc8ba;
+  --red-50: #fdf3f5;
+  --red-100: #fbe5e9;
+  --red-500: #c8102e;
+  --red-700: #a50d24;
+  --red-900: #6d0818;
+  --gold-100: #f6ecd5;
+  --gold-200: #e8d5a3;
+  --gold-500: #b8964e;
+  --gold-700: #6e5a30;
+  --purple: #6b3e7a;
+  --purple-100: #efe6f2;
+  --green: #0a9e4c;
+  --on-red: #ffffff;
+
+  --f-serif: "Playfair", Georgia, serif;
+  --f-sans: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --f-script: "Ms Madi", cursive;
+  --w1: 700;
+  --w2: 620;
+  --h2s: 1;
+  --s: 1.1;
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--cream); color: var(--ink); font-family: var(--f-sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--red-700); text-underline-offset: 3px; }
+a:hover { color: var(--red-900); }
+:focus-visible { outline: 2px solid var(--red-500); outline-offset: 2px; }
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; }
+code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.86em; background: var(--cream-dark); padding: 0.1em 0.35em; border-radius: 4px; }
+.num { font-variant-numeric: lining-nums tabular-nums; }
+.ic { width: 1.25em; height: 1.25em; fill: currentColor; flex: none; }
+.rose { width: 1em; height: 1em; fill: currentColor; flex: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.stripe { display: grid; grid-template-columns: repeat(9, 1fr); height: 4px; }
+.stripe i:nth-child(1) { background: #e91e8c; } .stripe i:nth-child(2) { background: #e5202e; }
+.stripe i:nth-child(3) { background: #f4830a; } .stripe i:nth-child(4) { background: #f5d400; }
+.stripe i:nth-child(5) { background: #0a9e4c; } .stripe i:nth-child(6) { background: #009ac7; }
+.stripe i:nth-child(7) { background: #3b3f9a; } .stripe i:nth-child(8) { background: #8b4a2a; }
+.stripe i:nth-child(9) { background: #1a1a1a; }
+
+/* Schriftwahl */
+.fontbar { position: sticky; top: 0; z-index: 30; background: rgb(250 247 242 / 0.97); border-bottom: 1px solid var(--line); }
+.fontbar-in { padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; font-size: 15px; }
+.fontbar label { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-soft); }
+.fontbar select { font: inherit; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; min-height: 36px; max-width: 290px; }
+.fontbar .check input { width: 18px; height: 18px; accent-color: var(--red-500); }
+.fontbar .reset { margin-left: auto; display: flex; gap: 8px; }
+
+.btn { font: inherit; font-weight: 600; font-size: 15px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; cursor: pointer; text-decoration: none; }
+.btn-sm { min-height: 36px; padding: 0 12px; font-size: 14px; border-radius: 8px; }
+.btn-primary { background: var(--red-500); color: var(--on-red); }
+.btn-primary:hover { background: var(--red-700); color: var(--on-red); }
+.btn-tonal { background: var(--cream-dark); color: var(--ink); }
+.btn-tonal:hover { background: var(--line); }
+.btn-text { background: none; color: var(--red-700); padding: 0 4px; }
+.btn-text:hover { color: var(--red-900); text-decoration: underline; }
+
+/* Gerüst */
+.wrap { max-width: 1120px; margin-inline: auto; padding-inline: 24px; }
+.prose { max-width: 68ch; }
+.prose p { margin: 0 0 1em; }
+section { padding-block: 96px 8px; }
+h1, h2, h3, h4 { font-family: var(--f-serif); margin: 0; text-wrap: balance; color: var(--ink); font-variant-numeric: lining-nums; }
+h1 { font-weight: var(--w1); font-size: clamp(2.4rem, 5.4vw, 3.9rem); line-height: 1.04; letter-spacing: -0.01em; }
+h2 { font-weight: var(--w2); font-size: calc(clamp(1.8rem, 3.4vw, 2.4rem) * var(--h2s)); line-height: 1.12; margin-bottom: 18px; }
+h3 { font-weight: var(--w2); font-size: calc(1.4rem * var(--h2s)); line-height: 1.25; }
+.caps .page-title { text-transform: uppercase; letter-spacing: 0.005em; }
+.lead { font-size: 1.2rem; line-height: 1.55; color: var(--ink-soft); max-width: 60ch; }
+.muted { color: var(--ink-muted); }
+.small { font-size: 0.9rem; }
+.caption { font-size: 15px; color: var(--ink-soft); margin: 12px 0 0; max-width: 68ch; }
+
+/* Markierungen */
+.mark { display: inline-flex; align-items: center; gap: 5px; font: 600 13px/1 var(--f-sans); padding: 5px 9px 5px 7px; border-radius: 4px; white-space: nowrap; vertical-align: middle; border: 1px solid transparent; }
+.mark .ic { width: 15px; height: 15px; }
+.m-go { background: var(--white); color: var(--ink); border-color: var(--line); }
+.m-go .ic { color: var(--green); }
+.m-rev { background: var(--gold-100); color: var(--gold-700); }
+.m-new { background: var(--red-50); color: var(--red-700); }
+.m-open { background: var(--cream-dark); color: var(--ink-soft); }
+.m-park { background: transparent; color: var(--ink-muted); border: 1px dashed var(--ink-muted); }
+.m-dec { background: var(--ink); color: var(--cream); }
+.m-dec .ic { color: var(--gold-200); }
+.tag.dec { background: var(--ink); color: var(--cream); font-weight: 600; }
+.ph { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; margin: 56px 0 12px; }
+.ph h3 { margin: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 26px 0 0; padding: 0; list-style: none; font-size: 15px; color: var(--ink-soft); }
+.legend li { display: flex; align-items: center; gap: 8px; }
+
+details.parked { margin: 20px 0; border: 1px dashed var(--line-strong); border-radius: 10px; }
+details.parked > summary { cursor: pointer; list-style: none; display: flex; gap: 8px 12px; align-items: center; flex-wrap: wrap; padding: 12px 16px; font-size: 15px; color: var(--ink-soft); }
+details.parked > summary::-webkit-details-marker { display: none; }
+details.parked > summary b { color: var(--ink); font-weight: 600; }
+details.parked > summary .open-lbl { margin-left: auto; font-size: 14px; color: var(--red-700); }
+details.parked[open] > summary .open-lbl::after { content: " (offen)"; color: var(--ink-muted); }
+details.parked .pk-body { padding: 4px 16px 16px; }
+details.parked .pk-body img, details.parked .pk-demo { filter: grayscale(0.55); }
+.hide-parked details.parked, .hide-parked tr.row-parked { display: none; }
+
+/* Masthead */
+.masthead { padding-block: 60px 24px; }
+.masthead .brand { display: flex; align-items: center; gap: 8px; color: var(--red-700); font-family: var(--f-serif); font-weight: var(--w2); font-size: 1.05rem; margin-bottom: 56px; }
+.masthead .brand span { color: var(--ink); }
+.masthead .lead { margin-top: 26px; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
+.toc a { display: inline-flex; min-height: 36px; align-items: center; padding: 0 14px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 15px; }
+.toc a:hover { border-color: var(--ink-muted); }
+
+/* Überlappung */
+.ov { position: relative; display: block; }
+.ov .sc { position: absolute; left: -0.05em; top: -0.62em; font-family: var(--f-script); font-weight: 400; color: var(--gold-500); font-size: calc(1.15em * var(--s)); line-height: 1; transform: rotate(-6deg); transform-origin: left bottom; white-space: nowrap; pointer-events: none; user-select: none; text-transform: none; letter-spacing: 0; }
+.ov .hd { position: relative; display: block; }
+.ov.v1 .sc { opacity: 0.55; font-size: calc(1.45em * var(--s)); top: -0.7em; }
+.ov.v1 .hd { position: relative; }
+.ov.v2 .sc { opacity: 1; }
+.ov.v2 .hd { text-shadow: 0.045em 0 0 var(--halo, var(--cream)), -0.045em 0 0 var(--halo, var(--cream)), 0 0.045em 0 var(--halo, var(--cream)), 0 -0.045em 0 var(--halo, var(--cream)), 0.032em 0.032em 0 var(--halo, var(--cream)), -0.032em -0.032em 0 var(--halo, var(--cream)), 0.032em -0.032em 0 var(--halo, var(--cream)), -0.032em 0.032em 0 var(--halo, var(--cream)); }
+.ov.v3 .sc { opacity: 0.9; font-size: calc(0.9em * var(--s)); top: -0.5em; left: 0.1em; }
+.masthead .ov { margin-top: 20px; }
+.masthead h1.ov .sc { font-size: calc(0.78em * var(--s)); top: -0.58em; left: 0.2em; }
+
+/* Paare, Panels */
+.pair { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 20px 0 8px; }
+@media (min-width: 900px) { .pair { grid-template-columns: 1fr 1fr; } .pair.three { grid-template-columns: repeat(3, 1fr); } .pair.stack { grid-template-columns: 1fr; } }
+.panel { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--white); min-width: 0; display: flex; flex-direction: column; }
+.panel-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 16px; font-size: 14px; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+.panel-head b { color: var(--ink); font-weight: 600; }
+.panel-body { padding: 20px; flex: 1; background: var(--cream); }
+.panel.before .panel-body { background: var(--cream-dark); }
+.panel.before img { border-radius: 6px; border: 1px solid var(--line); width: 100%; }
+
+/* Tabellen */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--white); margin-top: 20px; }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 15px; line-height: 1.45; }
+th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; color: var(--ink-soft); background: var(--cream); font-size: 14px; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; }
+
+/* Schriften */
+.fontgrid { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 16px; }
+@media (min-width: 1000px) { .fontgrid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } .spec { position: sticky; top: 84px; } }
+.roletabs { display: inline-grid; grid-auto-flow: column; background: var(--cream-dark); border-radius: 10px; padding: 3px; margin-bottom: 16px; }
+.roletabs button { border: 0; background: none; padding: 9px 18px; border-radius: 8px; font-size: 15px; color: var(--ink-soft); cursor: pointer; }
+.roletabs button[aria-selected="true"] { background: var(--white); color: var(--ink); font-weight: 600; box-shadow: 0 1px 3px rgb(28 28 28 / 0.12); }
+.criteria { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; font-size: 15px; color: var(--ink-soft); margin-bottom: 16px; }
+.criteria b { color: var(--ink); }
+.opts h4 { font-family: var(--f-sans); font-size: 14px; font-weight: 600; color: var(--ink-muted); margin: 22px 0 8px; }
+.opts h4:first-child { margin-top: 0; }
+.optlist { display: grid; gap: 8px; }
+.opt { position: relative; display: block; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; cursor: pointer; }
+.opt:hover { border-color: var(--ink-muted); }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt:has(input:checked) { border-color: var(--red-500); box-shadow: 0 0 0 1px var(--red-500); }
+.opt:has(input:focus-visible) { outline: 2px solid var(--red-500); outline-offset: 2px; }
+.opt-sample { display: block; color: var(--ink); line-height: 1.2; }
+.opt-sample.serif { font-size: 1.6rem; }
+.opt-sample.sans { font-size: 16px; line-height: 1.5; }
+.opt-meta { display: flex; align-items: center; gap: 6px 10px; flex-wrap: wrap; margin-top: 6px; font-size: 14px; color: var(--ink-soft); }
+.opt-meta b { color: var(--ink); font-weight: 600; margin-right: 2px; }
+.tag { font-size: 12.5px; line-height: 1; padding: 4px 7px; border-radius: 4px; background: var(--cream-dark); color: var(--ink-soft); white-space: nowrap; }
+.tag.rec { background: var(--red-50); color: var(--red-700); font-weight: 600; }
+.tag.now { background: var(--gold-100); color: var(--gold-700); }
+.tag.park { background: transparent; border: 1px dashed var(--ink-muted); color: var(--ink-muted); }
+.opt-note { font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 0; line-height: 1.5; }
+.opt-ov { position: relative; display: block; height: 76px; }
+.opt-ov .hd { position: absolute; left: 0; bottom: 4px; font-family: var(--f-serif); font-weight: var(--w1); font-size: 2.4rem; line-height: 1; color: var(--ink); }
+.opt-ov .sc { position: absolute; left: 4px; top: 0; color: var(--gold-500); line-height: 1; transform: rotate(-6deg); white-space: nowrap; }
+.spec { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 30px 28px 24px; }
+.spec .ov { font-family: var(--f-serif); font-weight: var(--w1); font-size: clamp(2.1rem, 3.6vw, 2.9rem); line-height: 1.06; margin-top: 26px; color: var(--ink); }
+.spec .ov .hd { --halo: var(--white); }
+.spec .lead { font-size: 1.05rem; margin: 14px 0 26px; }
+.spec .cat { margin-bottom: 6px; }
+.spec h2 { font-size: calc(1.55rem * var(--h2s)); margin-bottom: 10px; }
+.spec p { margin: 0 0 12px; font-size: 16px; }
+.spec h4 { font-weight: var(--w2); font-size: calc(1.08rem * var(--h2s)); margin: 18px 0 4px; }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0 6px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.kpi b { display: block; white-space: nowrap; font-family: var(--f-serif); font-weight: var(--w2); font-size: calc(1.4rem * var(--h2s)); line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; }
+.kpi span { font-size: 14px; color: var(--ink-muted); line-height: 1.35; display: block; margin-top: 4px; }
+.evidence { margin-top: 16px; background: var(--gold-100); border-radius: 10px; padding: 14px 16px; font-size: 15px; color: var(--ink); }
+
+/* Kategorien, Farbkleckse */
+.cat { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; line-height: 1.2; color: var(--c, var(--red-700)); font-family: var(--f-sans); }
+.cat .ic { width: 16px; height: 16px; }
+.cat.caps { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+.cattag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 7px; border-radius: 4px; background: var(--t, var(--red-50)); color: var(--c, var(--red-700)); font-size: 13px; font-weight: 600; line-height: 1.2; font-family: var(--f-sans); }
+.cattag .ic { width: 15px; height: 15px; }
+.c-red { --c: var(--red-700); --t: var(--red-50); --k: var(--red-100); }
+.c-gold { --c: var(--gold-700); --t: var(--gold-100); --k: var(--gold-200); }
+.c-purple { --c: var(--purple); --t: var(--purple-100); --k: #e2d2e8; }
+.c-ink { --c: var(--ink-soft); --t: var(--cream-dark); --k: var(--line); }
+.klecks { position: relative; display: inline-grid; place-items: center; width: 46px; height: 46px; flex: none; color: var(--c); }
+.klecks .blob { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--k); }
+.klecks .ic { position: relative; width: 22px; height: 22px; }
+.klecks.r2 .blob { transform: rotate(70deg); }
+.klecks.r3 .blob { transform: rotate(150deg) scaleX(-1); }
+
+.newsv { display: grid; gap: 0; }
+.newsv article { padding: 14px 0; border-top: 1px solid var(--line); display: grid; gap: 4px; }
+.newsv article:first-child { border-top: 0; padding-top: 0; }
+.newsv h4 { font-family: var(--f-sans); font-weight: 600; font-size: 17px; line-height: 1.3; }
+.newsv p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.45; }
+.newsv .date { font-size: 13.5px; color: var(--ink-muted); }
+.newsv .toprow { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.newsv.withblob article { grid-template-columns: 46px 1fr; column-gap: 14px; }
+.newsv.withblob article > .klecks { grid-row: span 3; }
+
+.dtiles { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.dtile { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; }
+.dtile.amtlich { background: var(--gold-100); border-color: var(--gold-200); }
+.dtile.karte { background-image: repeating-linear-gradient(135deg, transparent 0 9px, rgb(107 62 122 / 0.05) 9px 10px); }
+.dtile-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.dtile-t { font-family: var(--f-serif); font-weight: var(--w2); font-size: calc(1.3rem * var(--h2s)); line-height: 1.15; color: var(--ink); }
+.dtile-n { display: flex; align-items: baseline; gap: 8px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
+.dtile .dtile-t { margin-bottom: 14px; }
+.dtile.amtlich .dtile-n { border-top-color: var(--gold-200); }
+.dtile-n b { font-family: var(--f-serif); font-weight: var(--w2); font-size: 1.7rem; line-height: 1; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+
+.kicker-h2 { display: grid; gap: 6px; margin-bottom: 18px; }
+.kicker-h2 .dh2 { font-family: var(--f-serif); font-weight: var(--w2); font-size: calc(1.8rem * var(--h2s)); line-height: 1.12; color: var(--ink); }
+.tiles6 { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.tile { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; align-content: start; text-decoration: none; color: var(--ink); transition: border-color 0.15s, transform 0.15s; }
+.tile:hover { border-color: var(--ink-muted); transform: translateY(-2px); color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .tile:hover { transform: none; } }
+.tile b { font-weight: 600; font-size: 16px; line-height: 1.3; display: block; }
+.tile div span { font-size: 14px; color: var(--ink-muted); line-height: 1.35; display: block; margin-top: 2px; }
+.tile.hl { background: var(--gold-100); border-color: var(--gold-200); }
+
+.frames { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.frame { width: 340px; max-width: 100%; border: 1px solid var(--line); border-radius: 24px; background: var(--cream); padding: 22px 16px; }
+.frame-label { font-size: 14px; color: var(--ink-soft); margin: 10px 0 0 4px; max-width: 340px; }
+.register a { display: grid; grid-template-columns: 46px 1fr 18px; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+.register a:first-child { border-top: 0; }
+.register b { font-weight: 600; font-size: 16px; line-height: 1.3; display: block; }
+.register span.sub { font-size: 14px; color: var(--ink-muted); display: block; line-height: 1.35; }
+.register .chev { color: var(--ink-muted); width: 18px; height: 18px; }
+.mini { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mini a { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 12px; display: grid; gap: 8px; text-decoration: none; color: var(--ink); }
+.mini a.hl { background: var(--gold-100); border-color: var(--gold-200); }
+.mini b { font-weight: 600; font-size: 15px; line-height: 1.25; }
+.mini .klecks { width: 38px; height: 38px; }
+.mini .klecks .ic { width: 19px; height: 19px; }
+
+/* Handschrift-Varianten */
+.ovdemo { font-family: var(--f-serif); font-weight: var(--w1); font-size: clamp(2.2rem, 3.4vw, 2.9rem); line-height: 1; color: var(--ink); margin-top: 46px; }
+.ovdemo.small { font-size: calc(1.8rem * var(--h2s)); font-weight: var(--w2); margin-top: 52px; }
+.chartnote { position: relative; container-type: inline-size; }
+.chartnote img { border-radius: 6px; border: 1px solid var(--line); }
+.chartnote .note { position: absolute; left: 29%; top: 1%; font-size: calc(3.2cqw * var(--s)); font-family: var(--f-script); color: var(--gold-700); transform: rotate(-3deg); white-space: nowrap; line-height: 1; }
+.chartnote svg { position: absolute; left: 66%; top: 3%; width: 9%; height: 10%; overflow: visible; }
+.arrow { fill: none; stroke: var(--gold-500); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.note { font-family: var(--f-script); color: var(--gold-700); font-size: calc(2rem * var(--s)); line-height: 1; display: inline-block; transform: rotate(-4deg); white-space: nowrap; }
+
+/* Status */
+.seg { display: inline-grid; grid-auto-flow: column; background: var(--cream-dark); border-radius: 10px; padding: 3px; }
+.seg button, .seg span { border: 0; background: none; padding: 8px 16px; border-radius: 8px; font-size: 15px; color: var(--ink-soft); cursor: pointer; }
+.seg button[aria-pressed="true"], .seg span.on { background: var(--white); color: var(--ink); font-weight: 600; box-shadow: 0 1px 3px rgb(28 28 28 / 0.12); }
+.entries { margin-top: 18px; }
+.entry { display: grid; grid-template-columns: 1fr 20px; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line); }
+.entry:last-child { border-bottom: 1px solid var(--line); }
+.entry .et { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; font-weight: 600; font-size: 17px; }
+.entry p { margin: 6px 0 0; font-size: 15px; color: var(--ink-soft); line-height: 1.5; max-width: 62ch; }
+.entry .meta { font-size: 13.5px; color: var(--ink-muted); margin-top: 6px; }
+.entry > .ic { color: var(--ink-muted); width: 18px; height: 18px; margin-top: 5px; }
+.st { display: none; align-items: center; gap: 7px; font-weight: 500; }
+[data-v="stamp"] .st-stamp, [data-v="rose"] .st-rose, [data-v="hand"] .st-hand, [data-v="stripe"] .st-stripe, [data-v="dots"] .st-dots, [data-v="box"] .st-box { display: inline-flex; }
+.st-stamp { font-family: var(--f-serif); font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); border: 1.5px solid currentColor; border-radius: 3px; padding: 3px 7px 2px; transform: rotate(-5deg); }
+.st-stamp.dashed { border-style: dashed; }
+.st-rose { font-size: 13.5px; color: var(--ink-soft); }
+.st-rose .rose { width: 17px; height: 17px; color: var(--c); }
+.st-rose.faded .rose { opacity: 0.45; }
+.st-hand { font-family: var(--f-script); color: var(--gold-700); font-size: calc(1.55rem * var(--s)); font-weight: 400; transform: rotate(-4deg); line-height: 1; }
+.st-stripe { font-size: 13.5px; color: var(--ink-soft); }
+.ministripe { display: grid; grid-template-columns: repeat(9, 5px); gap: 1px; height: 6px; }
+.ministripe i { background: var(--line-strong); }
+.ministripe.full i:nth-child(1) { background: #e91e8c; } .ministripe.full i:nth-child(2) { background: #e5202e; } .ministripe.full i:nth-child(3) { background: #f4830a; } .ministripe.full i:nth-child(4) { background: #f5d400; } .ministripe.full i:nth-child(5) { background: #0a9e4c; } .ministripe.full i:nth-child(6) { background: #009ac7; } .ministripe.full i:nth-child(7) { background: #3b3f9a; } .ministripe.full i:nth-child(8) { background: #8b4a2a; } .ministripe.full i:nth-child(9) { background: #1a1a1a; }
+.ministripe.half i:nth-child(1) { background: #e91e8c; } .ministripe.half i:nth-child(2) { background: #e5202e; } .ministripe.half i:nth-child(3) { background: #f4830a; } .ministripe.half i:nth-child(4) { background: #f5d400; }
+.st-dots { font-size: 13px; color: var(--ink-soft); } .st-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+.st-box { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 6px; border-radius: 2px; background: var(--c); color: #fff; }
+
+/* Bausteine */
+.search { display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 16px; border-radius: 10px; background: var(--white); border: 1px solid var(--line); color: var(--ink-muted); font-size: 15px; }
+.search .ic { width: 20px; height: 20px; }
+.chiprow { display: flex; gap: 8px; align-items: center; margin: 12px 0 16px; }
+.chips { display: flex; gap: 8px; overflow-x: auto; flex: 1; min-width: 0; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); color: var(--ink); font-size: 14px; white-space: nowrap; font-family: var(--f-sans); }
+.chip.on { background: var(--red-50); border-color: transparent; color: var(--red-700); font-weight: 600; }
+.chip.more { padding: 0 10px; }
+.chip .ic { width: 16px; height: 16px; }
+.kit { display: grid; gap: 22px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+.kit-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.kit-row > .lbl { width: 150px; font-size: 14px; color: var(--ink-muted); }
+.radii { display: flex; gap: 14px; align-items: flex-end; }
+.radii div { width: 72px; height: 52px; background: var(--cream-dark); border: 1px solid var(--line); display: grid; place-items: center; font-size: 13px; color: var(--ink-soft); }
+
+.phones { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.phone { width: 340px; max-width: 100%; height: 700px; border-radius: 28px; overflow: hidden; border: 1px solid var(--line); background: var(--cream); color: var(--ink); display: flex; flex-direction: column; font-family: var(--f-sans); box-shadow: 0 8px 28px rgb(28 28 28 / 0.08); }
+.phone .scroll { flex: 1; overflow-y: auto; padding: 0 16px 16px; }
+.phone .appbar { display: flex; align-items: center; gap: 8px; padding: 14px 16px 0; font-family: var(--f-serif); font-weight: var(--w2); font-size: 16px; }
+.phone .appbar .rose { color: var(--red-700); width: 18px; height: 18px; }
+.phone .appbar .fam { margin-left: auto; color: var(--ink-soft); display: flex; }
+.phone .big { font-family: var(--f-serif); font-weight: var(--w2); font-size: calc(2.1rem * var(--h2s)); line-height: 1.1; margin: 18px 0 4px; }
+.phone .sum { font-size: 14px; color: var(--ink-muted); margin: 0 0 14px; }
+.phone .chiprow { margin-right: -16px; }
+.pentry { display: grid; grid-template-columns: 1fr 18px; gap: 10px; padding: 14px 0; border-top: 1px solid var(--line); }
+.pentry:first-child { border-top: 0; padding-top: 4px; }
+.pentry b { display: block; font-weight: 600; font-size: 16px; line-height: 1.3; margin-top: 4px; }
+.pentry p { margin: 4px 0 0; font-size: 14px; color: var(--ink-soft); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pentry .chev { color: var(--ink-muted); width: 18px; height: 18px; margin-top: 22px; }
+.pcat { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink-soft); flex-wrap: wrap; }
+.pcat .ic { width: 15px; height: 15px; }
+.tabbar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); background: var(--white); padding: 8px 4px 14px; }
+.tab { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: var(--ink-soft); }
+.tab .pill { display: grid; place-items: center; width: 56px; height: 30px; border-radius: 999px; }
+.tab .ic { width: 22px; height: 22px; }
+.tab.on { color: var(--red-700); font-weight: 600; }
+.tab.on .pill { background: var(--red-50); }
+.phone-label { font-size: 14px; color: var(--ink-soft); margin: 10px 0 0 4px; }
+.dark { --cream: #171412; --white: #221e1a; --cream-dark: #2c2723; --ink: #f3eee6; --ink-soft: #c9c1b5; --ink-muted: #a39a8d; --line: #3a342e; --red-50: #3d1d22; --red-700: #f28b98; --gold-700: #e8d5a3; box-shadow: 0 8px 28px rgb(0 0 0 / 0.25); }
+
+.dtitle { position: relative; overflow: hidden; background: var(--cream); border-radius: 10px; padding: 48px 40px 44px; min-height: 360px; }
+.dtitle .sketch { position: absolute; right: -40px; bottom: -40px; width: 520px; height: 470px; background: var(--gold-500); opacity: 0.3; -webkit-mask: url({{SVG64:rathausB}}) no-repeat right bottom / contain; mask: url({{SVG64:rathausB}}) no-repeat right bottom / contain; pointer-events: none; }
+.dtitle .ov { font-family: var(--f-serif); font-weight: var(--w1); font-size: clamp(2.6rem, 5vw, 4.2rem); line-height: 1.02; max-width: 13ch; margin-top: 78px; position: relative; }
+.dtitle p { position: relative; max-width: 44ch; color: var(--ink-soft); margin: 22px 0 0; }
+.logo-slot { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1.5px dashed var(--ink-muted); border-radius: 10px; font-size: 11px; color: var(--ink-muted); flex: none; position: relative; }
+.logo-slot.lg { width: 64px; height: 64px; font-size: 12px; }
+
+/* Navigation */
+.navdemo { background: var(--cream); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.nav-row { display: flex; align-items: center; gap: 14px; height: 64px; padding: 0 18px; }
+.fam { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 14.5px; white-space: nowrap; background: none; border: 0; padding: 6px 4px; cursor: pointer; text-decoration: none; }
+.fam .rose { color: var(--red-700); width: 16px; height: 16px; }
+.fam .ic { width: 16px; height: 16px; }
+.vsep { width: 1px; height: 26px; background: var(--line); flex: none; }
+.toolname { font-family: var(--f-serif); font-weight: var(--w2); font-size: 19px; white-space: nowrap; }
+.navdemo nav { display: flex; gap: 20px; font-size: 15px; margin-left: auto; overflow-x: auto; }
+.navdemo nav span { color: var(--ink-soft); white-space: nowrap; padding: 21px 0 19px; border-bottom: 2px solid transparent; }
+.navdemo nav span.on { color: var(--ink); font-weight: 600; border-bottom-color: var(--red-500); }
+.navdemo .ic.srch { color: var(--ink-soft); }
+.dach { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 36px; padding: 0 18px; background: var(--cream-dark); border-bottom: 1px solid var(--line); }
+.dach .fam { font-size: 13.5px; padding: 2px 0; }
+.about { margin: 12px 18px 18px auto; width: min(380px, calc(100% - 36px)); background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 18px; box-shadow: 0 10px 30px rgb(28 28 28 / 0.1); }
+.about h4 { font-size: 1.15rem; font-weight: var(--w2); margin-bottom: 6px; }
+.about p { margin: 0 0 10px; font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
+.about ul { list-style: none; margin: 12px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 15px; }
+.about li { display: flex; align-items: center; gap: 8px; }
+.about li .ic { color: var(--ink-muted); width: 18px; height: 18px; }
+@media (max-width: 760px) { .navdemo nav span:not(.on) { display: none; } .toolname { font-size: 17px; } }
+
+.steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; counter-reset: s; }
+.steps li { counter-increment: s; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px 16px 58px; position: relative; }
+.steps li::before { content: counter(s); position: absolute; left: 18px; top: 15px; width: 28px; height: 28px; border-radius: 50%; background: var(--cream-dark); display: grid; place-items: center; font-weight: 600; font-size: 15px; }
+.steps b { display: block; }
+.steps span { display: block; font-size: 15px; color: var(--ink-soft); margin-top: 2px; }
+.questions { margin: 16px 0 0; padding-left: 1.2em; max-width: 72ch; }
+.questions li { margin-bottom: 10px; }
+/* Deckende Farbflächen */
+.t-red { --bb: #6d0818; } .t-green { --bb: #1f3b2d; } .t-petrol { --bb: #123b4a; } .t-brown { --bb: #4a2a17; } .t-indigo { --bb: #26295e; } .t-aubergine { --bb: #3f2248; } .t-gold { --bb: #6e5a30; }
+.block { position: relative; overflow: hidden; background: var(--bb); color: #faf7f2; border-radius: 10px; transition: background-color 0.3s; }
+@media (prefers-reduced-motion: reduce) { .block { transition: none; } }
+.block .sketch { position: absolute; right: -30px; bottom: -40px; width: 460px; height: 420px; background: #faf7f2; opacity: 0.14; -webkit-mask: url({{SVG64:rathausB}}) no-repeat right bottom / contain; mask: url({{SVG64:rathausB}}) no-repeat right bottom / contain; pointer-events: none; }
+.block-in { position: relative; padding: 36px 36px 32px; }
+.block .cat { --c: #e8d5a3; }
+.block .ov .sc { color: #e8d5a3; opacity: 1; }
+.block .ov .hd { --halo: var(--bb); color: #faf7f2; }
+.block .bh { font-family: var(--f-serif); font-weight: var(--w1); color: #faf7f2; font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.06; max-width: 16ch; margin-top: 44px; }
+.block .bignum { font-family: var(--f-serif); font-weight: var(--w2); font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; margin-top: 22px; font-variant-numeric: lining-nums tabular-nums; color: #e8d5a3; }
+.block p { color: rgb(250 247 242 / 0.9); margin: 12px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.5; }
+.btn-cream { background: #faf7f2; color: #1c1c1c; margin-top: 22px; }
+.btn-cream:hover { background: #e8d5a3; color: #1c1c1c; }
+.themes { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 18px; }
+.themes .block-in { padding: 24px 24px 22px; }
+.themes .ov { font-family: var(--f-serif); font-weight: var(--w2); font-size: calc(1.45rem * var(--h2s)); line-height: 1.15; margin-top: 34px; }
+.themes .ov .sc { font-size: calc(1.2em * var(--s)); }
+.themes .swatch { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 16px; padding-top: 12px; border-top: 1px solid rgb(232 213 163 / 0.3); font-size: 13px; color: rgb(250 247 242 / 0.85); }
+.themes .swatch code { background: rgb(250 247 242 / 0.12); color: #faf7f2; }
+footer { margin: 80px 0 0; padding: 28px 0 48px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-muted); }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="blob" viewBox="0 0 48 48"><path d="M25 3.5c8.6.3 17.8 5.2 19.2 14.6 1.5 9.8-4 21.5-14.4 24.9C19.7 46.3 6.6 41.5 4.3 30.7 2 19.6 12.2 3 25 3.5z"/></symbol>
+</svg>
+
+<div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="fontbar" role="region" aria-label="Schriftwahl und Anzeige">
+  <div class="fontbar-in">
+    <label>Titel <select id="sel-serif"></select></label>
+    <label>Text <select id="sel-sans"></select></label>
+    <label>Handschrift <select id="sel-script"></select></label>
+    <label class="check"><input type="checkbox" id="caps"> Versalien im Seitentitel</label>
+    <label class="check"><input type="checkbox" id="hideparked"> Geparktes ausblenden</label>
+    <div class="reset">
+      <button class="btn btn-tonal btn-sm" type="button" id="to-today">Wie heute</button>
+      <button class="btn btn-tonal btn-sm" type="button" id="to-rec">Empfehlung</button>
+      <button class="btn btn-tonal btn-sm" type="button" id="to-dec">Vorläufige Wahl</button>
+    </div>
+  </div>
+</div>
+
+<main>
+<header class="wrap masthead">
+  <div class="brand">{{ROSE}}<span>Moosburg Formsprache</span></div>
+  <h1 class="ov v2 page-title"><span class="sc" aria-hidden="true">zweite Runde</span><span class="hd">Eine Handschrift für alle Moosburg-Projekte</span></h1>
+  <p class="lead">Die Vorschläge nach deiner Rückmeldung vom 14. September. Keine Idee ist verworfen: was nicht weiterverfolgt wird, steht eingeklappt und markiert an seinem Platz. Umgesetzt ist weiterhin nichts, alles unter „Vorschlag“ ist nur hier auf der Seite gesetzt.</p>
+  <ul class="legend" aria-label="Markierungen">
+    <li><span class="mark m-go">{{ICON:Check}}Weiter</span>so, wie vorgeschlagen</li>
+    <li><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span>nach deiner Rückmeldung angepasst</li>
+    <li><span class="mark m-new">{{ICON:Plus}}Neu</span>aus deiner Rückmeldung entstanden</li>
+    <li><span class="mark m-open">{{ICON:Info}}Offen</span>noch ohne Rückmeldung</li>
+    <li><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span>vorerst nicht weiter</li>
+    <li><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span>am 14.09. gewählt, wird im Haushalt erprobt, nicht endgültig</li>
+  </ul>
+  <ul class="toc">
+    <li><a href="#entscheidungen">Entscheidungen</a></li>
+    <li><a href="#rueckmeldung">Rückmeldung</a></li>
+    <li><a href="#schriften">Schriften</a></li>
+    <li><a href="#kategorien">Kategorien</a></li>
+    <li><a href="#kacheln">Kacheln und Einträge</a></li>
+    <li><a href="#handschrift">Handschrift</a></li>
+    <li><a href="#flaechen">Farbflächen</a></li>
+    <li><a href="#status">Status</a></li>
+    <li><a href="#bausteine">Bausteine</a></li>
+    <li><a href="#navigation">Navigation</a></li>
+    <li><a href="#zahlen">Zahlen</a></li>
+    <li><a href="#dunkel">Dunkelmodus</a></li>
+    <li><a href="#reihenfolge">Reihenfolge</a></li>
+    <li><a href="#befund">Befund</a></li>
+  </ul>
+</header>
+
+<section class="wrap" id="entscheidungen">
+  <div class="ph"><h2 style="margin:0">Vorläufige Entscheidungen</h2><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="prose">
+    <p>Am 14. September 2026 getroffen, um sie im Haushalt (haushaltvis) probeweise umzusetzen. Nichts davon ist endgültig, und keine andere Idee auf dieser Seite ist damit verworfen: die übrigen Varianten bleiben stehen, bis die Probe ausgewertet ist. Das Briefing für die Probe liegt in <code>haushaltvis/docs/briefing-formsprache-probe.md</code>, das vollständige Protokoll in <code>moosburg-design/docs/formsprache/ENTSCHEIDUNGEN.md</code>.</p>
+  </div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Thema</th><th>Vorläufige Entscheidung</th><th>Abschnitt</th></tr></thead>
+    <tbody>
+      <tr><td>Schriften</td><td>Titel: Source Serif 4 · Text: Atkinson Hyperlegible Next · Handschrift: Madelon Script</td><td><a href="#schriften">Schriften</a></td></tr>
+      <tr><td>Versalien</td><td>mehrheitlich verzichtet; höchstens ausnahmsweise im Seitentitel, nie in Zwischenüberschriften</td><td><a href="#schriften">Schriften</a></td></tr>
+      <tr><td>Kategorien</td><td>Variante C: Farbklecks mit Kategoriezeile</td><td><a href="#kategorien">Kategorien</a></td></tr>
+      <tr><td>Data-Hub-Kacheln</td><td>Vorschlag übernommen: Anzahl als eigene Zeile, Farbklecks, Kategorie abgehoben</td><td><a href="#kategorien">Kategorien</a></td></tr>
+      <tr><td>Kacheln und Einträge</td><td>Vorschlag übernommen: Kacheln am Desktop, Farbklecks statt getöntem Quadrat</td><td><a href="#kacheln">Kacheln</a></td></tr>
+      <tr><td>„In zwei Klicks zum Ziel“, schmal</td><td>Register-Variante</td><td><a href="#kacheln">Kacheln</a></td></tr>
+      <tr><td>Handschrift</td><td>Überlappung Variante 1: wie heute, Überschrift in Satzschreibung</td><td><a href="#handschrift">Handschrift</a></td></tr>
+      <tr><td>Seitenköpfe</td><td>Vorschlag übernommen: mobil Titel oben links; Desktop mit Überlappung, Federzeichnung, Logo-Platz</td><td><a href="#bausteine">Bausteine</a></td></tr>
+      <tr><td>Farbflächen und Themenfarben</td><td>übernommen, einschließlich der sechs Flächentöne</td><td><a href="#flaechen">Farbflächen</a></td></tr>
+      <tr><td>Status</td><td>Rose</td><td><a href="#status">Status</a></td></tr>
+      <tr><td>Navigation</td><td>Variante A, alles in einer Zeile</td><td><a href="#navigation">Navigation</a></td></tr>
+      <tr><td>Sitzungstool</td><td>Kompromiss: Phosphor-Icons, Familienschriften, flaches Rot; bleibt außerhalb der Navigation</td><td><a href="#navigation">Navigation</a></td></tr>
+      <tr><td>Zahlen</td><td>Vorschlag übernommen: Versalziffern mit fester Breite</td><td><a href="#zahlen">Zahlen</a></td></tr>
+      <tr><td>Gefundene Fehler</td><td>werden korrigiert</td><td><a href="#zahlen">Zahlen</a></td></tr>
+    </tbody></table></div>
+  <p class="caption">Noch offen: Dunkelmodus (weiter verfolgt, nicht entschieden), Lizenz von Madelon Script, Themenfarbe im Haushalt (Rot steht dort für Defizit), Tool-Logos, Null mit Schrägstrich in Atkinson.</p>
+</section>
+
+<section class="wrap" id="rueckmeldung">
+  <h2>Deine Rückmeldung, eingeordnet</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Vorschlag</th><th>Stand</th><th>Was daraus folgt</th></tr></thead>
+      <tbody>
+        <tr><td>Schriften</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>Titelschrift nah an Playfair, Textschrift nach Lesbarkeit, deutlich mehr Handschriften, auch von Fontlark</td></tr>
+        <tr><td>Versalien in der Titelschrift</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>höchstens noch im Seitentitel, nie in Zwischenüberschriften</td></tr>
+        <tr class="row-parked"><td>Überschriften ohne Etikett</td><td><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span></td><td>Etiketten bleiben, wo sie informieren; nur doppelte fallen weg</td></tr>
+        <tr><td>Kategoriezeile mit Icon und Farbe</td><td><span class="mark m-new">{{ICON:Plus}}Neu</span></td><td>drei Varianten: Zeile darüber, Marke darunter, Farbklecks</td></tr>
+        <tr><td>Data-Hub-Kacheln</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>Anzahl als eigene Zeile, Farbklecks, Kategorie abgehoben</td></tr>
+        <tr><td>Kacheln am Desktop</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>Kacheln bleiben die dominanten Einträge, Listen nur für schmale Screens</td></tr>
+        <tr class="row-parked"><td>Gruppierte Liste</td><td><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span></td><td>zu generisch; dafür zwei Alternativen für schmale Screens</td></tr>
+        <tr class="row-parked"><td>Nackte Metazeile unter dem Titel</td><td><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span></td><td>ersetzt durch die Kategoriezeile mit Icon</td></tr>
+        <tr><td>Handschrift überlappt die Überschrift</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>Überlappung bleibt als CI; drei Varianten, die die Überschrift lesbar halten</td></tr>
+        <tr class="row-parked"><td>Handschrift nur als Randnotiz</td><td><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span></td><td>als Ersatz verworfen, als Zusatz behalten</td></tr>
+        <tr><td>Notizen an sinnvollen Stellen</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>zum Beispiel im Diagramm</td></tr>
+        <tr><td>Einträge auf moosburg.eu ohne Rahmen</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>bleiben so; nur Einzug und Versalien der Zwischenüberschrift richten</td></tr>
+        <tr class="row-parked"><td>Portal-Einträge in einer Karte</td><td><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span></td><td>widerspricht der gelungenen Eintrag-Ästhetik</td></tr>
+        <tr><td>Deckende Farbfläche mit goldener Schrift in den Apps</td><td><span class="mark m-new">{{ICON:Plus}}Neu</span></td><td>wie im Website-Konzept, höchstens eine pro Bildschirm</td></tr>
+        <tr><td>Themenfarben: dunkel, satt, mit Gold</td><td><span class="mark m-new">{{ICON:Plus}}Neu</span></td><td>sechs Flächentöne, jeder ein abgedunkeltes Stripe-Segment</td></tr>
+        <tr class="row-parked"><td>Status als Punkt und Wort</td><td><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span></td><td>zu standard; vier Alternativen zum Umschalten</td></tr>
+        <tr><td>Einheitliche Suche</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>mit 10 px statt Pille</td></tr>
+        <tr><td>Ecken</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>4 und 10 px; Pille nur für Chips und Tab-Markierung</td></tr>
+        <tr><td>Tab-Leiste unten</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>nur in Projekten mit mehreren Tabs</td></tr>
+        <tr><td>Seitentitel oben links</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>mobil fest; am Desktop darf er künstlerischer werden</td></tr>
+        <tr><td>Chips als scrollbare Zeile</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>als Versuch, im Stadtrat mit Knopf „Alle Themen“</td></tr>
+        <tr><td>Buttons, Segmente, kurze Beschreibungen</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>Titel plus genau ein Satz</td></tr>
+        <tr><td>Einheitliche Navigation</td><td><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></td><td>für alle außer Sitzungstool und Website-Konzept, mit „moosburg.eu“ und „Über das Projekt“</td></tr>
+        <tr><td>Eigene Tool-Logos</td><td><span class="mark m-new">{{ICON:Plus}}Neu</span></td><td>Platzhalter in Kopf und Desktop-Titel vorgesehen</td></tr>
+        <tr><td>Dunkelmodus</td><td><span class="mark m-go">{{ICON:Check}}Weiter</span></td><td>als eigener Schritt</td></tr>
+        <tr><td>Zahlen, gefundene Fehler, Icon-Set</td><td><span class="mark m-open">{{ICON:Info}}Offen</span></td><td>stehen weiter unten unverändert</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap" id="schriften">
+  <div class="ph"><h2 style="margin:0">Schriften</h2><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></div>
+  <div class="prose">
+    <p>Jede Auswahl setzt die ganze Seite um. Die Kandidaten sind nach deinen Kriterien sortiert; alles, was nicht auf Google Fonts liegt, kommt von Fontlark und ist hier eingebettet. Für die Probe habe ich alle Schriften nebeneinander gesetzt und dabei geprüft, ob Umlaute, ß und € vorhanden sind.</p>
+  </div>
+  <div class="fontgrid">
+    <div>
+      <div class="roletabs" role="tablist" aria-label="Schriftrolle">
+        <button type="button" role="tab" aria-selected="true" data-role="serif">Titel</button>
+        <button type="button" role="tab" aria-selected="false" data-role="sans">Text</button>
+        <button type="button" role="tab" aria-selected="false" data-role="script">Handschrift</button>
+      </div>
+      <div class="role" data-role="serif">
+        <div class="criteria"><b>Kriterien:</b> möglichst nah an Playfair (hoher Kontrast, großes x, Tropfenenden), dazu die Balance zwischen wiedererkennbar und unaufdringlich. <b>Empfehlung:</b> Playfair, die Neuauflage mit optischen Größen. Als markantere Alternative Gloock, als ruhigere Source Serif 4. <b>Vorläufig gewählt (14.09.):</b> Source Serif 4.</div>
+        <div class="opts" id="opts-serif"></div>
+      </div>
+      <div class="role" data-role="sans" hidden>
+        <div class="criteria"><b>Kriterien:</b> Lesbarkeit und Barrierefreiheit zuerst, gelobte Schriften. <b>Empfehlung:</b> Atkinson Hyperlegible Next, die am besten begründbare Wahl für Menschen mit Sehschwäche. Wärmer: Inclusive Sans. Neutral und bewährt: Source Sans 3. <b>Vorläufig gewählt (14.09.):</b> Atkinson Hyperlegible Next.</div>
+        <div class="opts" id="opts-sans"></div>
+        <div class="evidence"><b>Was die Forschung dazu sagt:</b> Für Schriften, die speziell für Legasthenie beworben werden, finden unabhängige Studien meist keinen Vorteil gegenüber gut gesetzten Standardschriften. Was nachweislich hilft, ist der Satz: etwas Laufweite, Zeilenabstand ab 1,5, 45 bis 75 Zeichen pro Zeile, linksbündig, Kontrast ab 4,5:1. Die Schrift ist die halbe Miete. <a href="https://fontalternatives.com/blog/best-free-accessible-fonts-dyslexia-low-vision/">Quelle</a></div>
+      </div>
+      <div class="role" data-role="script" hidden>
+        <div class="criteria"><b>Kriterium:</b> schöne Deko, die bewusst über der Überschrift liegt. Jede Probe zeigt deshalb „servus“ über „Moosburg“ in der gewählten Titelschrift. <b>Empfehlung:</b> Ms Madi, der dünne, gleichmäßige Strich liegt wie Madelon über den Buchstaben, ohne sie zuzudecken. Nah dran: Sacramento. Für Notizen taugt jede davon; wer dort eine eigene Stiftschrift will, nimmt La Belle Aurore. <b>Vorläufig gewählt (14.09.):</b> Madelon Script wie heute; die Lizenz ist noch zu klären.</div>
+        <div class="opts" id="opts-script"></div>
+      </div>
+    </div>
+    <div class="spec" aria-label="Schriftprobe">
+      <div class="ov v2"><span class="sc" aria-hidden="true">servus</span><span class="hd page-title">Der Haushalt, öffentlich lesbar</span></div>
+      <p class="lead">Jedes Jahr beschließt der Stadtrat, wofür Moosburg Geld ausgibt und woher es kommt. Dieser Beschluss ist der Haushalt: 91,8 Mio. € im Jahr 2026.</p>
+      <div class="cat c-gold">{{ICON:Coins}}Haushalt 2026</div>
+      <h2>Zwei Haushalte, zwei Logiken</h2>
+      <p>Moosburg rechnet kameral. Der Verwaltungshaushalt trägt den laufenden Betrieb: Gehälter, Strom, Unterhalt, Umlagen. Der Vermögenshaushalt finanziert, was länger bleibt: Schulhaus, Kanal, Fahrzeuge.</p>
+      <div class="kpis">
+        <div class="kpi"><b>91,8 Mio. €</b><span>Ausgaben 2026</span></div>
+        <div class="kpi"><b>4.524 €</b><span>je Einwohner</span></div>
+        <div class="kpi"><b>31 %</b><span>Investitionen</span></div>
+      </div>
+      <h4>Sanierung Bahnhof Moosburg</h4>
+      <p class="muted small">Zwischenüberschrift auf 17 px: trägt die Titelschrift auch klein?</p>
+      <p class="small muted" style="margin:14px 0 0">Straßenbeleuchtung · Größe · Übergänge · I l 1 · 0 O · b d p q · 1.656 Antworten</p>
+    </div>
+  </div>
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>Besley, Newsreader, Ultra, Schibsted Grotesk</b><span>Empfehlungen der ersten Runde, nicht nah genug an Playfair bzw. nicht auf Barrierefreiheit ausgerichtet</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body"><p class="small" style="margin:0">Sie stehen weiterhin in den Listen oben (Gruppe „Erste Runde“) und lassen sich dort auswählen.</p></div></details>
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>Versalien in der H1 als Standard</b><span>Versalien nur noch ausnahmsweise im Seitentitel, nie in h2; oben per Häkchen zuschaltbar</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body"><img src="{{IMG:hero}}" alt="Heutiger Hero mit Versalien-H1 ‚Moosburg an der Isar‘" width="580" height="350" style="max-width:420px"></div></details>
+</section>
+
+<section class="wrap" id="kategorien">
+  <div class="ph"><h2 style="margin:0">Kategorien und Etiketten</h2><span class="mark m-new">{{ICON:Plus}}Neu</span></div>
+  <div class="prose">
+    <p>Etiketten bleiben, wo sie etwas sagen. Weg fällt nur, was doppelt ist: „Neuigkeiten“ über „Aktuelles“ nennt dasselbe zweimal. Für wiederkehrende Kategorien wie „Stadtrat“, „Versorgung“ oder „Umfrage 2025“ bekommt die Zeile ein Icon und die Farbe ihrer Kategorie, damit sie sich vom Textkörper abhebt und das Auge sie beim Überfliegen findet. Die Farben kommen aus dem Kanon: Rot, Gold und das Purpur-Akzent-Token, jeweils mit ihrer hellen Tönung.</p>
+  </div>
+
+  <div class="pair three">
+    <div class="panel"><div class="panel-head"><b>A</b> · Zeile über der Überschrift</div>
+      <div class="panel-body">
+        <div class="newsv">
+          <article><div class="toprow"><span class="cat c-red">{{ICON:Bank}}Stadtrat</span><span class="date num">15. Apr. 2026</span></div><h4>Kommunalwahl 2026: Endgültige Ergebnisse</h4><p>Die Wahlergebnisse wurden in der konstituierenden Sitzung bestätigt.</p></article>
+          <article><div class="toprow"><span class="cat c-gold">{{ICON:Lightning}}Versorgung</span><span class="date num">12. Apr. 2026</span></div><h4>Umrüstung Straßenbeleuchtung auf LED</h4><p>Ab dem 4. Mai werden 1.200 Leuchten ausgetauscht.</p></article>
+          <article><div class="toprow"><span class="cat c-purple">{{ICON:TrafficCone}}Verkehr</span><span class="date num">10. Apr. 2026</span></div><h4>Versorgungsausfälle in der Fischerstraße</h4><p>Netzarbeiten am 24. April zwischen 8 und 14 Uhr.</p></article>
+        </div>
+      </div></div>
+    <div class="panel"><div class="panel-head"><b>B</b> · Marke unter der Überschrift</div>
+      <div class="panel-body">
+        <div class="newsv">
+          <article><h4>Kommunalwahl 2026: Endgültige Ergebnisse</h4><p>Die Wahlergebnisse wurden in der konstituierenden Sitzung bestätigt.</p><div class="toprow" style="margin-top:6px"><span class="cattag c-red">{{ICON:Bank}}Stadtrat</span><span class="date num">15. Apr. 2026</span></div></article>
+          <article><h4>Umrüstung Straßenbeleuchtung auf LED</h4><p>Ab dem 4. Mai werden 1.200 Leuchten ausgetauscht.</p><div class="toprow" style="margin-top:6px"><span class="cattag c-gold">{{ICON:Lightning}}Versorgung</span><span class="date num">12. Apr. 2026</span></div></article>
+          <article><h4>Versorgungsausfälle in der Fischerstraße</h4><p>Netzarbeiten am 24. April zwischen 8 und 14 Uhr.</p><div class="toprow" style="margin-top:6px"><span class="cattag c-purple">{{ICON:TrafficCone}}Verkehr</span><span class="date num">10. Apr. 2026</span></div></article>
+        </div>
+      </div></div>
+    <div class="panel"><div class="panel-head"><b>C</b> · Farbklecks mit Zeile darüber <span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+      <div class="panel-body">
+        <div class="newsv withblob">
+          <article><span class="klecks c-red"><svg class="blob"><use href="#blob"/></svg>{{ICON:Bank}}</span><div class="toprow"><span class="cat c-red">Stadtrat</span><span class="date num">15. Apr.</span></div><h4>Kommunalwahl 2026: Endgültige Ergebnisse</h4><p>Die Wahlergebnisse wurden in der konstituierenden Sitzung bestätigt.</p></article>
+          <article><span class="klecks c-gold r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:Lightning}}</span><div class="toprow"><span class="cat c-gold">Versorgung</span><span class="date num">12. Apr.</span></div><h4>Umrüstung Straßenbeleuchtung auf LED</h4><p>Ab dem 4. Mai werden 1.200 Leuchten ausgetauscht.</p></article>
+          <article><span class="klecks c-purple r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:TrafficCone}}</span><div class="toprow"><span class="cat c-purple">Verkehr</span><span class="date num">10. Apr.</span></div><h4>Versorgungsausfälle in der Fischerstraße</h4><p>Netzarbeiten am 24. April zwischen 8 und 14 Uhr.</p></article>
+        </div>
+      </div></div>
+  </div>
+  <p class="caption">Variante A lässt sich auch in Versalien-Sperrsatz setzen, wie heute, nur mit Icon und Kategoriefarbe: <span class="cat caps c-red">{{ICON:Bank}}Stadtrat</span>. In der gewählten Textschrift ist die Satzschreibung ruhiger, die Versalien sind vertrauter. Das ist eine Geschmacksfrage, keine der Lesbarkeit.</p>
+
+  <div class="ph"><h3>Data-Hub-Kacheln</h3><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="prose"><p>Die Anzahl steht als eigene, klar erkennbare Zeile unten, abgesetzt durch eine Haarlinie. Der Farbklecks mit Icon lockert auf und sagt die Art: Klemmbrett für Umfragen, Stempel für amtliche Statistik, Karte für Auswertungen. Die Pergamentfläche für amtliche Statistik bleibt.</p></div>
+  <div class="pair stack">
+    <div class="panel before"><div class="panel-head"><b>Heute</b> · Data Hub</div><div class="panel-body"><img src="{{IMG:datahub}}" alt="Heutige Datensatz-Karten im Data Hub, jede mit Versalien-Etikett über dem Titel und der Anzahl in einer Zeile darunter" width="1250" height="305"></div></div>
+    <div class="panel"><div class="panel-head"><b>Vorschlag</b></div>
+      <div class="panel-body">
+        <div class="kicker-h2"><div class="dh2">Datensätze</div></div>
+        <div class="dtiles">
+          <div class="dtile amtlich"><div class="dtile-top"><span class="klecks c-gold"><svg class="blob"><use href="#blob"/></svg>{{ICON:Stamp}}</span><span class="cat c-gold">Amtliche Statistik</span></div><div class="dtile-t">Kommunalwahl</div><div class="dtile-n"><b>440</b>Datenpunkte</div></div>
+          <div class="dtile"><div class="dtile-top"><span class="klecks c-red r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:ClipboardText}}</span><span class="cat c-red">Umfrage 2025</span></div><div class="dtile-t">Christkindlmarkt</div><div class="dtile-n"><b>667</b>Antworten</div></div>
+          <div class="dtile"><div class="dtile-top"><span class="klecks c-red r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:ClipboardText}}</span><span class="cat c-red">Umfrage 2023</span></div><div class="dtile-t">Bahnhof</div><div class="dtile-n"><b>1.656</b>Antworten</div></div>
+          <div class="dtile karte"><div class="dtile-top"><span class="klecks c-purple"><svg class="blob"><use href="#blob"/></svg>{{ICON:MapTrifold}}</span><span class="cat c-purple">Eigene Auswertung</span></div><div class="dtile-t">Baumkarte</div><div class="dtile-n"><b>2.868.813</b>Einzelbäume</div></div>
+        </div>
+      </div></div>
+  </div>
+
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>Überschriften ohne Etikett, Metazeile unter dem Titel</b><span>Etikett nicht generell streichen; die nackte Metazeile wirkte zu karg</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body">
+      <div class="pair pk-demo">
+        <div class="panel"><div class="panel-head"><b>Erste Runde</b> · Nachrichten</div><div class="panel-body"><div class="newsv">
+          <article><h4>Kommunalwahl 2026: Endgültige Ergebnisse</h4><p>Die Wahlergebnisse wurden in der konstituierenden Sitzung am 15. April bestätigt.</p><div class="date num">Stadtrat · 15. April 2026</div></article>
+          <article><h4>Umrüstung Straßenbeleuchtung auf LED</h4><p>Ab dem 4. Mai werden 1.200 Leuchten im Stadtgebiet ausgetauscht.</p><div class="date num">Versorgung · 12. April 2026</div></article>
+        </div></div></div>
+        <div class="panel"><div class="panel-head"><b>Erste Runde</b> · Data Hub</div><div class="panel-body"><div class="dtiles">
+          <div class="dtile amtlich" style="padding:12px 14px"><div class="dtile-t" style="margin:0">Kommunalwahl</div><span class="small muted">Amtliche Statistik · 440 Datenpunkte</span></div>
+          <div class="dtile" style="padding:12px 14px"><div class="dtile-t" style="margin:0">Christkindlmarkt</div><span class="small muted">Umfrage 2025 · 667 Antworten</span></div>
+        </div></div></div>
+      </div>
+      <p class="caption">Begründung der ersten Runde: Etiketten über jeder Überschrift sind ein häufiges Vorlagen-Muster. Deine Einwände: an vielen Stellen ergibt das Etikett Sinn, und ohne Icon oder Farbe wirkt die Zeile nackt.</p>
+    </div></details>
+</section>
+
+<section class="wrap" id="kacheln">
+  <div class="ph"><h2 style="margin:0">Kacheln und Einträge</h2><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="prose"><p>Am Desktop bleiben Kacheln die dominanten Einträge. Was sich ändert: der Farbklecks ersetzt das getönte Quadrat hinter dem Icon, das derzeit auf sehr vielen Vorlagen-Seiten steht. Die Überschrift wird Satzschreibung, das Etikett darüber bleibt, weil es hier etwas anderes sagt als die Überschrift.</p></div>
+  <div class="pair stack">
+    <div class="panel before"><div class="panel-head"><b>Heute</b> · Stadt-Prototyp, Startseite</div><div class="panel-body"><img src="{{IMG:oftgesucht}}" alt="Heutiger Abschnitt: Etikett ‚Oft gesucht‘ über der Versalien-Überschrift ‚In zwei Klicks zum Ziel‘ und sechs Kacheln mit Icon im getönten Quadrat" width="1240" height="300"></div></div>
+    <div class="panel"><div class="panel-head"><b>Vorschlag</b> · Desktop</div>
+      <div class="panel-body">
+        <div class="kicker-h2"><span class="cat c-red">{{ROSE}}Oft gesucht</span><div class="dh2">In zwei Klicks zum Ziel</div></div>
+        <div class="tiles6">
+          <a class="tile" href="#kacheln"><span class="klecks c-red"><svg class="blob"><use href="#blob"/></svg>{{ICON:CalendarDots}}</span><div><b>Termin buchen</b><span>Standesamt, KFZ, Pass</span></div></a>
+          <a class="tile" href="#kacheln"><span class="klecks c-red r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:FileText}}</span><div><b>Online-Dienste A–Z</b><span>Alle digitalen Services</span></div></a>
+          <a class="tile" href="#kacheln"><span class="klecks c-red r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:PencilRuler}}</span><div><b>Bauen</b><span>Antrag, Bebauungsplan, Beratung</span></div></a>
+          <a class="tile" href="#kacheln"><span class="klecks c-red"><svg class="blob"><use href="#blob"/></svg>{{ICON:Baby}}</span><div><b>Familie &amp; Kita</b><span>Betreuung, Schulen</span></div></a>
+          <a class="tile hl" href="#kacheln"><span class="klecks c-gold r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:MapPin}}</span><div><b>Mängel melden</b><span>Schlaglöcher, Laternen, Müll</span></div></a>
+          <a class="tile" href="#kacheln"><span class="klecks c-red r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:Scales}}</span><div><b>Stadtratssitzung</b><span>Termine &amp; Protokolle</span></div></a>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="ph"><h3>Für schmale Screens: zwei Alternativen zur gruppierten Liste</h3><span class="mark m-new">{{ICON:Plus}}Neu</span></div>
+  <div class="frames">
+    <div><div class="frame"><div class="kicker-h2"><span class="cat c-red">{{ROSE}}Oft gesucht</span><div class="dh2" style="font-size:calc(1.5rem * var(--h2s))">In zwei Klicks zum Ziel</div></div>
+      <div class="register">
+        <a href="#kacheln"><span class="klecks c-red"><svg class="blob"><use href="#blob"/></svg>{{ICON:CalendarDots}}</span><span><b>Termin buchen</b><span class="sub">Standesamt, KFZ, Pass</span></span>{{ICON:CaretRight:chev}}</a>
+        <a href="#kacheln"><span class="klecks c-red r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:FileText}}</span><span><b>Online-Dienste A–Z</b><span class="sub">Alle digitalen Services</span></span>{{ICON:CaretRight:chev}}</a>
+        <a href="#kacheln"><span class="klecks c-red r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:PencilRuler}}</span><span><b>Bauen</b><span class="sub">Antrag, Bebauungsplan, Beratung</span></span>{{ICON:CaretRight:chev}}</a>
+        <a href="#kacheln"><span class="klecks c-gold"><svg class="blob"><use href="#blob"/></svg>{{ICON:MapPin}}</span><span><b>Mängel melden</b><span class="sub">Schlaglöcher, Laternen, Müll</span></span>{{ICON:CaretRight:chev}}</a>
+      </div></div>
+      <p class="frame-label"><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span> <b>Register:</b> Einträge ohne Rahmen, getrennt durch Haarlinien, wie auf moosburg.eu. Der Farbklecks trägt die Wiedererkennung.</p></div>
+    <div><div class="frame"><div class="kicker-h2"><span class="cat c-red">{{ROSE}}Oft gesucht</span><div class="dh2" style="font-size:calc(1.5rem * var(--h2s))">In zwei Klicks zum Ziel</div></div>
+      <div class="mini">
+        <a href="#kacheln"><span class="klecks c-red"><svg class="blob"><use href="#blob"/></svg>{{ICON:CalendarDots}}</span><b>Termin buchen</b></a>
+        <a href="#kacheln"><span class="klecks c-red r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:FileText}}</span><b>Online-Dienste A–Z</b></a>
+        <a href="#kacheln"><span class="klecks c-red r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:PencilRuler}}</span><b>Bauen</b></a>
+        <a href="#kacheln"><span class="klecks c-red"><svg class="blob"><use href="#blob"/></svg>{{ICON:Baby}}</span><b>Familie &amp; Kita</b></a>
+        <a class="hl" href="#kacheln"><span class="klecks c-gold r2"><svg class="blob"><use href="#blob"/></svg>{{ICON:MapPin}}</span><b>Mängel melden</b></a>
+        <a href="#kacheln"><span class="klecks c-red r3"><svg class="blob"><use href="#blob"/></svg>{{ICON:Scales}}</span><b>Stadtratssitzung</b></a>
+      </div></div>
+      <p class="frame-label"><b>Mini-Kacheln:</b> zwei Spalten, nur Titel. Der Kachel-Charakter vom Desktop bleibt auch am Handy erhalten.</p></div>
+  </div>
+
+  <div class="ph"><h3>Einträge auf moosburg.eu</h3><span class="mark m-go">{{ICON:Check}}Weiter</span></div>
+  <div class="prose"><p>Bleiben, wie sie sind: ohne Rahmen, getrennt durch Haarlinien. Zu richten sind nur zwei Kleinigkeiten, die Zwischenüberschriften „Aktive Tools“ und „Archiv“ stehen gut 25 px eingerückt gegenüber der Liste, und sie sind in Versalien gesetzt. Wie der Status darin aussehen könnte, zeigt der Abschnitt <a href="#status">Status</a>.</p></div>
+
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>Gruppierte Liste statt Kacheln, Portal-Einträge in einer Karte</b><span>zu generisch; Kacheln sind am Desktop gewollt; moosburg.eu bleibt ohne Rahmen</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body">
+      <div class="pair pk-demo">
+        <div class="panel"><div class="panel-head"><b>Erste Runde</b> · gruppierte Liste</div><div class="panel-body">
+          <div style="background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden">
+            <div style="display:flex;gap:14px;align-items:center;padding:12px 16px;color:var(--red-700)">{{ICON:CalendarDots}}<span style="flex:1;color:var(--ink)"><b style="display:block;font-weight:600">Termin buchen</b><span class="small muted">Standesamt, KFZ, Pass</span></span>{{ICON:CaretRight}}</div>
+            <div style="display:flex;gap:14px;align-items:center;padding:12px 16px;border-top:1px solid var(--line);color:var(--red-700)">{{ICON:FileText}}<span style="flex:1;color:var(--ink)"><b style="display:block;font-weight:600">Online-Dienste A–Z</b><span class="small muted">Alle digitalen Services</span></span>{{ICON:CaretRight}}</div>
+            <div style="display:flex;gap:14px;align-items:center;padding:12px 16px;border-top:1px solid var(--line);color:var(--red-700)">{{ICON:PencilRuler}}<span style="flex:1;color:var(--ink)"><b style="display:block;font-weight:600">Bauen</b><span class="small muted">Antrag, Bebauungsplan, Beratung</span></span>{{ICON:CaretRight}}</div>
+          </div></div></div>
+        <div class="panel"><div class="panel-head"><b>Heute</b> · Portal, unverändert gut</div><div class="panel-body"><img src="{{IMG:portal}}" alt="Heutiges Portal mit Einträgen ohne Rahmen" width="840" height="250"></div></div>
+      </div>
+    </div></details>
+</section>
+
+<section class="wrap" id="handschrift">
+  <div class="ph"><h2 style="margin:0">Handschrift: Überlappung und Notizen</h2><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></div>
+  <div class="prose"><p>Die Überlappung bleibt, sie ist der eine Moment, in dem die sonst brave CI aus der Reihe tanzt. Heute kostet sie aber Lesbarkeit: das Script liegt mit halber Deckkraft so groß hinter den Versalien, dass weder „servus“ noch die Überschrift sauber lesbar sind. Drei Varianten, die beides halten, hier mit der gewählten Titel- und Handschrift:</p></div>
+  <div class="pair three">
+    <div class="panel"><div class="panel-head"><b>1</b> · wie heute, nur Satzschreibung <span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div><div class="panel-body"><div class="ov v1 ovdemo"><span class="sc" aria-hidden="true">servus</span><span class="hd">Moosburg an der Isar</span></div><p class="small muted" style="margin:18px 0 0">Script groß, 55 % Deckkraft, liegt hinter der Überschrift.</p></div></div>
+    <div class="panel"><div class="panel-head"><b>2</b> · Freistellung</div><div class="panel-body"><div class="ov v2 ovdemo"><span class="sc" aria-hidden="true">servus</span><span class="hd">Moosburg an der Isar</span></div><p class="small muted" style="margin:18px 0 0">Script in voller Farbe; die Überschrift bekommt einen feinen Rand in Grundfarbe und schneidet sich sauber durch die Schleifen.</p></div></div>
+    <div class="panel"><div class="panel-head"><b>3</b> · Anschnitt</div><div class="panel-body"><div class="ov v3 ovdemo"><span class="sc" aria-hidden="true">servus</span><span class="hd">Moosburg an der Isar</span></div><p class="small muted" style="margin:18px 0 0">Script kleiner, berührt nur die Oberlänge der ersten Buchstaben.</p></div></div>
+  </div>
+  <div class="pair">
+    <div class="panel before"><div class="panel-head"><b>Heute</b> · Stadt-Prototyp, Hero</div><div class="panel-body"><img src="{{IMG:hero}}" alt="Heutiger Hero: goldenes Script ‚servus‘ halbtransparent hinter der Versalien-Überschrift ‚Moosburg an der Isar‘" width="580" height="350"></div></div>
+    <div class="panel"><div class="panel-head"><b>Variante 2</b> · auf einer Zwischenüberschrift</div><div class="panel-body"><div class="cat c-red" style="margin-top:6px">{{ICON:UsersThree}}Beteiligung</div><div class="ov v2 ovdemo small"><span class="sc" aria-hidden="true">nachvollziehbar</span><span class="hd">So entscheidet der Stadtrat</span></div><p class="small muted" style="margin:16px 0 0">Kategoriezeile, Überschrift und Handschrift zusammen: die Überlappung funktioniert auch in kleineren Graden, solange das Script dünn läuft.</p></div></div>
+  </div>
+
+  <div class="ph"><h3>Notizen an sinnvollen Stellen</h3><span class="mark m-go">{{ICON:Check}}Weiter</span></div>
+  <div class="panel"><div class="panel-head"><b>Vorschlag</b> · Notiz im Diagramm, Haushalt</div>
+    <div class="panel-body"><div class="chartnote">
+      <img src="{{IMG:chart}}" alt="Haushalt über die Jahre 2016 bis 2026, 2024 ist die höchste Säule" width="1120" height="340">
+      <span class="note">höchster Ansatz der Reihe</span>
+      <svg class="arrow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 C 40 6, 78 28, 96 88" vector-effect="non-scaling-stroke"/><path d="M80 78 L 96 90 L 99 70" vector-effect="non-scaling-stroke"/></svg>
+    </div></div></div>
+
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>Handschrift nur neben der Überschrift („Servus in“ statt Etikett)</b><span>die Überlappung ist gewollt und gehört zur CI</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body"><div class="panel pk-demo" style="max-width:560px"><div class="panel-body"><span class="note" style="font-size:calc(2.4rem * var(--s))">Servus in</span><div style="font-family:var(--f-serif);font-weight:var(--w1);font-size:2.8rem;line-height:1;margin-top:6px">Moosburg an der Isar</div></div></div></div></details>
+</section>
+
+<section class="wrap" id="flaechen">
+  <div class="ph"><h2 style="margin:0">Deckende Farbe, goldene Schrift</h2><span class="mark m-new">{{ICON:Plus}}Neu</span><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="prose">
+    <p>Der Stadt-Prototyp hat diese Kombination schon: Seitenköpfe auf Tiefrot mit cremefarbener Überschrift, Etikett und Handschrift in Gold-200, dazu eine Federzeichnung im Anschnitt und der Stripe als Abschluss. In den Apps fehlt sie bisher ganz. Vorschlag: dieselbe Fläche dort, wo ein Moment Gewicht verdient, höchstens eine pro Bildschirm.</p>
+    <p>Sinnvolle Orte: im Haushalt der Einstieg „Wofür zahle ich?“, im Stadtrat die nächste Sitzung oben auf der Startseite, im Data Hub der Aufmacher für einen neuen Datensatz, auf moosburg.eu der Block „In eigener Sache“, dazu leere Zustände, die 404-Seite und Seitenabschlüsse.</p>
+  </div>
+  <div class="pair">
+    <div class="panel before"><div class="panel-head"><b>Heute</b> · Stadt-Prototyp, Geschichte</div><div class="panel-body"><img src="{{IMG:geschichte}}" alt="Heutiger Seitenkopf der Geschichtsseite im Stadt-Prototyp: Tiefrot mit cremefarbener Versalien-Überschrift, goldener Handschrift ‚Erinnerung‘ und dem Etikett ‚Zu Besuch‘"><p class="caption">Die Kombination trägt. Nur hier kreuzt das Script „Erinnerung“ das Etikett „Zu Besuch“, beide werden unleserlich. Im Vorschlag liegt die Handschrift deshalb nur über der Überschrift, das Etikett steht frei darüber.</p></div></div>
+    <div class="panel"><div class="panel-head"><b>Vorschlag</b> · Haushalt, Einstieg „Wofür zahle ich?“</div>
+      <div class="panel-body" style="padding:0;background:transparent">
+        <div class="block t-red" id="blockdemo" style="border-radius:0;height:100%">
+          <div class="sketch" aria-hidden="true"></div>
+          <div class="block-in">
+            <span class="cat">{{ICON:Coins}}Wofür zahle ich?</span>
+            <div class="ov v2 bh"><span class="sc" aria-hidden="true">pro Kopf</span><span class="hd">Was Moosburg 2026 für jeden ausgibt</span></div>
+            <div class="bignum">4.524 €</div>
+            <p>Ausgaben-Ansatz beider Haushalte, geteilt durch 20.300 Einwohner.</p>
+            <button class="btn btn-cream" type="button">Aufschlüsseln</button>
+          </div>
+          <div class="stripe" aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="ph"><h3>Themenfarben: gedeckt, kräftig, dunkel, immer mit Gold</h3><span class="mark m-new">{{ICON:Plus}}Neu</span><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="prose"><p>Wo das Thema es trägt, darf die Fläche vom Tiefrot abweichen, ohne die Grundidee zu verlassen: eine dunkle, satte Farbe, darauf Creme und ein goldener Akzent. Jede Themenfarbe ist ein abgedunkeltes Segment des Stripes, dadurch bleibt sie in der Familie. Die Kernfarben ändern sich nicht, es kommen nur Flächentöne dazu. Gold-200 erreicht darauf überall mehr als 8:1, Creme mehr als 11:1 (gerechnet, gehört noch in <code>kontrast.mjs</code>).</p></div>
+  <div class="seg" role="group" aria-label="Themenfarbe für den Haushalt-Einstieg" id="blockseg" style="margin-top:6px;flex-wrap:wrap">
+    <button type="button" data-t="t-red" aria-pressed="true">Tiefrot</button>
+    <button type="button" data-t="t-green" aria-pressed="false">Tannengrün</button>
+    <button type="button" data-t="t-petrol" aria-pressed="false">Isar-Petrol</button>
+    <button type="button" data-t="t-brown" aria-pressed="false">Erdbraun</button>
+    <button type="button" data-t="t-indigo" aria-pressed="false">Nachtblau</button>
+    <button type="button" data-t="t-aubergine" aria-pressed="false">Aubergine</button>
+    <button type="button" data-t="t-gold" aria-pressed="false">Gold-700</button>
+  </div>
+  <p class="caption" style="margin-top:8px">Schaltet die Fläche „Wofür zahle ich?“ oben um. Gold-700 gibt es im Prototyp ebenfalls schon als Seitenkopf.</p>
+  <div class="themes">
+    <div class="block t-red"><div class="block-in"><span class="cat">{{ICON:Bank}}Stadtrat</span><div class="ov v2"><span class="sc" aria-hidden="true">nachvollziehbar</span><span class="hd">173 Sitzungen, 134 mit Niederschrift</span></div><p>Abstimmungsverhalten nach Themen, aus den öffentlichen Niederschriften.</p><div class="swatch"><span>Tiefrot · Stadtrat, Haushalt</span><code>#6d0818</code></div></div></div>
+    <div class="block t-green"><div class="block-in"><span class="cat">{{ICON:Tree}}Baumkarte</span><div class="ov v2"><span class="sc" aria-hidden="true">gezählt</span><span class="hd">2.868.813 Einzelbäume rund um Moosburg</span></div><p>Baumhöhen aus Daten der Bayerischen Vermessungsverwaltung.</p><div class="swatch"><span>Tannengrün · aus Stripe-Grün</span><code>#1f3b2d</code></div></div></div>
+    <div class="block t-petrol"><div class="block-in"><span class="cat">{{ICON:Plant}}Bodenwasser</span><div class="ov v2"><span class="sc" aria-hidden="true">trocken</span><span class="hd">Außergewöhnliche Dürre im Ausschnitt</span></div><p>Bodenwasser 23 % statt 86 %, Stand 08.09., Quelle DWD.</p><div class="swatch"><span>Isar-Petrol · aus Stripe-Blau</span><code>#123b4a</code></div></div></div>
+    <div class="block t-brown"><div class="block-in"><span class="cat">{{ICON:MapTrifold}}Moosburg historisch</span><div class="ov v2"><span class="sc" aria-hidden="true">damals</span><span class="hd">Acht Kartenausgaben von 1960 bis heute</span></div><p>Übereinandergelegt über die heutige Stadt.</p><div class="swatch"><span>Erdbraun · aus Stripe-Braun</span><code>#4a2a17</code></div></div></div>
+    <div class="block t-indigo"><div class="block-in"><span class="cat">{{ICON:Stamp}}Kommunalwahl 2026</span><div class="ov v2"><span class="sc" aria-hidden="true">gewählt</span><span class="hd">Die endgültigen Ergebnisse</span></div><p>440 Datenpunkte amtliche Statistik im Data Hub.</p><div class="swatch"><span>Nachtblau · aus Stripe-Indigo</span><code>#26295e</code></div></div></div>
+    <div class="block t-aubergine"><div class="block-in"><span class="cat">{{ICON:ChatCircleText}}Moos-O-Mat</span><div class="ov v2"><span class="sc" aria-hidden="true">eingefroren</span><span class="hd">36 Thesen zur Kommunalwahl 2026</span></div><p>Beantwortet von den Moosburger Parteien und Listen.</p><div class="swatch"><span>Aubergine · aus dem Purpur-Akzent</span><code>#3f2248</code></div></div></div>
+  </div>
+  <div class="tablewrap"><table style="min-width:640px">
+    <thead><tr><th>Fläche</th><th>Wert</th><th>Creme darauf</th><th>Gold-200 darauf</th><th>Gold-500 als Deko</th></tr></thead>
+    <tbody class="num">
+      <tr><td>Tiefrot (vorhanden, red-900)</td><td><code>#6d0818</code></td><td>11,6:1</td><td>8,5:1</td><td>4,4:1</td></tr>
+      <tr><td>Tannengrün</td><td><code>#1f3b2d</code></td><td>11,4:1</td><td>8,4:1</td><td>4,4:1</td></tr>
+      <tr><td>Isar-Petrol</td><td><code>#123b4a</code></td><td>11,2:1</td><td>8,3:1</td><td>4,3:1</td></tr>
+      <tr><td>Erdbraun</td><td><code>#4a2a17</code></td><td>12,1:1</td><td>8,9:1</td><td>4,6:1</td></tr>
+      <tr><td>Nachtblau</td><td><code>#26295e</code></td><td>12,6:1</td><td>9,3:1</td><td>4,8:1</td></tr>
+      <tr><td>Aubergine</td><td><code>#3f2248</code></td><td>12,8:1</td><td>9,4:1</td><td>4,9:1</td></tr>
+    </tbody></table></div>
+  <p class="caption">Regeln: eine deckende Fläche pro Bildschirm. Schrift in Creme; Etikett, große Zahl und Handschrift in Gold-200; Linien und Zeichnungen in Gold-500 oder Creme mit geringer Deckkraft. Die Themenfarbe hängt am Inhalt, nicht am Projekt: auch der Data Hub zeigt eine Wahl in Nachtblau.</p>
+</section>
+
+<section class="wrap" id="status">
+  <div class="ph"><h2 style="margin:0">Status ohne Punkte</h2><span class="mark m-new">{{ICON:Plus}}Neu</span><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span><span class="small muted">Rose</span></div>
+  <div class="prose"><p>Der rote Versalien-Kasten „Online“ von heute sieht aus wie ein Warnhinweis, und Punkt plus Wort sieht aus wie jede Admin-Oberfläche. Vier Ideen, die aus Moosburgs eigenem Material kommen, zum Umschalten direkt an den Portal-Einträgen:</p></div>
+  <div class="seg" role="group" aria-label="Status-Variante" id="statusseg">
+    <button type="button" data-v="stamp" aria-pressed="false">Stempel</button>
+    <button type="button" data-v="rose" aria-pressed="true">Rose (vorläufig gewählt)</button>
+    <button type="button" data-v="hand" aria-pressed="false">Handschrift</button>
+    <button type="button" data-v="stripe" aria-pressed="false">Stripe</button>
+    <button type="button" data-v="box" aria-pressed="false">Heute</button>
+    <button type="button" data-v="dots" aria-pressed="false">Punkte (geparkt)</button>
+  </div>
+  <div class="entries" id="statusdemo" data-v="rose">
+    <div class="entry"><div><div class="et">Stadtratstransparenz
+      <span class="st st-stamp c-red">Online</span><span class="st st-rose c-red">{{ROSE}}online</span><span class="st st-hand">läuft</span><span class="st st-stripe"><span class="ministripe full"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>online</span><span class="st st-dots c-red" style="--c:var(--green)"><i></i>Online</span><span class="st st-box" style="--c:var(--red-500)">Online</span></div>
+      <p>Abstimmungsverhalten im Stadtrat und seinen Ausschüssen, nach Themen sortiert, mit Sitzungen, Anträgen und Mitgliederprofilen.</p><div class="meta">/stadtrat/ · Quelle: Ratsinformationssystem der Stadt</div></div>{{ICON:ArrowUpRight}}</div>
+    <div class="entry"><div><div class="et">Data Hub
+      <span class="st st-stamp c-gold">Vorschau</span><span class="st st-rose c-gold">{{ROSE}}Vorschau</span><span class="st st-hand">kommt bald</span><span class="st st-stripe"><span class="ministripe half"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Vorschau</span><span class="st st-dots" style="--c:var(--gold-500)"><i></i>Vorschau</span><span class="st st-box" style="--c:var(--gold-700)">Vorschau</span></div>
+      <p>Umfragen und Erhebungen aus Moosburg, interaktiv aufbereitet statt als PDF im Archiv.</p><div class="meta">/data/ · Quelle je Datensatz</div></div>{{ICON:ArrowUpRight}}</div>
+    <div class="entry"><div><div class="et">Moos-O-Mat
+      <span class="st st-stamp c-ink dashed">Archiv</span><span class="st st-rose c-ink faded">{{ROSE}}Archiv</span><span class="st st-hand">ruht</span><span class="st st-stripe"><span class="ministripe"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Archiv</span><span class="st st-dots" style="--c:var(--ink-muted)"><i></i>Archiv</span><span class="st st-box" style="--c:var(--ink-muted)">Archiv</span></div>
+      <p>Wahlhilfe zur Kommunalwahl 2026: 36 Thesen, beantwortet von den Moosburger Parteien und Listen. Der Stand ist eingefroren.</p><div class="meta">/archiv/moos-o-mat/ · Quelle: Antworten der Parteien und Listen</div></div>{{ICON:ArrowUpRight}}</div>
+  </div>
+  <ul class="prose" style="margin:18px 0 0;padding-left:1.1em">
+    <li><b>Stempel:</b> ein Eingangsstempel, wie ihn jede Behörde kennt. Leicht schräg, Rand in Kategoriefarbe, gestrichelt fürs Archiv. Einer der seltenen Orte, an denen Versalien passen.</li>
+    <li><b>Rose:</b> die Drei-Rosen-Stadt als Zustandsmarke: rot für Online, gold für Vorschau, verblasst fürs Archiv. Das Wort steht immer dabei, die Farbe allein trägt nichts.</li>
+    <li><b>Handschrift:</b> „läuft“, „kommt bald“, „ruht“ als Notiz am Titel. Am persönlichsten, aber pro Seite nur sparsam einsetzbar.</li>
+    <li><b>Stripe:</b> ein Miniatur-Stripe, voll für Online, zur Hälfte für Vorschau, grau fürs Archiv. Bindet an die Signatur, braucht aber das Wort.</li>
+  </ul>
+</section>
+
+<section class="wrap" id="bausteine">
+  <div class="ph"><h2 style="margin:0">Suche, Filter, Tabs, Titel</h2><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></div>
+  <div class="prose"><p>Aus den Mustern großer Apps bleibt, was du bestätigt hast: eine einheitliche Suche, die Tab-Leiste unten, wo es mehrere Tabs gibt (Stadtrat, Haushalt, Stadt-Prototyp), der Titel oben links am Handy, und Filter-Chips als scrollbare Zeile als Versuch. Für die zehn Stadtrat-Themen endet die Zeile in einem Knopf „Alle Themen“, der die volle Liste als Blatt öffnet. Die Einträge im Handy sind jetzt Register-Einträge mit Kategoriezeile statt einer gruppierten Liste.</p></div>
+  <div class="phones">
+    <div><div id="phone-light"></div><p class="phone-label">Vorschlag · Stadtrat mobil, 340 px</p></div>
+    <div style="flex:1 1 420px;min-width:0">
+      <div class="panel before"><div class="panel-head"><b>Heute</b> · Stadtrat</div><div class="panel-body"><img src="{{IMG:councilhead}}" alt="Heutiger Stadtrat-Kopf: roter Block mit Suchfeld und zehn Themen-Chips in vier Zeilen" width="1440" height="590"></div></div>
+      <div class="ph" style="margin-top:28px"><h3>Seitentitel am Desktop</h3><span class="mark m-new">{{ICON:Plus}}Neu</span><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+      <p class="small" style="margin:0 0 12px;color:var(--ink-soft)">Am Desktop darf der Titel mehr: groß, mit Überlappung, einer Federzeichnung aus dem Stadt-Prototyp im Anschnitt und einem Platz für das künftige Tool-Logo.</p>
+    </div>
+  </div>
+  <div class="dtitle" style="margin-top:20px;border:1px solid var(--line)">
+    <div class="sketch" aria-hidden="true"></div>
+    <span class="logo-slot lg">Logo</span>
+    <div class="ov v2"><span class="sc" aria-hidden="true">nachvollziehbar</span><span class="hd page-title">Der Haushalt, öffentlich lesbar</span></div>
+    <p>Jedes Jahr beschließt der Stadtrat, wofür Moosburg Geld ausgibt und woher es kommt. Diese Seite macht den Beschluss durchsuchbar, bis zur einzelnen Buchungszeile.</p>
+  </div>
+  <p class="caption">Die Zeichnung ist <code>sketches/rathausB.svg</code> aus dem Stadt-Prototyp, als Maske in Gold eingefärbt, wie es <code>SketchGround</code> dort schon tut.</p>
+
+  <div class="ph"><h3>Buttons, Segmente, Suche, Ecken</h3><span class="mark m-go">{{ICON:Check}}Weiter</span></div>
+  <div class="kit">
+    <div class="kit-row"><span class="lbl">Buttons</span><button class="btn btn-primary" type="button">Sitzung eröffnen</button><button class="btn btn-tonal" type="button">Teilen</button><button class="btn btn-text" type="button">Alle Online-Dienste {{ICON:ArrowUpRight}}</button></div>
+    <div class="kit-row"><span class="lbl">Segmente</span><span class="seg"><span class="on">Überblick</span><span>Erkunden</span><span>Themen</span></span><span class="seg"><span class="on">aus</span><span>Dürre</span><span>Wasser</span></span></div>
+    <div class="kit-row"><span class="lbl">Suche</span><div class="search" style="flex:1;max-width:420px">{{ICON:MagnifyingGlass}}Thema, Sitzung oder Person</div></div>
+    <div class="kit-row"><span class="lbl">Chips</span><span class="chip on">Alle</span><span class="chip">Mobilität &amp; Verkehr</span><span class="chip">Bau &amp; Planung</span><span class="chip more">{{ICON:SlidersHorizontal}}Alle Themen</span></div>
+    <div class="kit-row"><span class="lbl">Beschreibungen</span><span class="small" style="color:var(--ink-soft);max-width:60ch">Jede Kachel und jeder Eintrag: Titel plus genau ein Satz. „Umfragen und Erhebungen aus Moosburg, interaktiv aufbereitet statt als PDF im Archiv.“</span></div>
+    <div class="kit-row"><span class="lbl">Ecken <span class="mark m-rev" style="margin-left:4px">{{ICON:ArrowsClockwise}}</span></span><div class="radii"><div style="border-radius:4px">4 px</div><div style="border-radius:10px">10 px</div><div style="border-radius:999px">Pille</div></div><span class="small muted" style="max-width:46ch">4 für Marken und Kleinteile, 10 für Kacheln, Buttons, Suche und Flächen. Pille nur noch für Chips und die Tab-Markierung.</span></div>
+  </div>
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>12 px Ecken, Suche als Pille</b><span>lieber weniger rund</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body"><div class="kit-row pk-demo"><div class="radii"><div style="border-radius:12px">12 px</div></div><div class="search" style="border-radius:999px;flex:1;max-width:420px">{{ICON:MagnifyingGlass}}Thema, Sitzung oder Person</div></div></div></details>
+</section>
+
+<section class="wrap" id="navigation">
+  <div class="ph"><h2 style="margin:0">Navigation für die Familie</h2><span class="mark m-rev">{{ICON:ArrowsClockwise}}Überarbeitet</span></div>
+  <div class="prose"><p>Eine einheitliche Kopfzeile am Desktop für alle Projekte außer dem Sitzungstool und dem Website-Konzept. Neben der Navigation des jeweiligen Tools stehen immer dieselben zwei Einträge: zurück zu moosburg.eu, und „Über das Projekt“ mit Beschreibung, Datenquelle, Kontakt und Impressum. Der Stripe sitzt überall an der Oberkante, das Tool-Logo bekommt einen festen Platz. Zwei Varianten:</p></div>
+
+  <div class="ph" style="margin:28px 0 10px"><h3>A · alles in einer Zeile</h3><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="navdemo"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="nav-row"><a class="fam" href="#navigation">{{ROSE}}moosburg.eu</a><span class="vsep"></span><span class="logo-slot">Logo</span><span class="toolname">Data Hub</span><nav><span class="on">Übersicht</span><span>Karten</span><span>Über die Daten</span></nav><span class="vsep"></span><button class="fam" type="button">{{ICON:Info}}Über das Projekt{{ICON:CaretDown}}</button></div></div>
+
+  <h3 style="margin:28px 0 10px">B · Dachzeile über dem Tool</h3>
+  <div class="navdemo"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="dach"><a class="fam" href="#navigation">{{ICON:ArrowLeft}}{{ROSE}}moosburg.eu</a><button class="fam" type="button">{{ICON:Info}}Über das Projekt{{ICON:CaretDown}}</button></div>
+    <div class="nav-row"><span class="logo-slot">Logo</span><span class="toolname">Stadtrat Moosburg</span><nav><span class="on">Themen</span><span>Kalender</span><span>Gremien</span><span>Einstellungen</span></nav>{{ICON:MagnifyingGlass:srch}}</div>
+    <div class="about" role="dialog" aria-label="Über das Projekt, geöffnet">
+      <h4>Stadtratstransparenz</h4>
+      <p>Abstimmungsverhalten im Moosburger Stadtrat, aufbereitet aus den öffentlichen Niederschriften.</p>
+      <p class="small muted" style="margin:0">Privates Projekt, kein Auftritt der Stadt. Verbindlich bleibt die amtliche Niederschrift.</p>
+      <ul>
+        <li>{{ICON:Scroll}}Woher die Daten kommen</li>
+        <li>{{ICON:Envelope}}Kontakt</li>
+        <li>{{ICON:FileText}}Impressum und Datenschutz</li>
+        <li>{{ICON:ArrowSquareOut}}Quellcode auf GitHub</li>
+      </ul>
+    </div>
+  </div>
+  <p class="caption">Mobil wandern beide Einträge hinter die Rose oben rechts in der App-Leiste, siehe das Handy weiter oben. Inhalte für „Über das Projekt“ stehen in jedem Repo schon im README und in PLATTFORM.md.</p>
+
+  <div class="ph"><h3>Sitzungstool und Icon-Set</h3><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span></div>
+  <div class="prose"><p>Das Sitzungstool bleibt außerhalb der Navigation. Offen ist, ob es trotzdem Familienschriften statt Noto und flaches Rot statt des Verlaufs bekommt. Ebenso offen: ein Icon-Set für alle, Phosphor, das im Stadt-Prototyp schon 90 Mal importiert wird, statt Material Symbols im Stadtrat.</p><p><b>Vorläufig entschieden (14.09.):</b> Das Sitzungstool bekommt als Kompromiss Phosphor-Icons, die Familienschriften und flaches Rot statt des Verlaufs, bleibt aber außerhalb der Familien-Navigation.</p></div>
+  <img src="{{IMG:cvthead}}" alt="Heutiger Kopf des Sitzungstools mit rotem Farbverlauf" width="1440" height="78" style="border:1px solid var(--line);border-radius:6px;margin-top:10px">
+
+  <details class="parked"><summary><span class="mark m-park">{{ICON:PauseCircle}}Geparkt</span><b>Ein Kopf für alle, erste Fassung</b><span>ohne die Familien-Einträge und ohne Ausnahmen</span><span class="open-lbl">aufklappen</span></summary>
+    <div class="pk-body"><div class="navdemo pk-demo"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nav-row"><span class="toolname" style="display:flex;align-items:center;gap:8px"><span style="color:var(--red-700);display:flex">{{ROSE}}</span>Haushalt <span class="small muted" style="font-family:var(--f-sans);font-weight:400">Moosburg</span></span><nav><span class="on">Überblick</span><span>Erkunden</span><span>Themen</span><span>Wofür zahle ich?</span></nav></div></div></div></details>
+</section>
+
+<section class="wrap" id="zahlen">
+  <div class="ph"><h2 style="margin:0">Zahlen und Kleinkram</h2><span class="mark m-dec">{{ICON:Seal}}Vorläufig entschieden</span><span class="small muted">Zahlen übernommen, Fehler werden korrigiert</span></div>
+  <div class="prose"><p>Playfair Display setzt Ziffern standardmäßig als Mediävalziffern, 91,8 hüpft. Das gilt auch für die Neuauflage Playfair. Für Kennzahlen gehört überall <code>font-variant-numeric: lining-nums tabular-nums</code> gesetzt, wie hier auf der Seite.</p></div>
+  <div class="pair stack">
+    <div class="panel before"><div class="panel-head"><b>Heute</b> · Haushalt, Kennzahlen</div><div class="panel-body"><img src="{{IMG:kpi}}" alt="Heutige Kennzahlenzeile im Haushalt mit Mediävalziffern" width="1120" height="100"></div></div>
+    <div class="panel"><div class="panel-head"><b>Vorschlag</b></div><div class="panel-body"><div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border:0;padding:0">
+      <div class="kpi"><b>91,8 Mio. €</b><span>Ausgaben 2026, beide Haushalte</span></div><div class="kpi"><b>91,4 Mio. €</b><span>Einnahmen 2026</span></div><div class="kpi"><b>4.524 €</b><span>je Einwohner</span></div><div class="kpi"><b>31 %</b><span>davon Investitionen</span></div></div></div></div>
+  </div>
+  <div class="pair">
+    <div class="panel before"><div class="panel-head"><b>Fehler</b> · Haushalt, Achse</div><div class="panel-body"><div style="overflow:hidden;border-radius:6px;border:1px solid var(--line)"><img src="{{IMG:chart}}" alt="Ausschnitt der Haushaltsachse, oberste Beschriftungen ‚20 Mio. €‘ und ‚00 Mio. €‘ statt 120 und 100" width="1120" height="340" style="width:260%;max-width:none;border:0;border-radius:0"></div><p class="caption">„20 Mio. €“ und „00 Mio. €“ statt 120 und 100: der linke Rand ist zu schmal.</p></div></div>
+    <div class="panel before"><div class="panel-head"><b>Fehler</b> · Sitzungstool, Sitzring</div><div class="panel-body"><img src="{{IMG:cvtring}}" alt="Sitzring, die Namen ‚Dick‘ und ‚Marschoun‘ werden von den Kreisen überdeckt" width="640" height="170"><p class="caption">„Dick“ und „Marschoun“ liegen unter den Kreisen. Außerdem: Data Hub schreibt „1,656 Antworten“, und seine Fußzeile nennt ihn „Data Hub der Stadt Moosburg“.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="dunkel">
+  <div class="ph"><h2 style="margin:0">Dunkelmodus</h2><span class="mark m-go">{{ICON:Check}}Weiter</span></div>
+  <div class="prose"><p>Als eigener Schritt nach den anderen. Die Kernfarben bleiben; dazu kommen Tokens für den dunklen Grund. Rot bleibt Button-Fläche (weiße Schrift 5,9:1) und bekommt für Text einen hellen Bruder, <code>#f28b98</code> mit 7,8:1. Die Handschrift wird gold-200.</p></div>
+  <div class="phones">
+    <div><div id="phone-dark"></div><p class="phone-label">Stadtrat mobil, dunkel</p></div>
+    <div style="flex:1;min-width:260px"><div class="tablewrap" style="margin-top:0"><table style="min-width:0">
+      <thead><tr><th>Rolle</th><th>Hell</th><th>Dunkel</th></tr></thead>
+      <tbody>
+        <tr><td>Grund</td><td><code>#faf7f2</code></td><td><code>#171412</code></td></tr>
+        <tr><td>Fläche</td><td><code>#ffffff</code></td><td><code>#221e1a</code></td></tr>
+        <tr><td>Schrift</td><td><code>#1c1c1c</code></td><td><code>#f3eee6</code></td></tr>
+        <tr><td>Nebentext</td><td><code>#6f6b63</code></td><td><code>#a39a8d</code></td></tr>
+        <tr><td>Rot als Text</td><td><code>#a50d24</code></td><td><code>#f28b98</code></td></tr>
+        <tr><td>Rot als Fläche</td><td><code>#c8102e</code></td><td><code>#c8102e</code></td></tr>
+        <tr><td>Handschrift</td><td><code>#b8964e</code></td><td><code>#e8d5a3</code></td></tr>
+      </tbody></table></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="reihenfolge">
+  <h2>Reihenfolge</h2>
+  <div class="prose"><p>Unverändert gilt: nichts davon ist gebaut, und jeder Schritt landet zuerst in <code>moosburg-design</code>. Vorgeschaltet ist seit dem 14.09. eine Probe: die vorläufigen Entscheidungen werden auf einem eigenen Branch in haushaltvis umgesetzt und danach ausgewertet, bevor irgendetwas in den Kanon wandert.</p></div>
+  <ol class="steps">
+    <li><b>moosburg-design taggen, die fünf Vite-Projekte pinnen</b><span>Sonst landet eine Schriftänderung beim nächsten <code>pnpm install</code> unbemerkt überall. Prüfen: jedes Repo führt ein Tag, Build läuft.</span></li>
+    <li><b>Schriften festlegen</b><span>theme.css und Showcase zuerst; Pakete gleichzeitig in allen Repos und in <code>hausbasis/baseline.json</code>. Fontlark-Schriften als woff2 selbst hosten. Prüfen: <code>npm run kontrast</code>, <code>node hausbasis/check.mjs --kurz</code>.</span></li>
+    <li><b>Kategoriezeile und Farbklecks als Komponenten</b><span>Variante A, B oder C festlegen, Icons je Kategorie zuordnen. Prüfen: Zwischenüberschriften nirgends mehr in Versalien.</span></li>
+    <li><b>Überlappung neu einstellen</b><span>Variante 1, 2 oder 3 in <code>SectionHeader</code> und <code>PageHeader</code>. Prüfen: Überschrift bei 200 % Zoom lesbar.</span></li>
+    <li><b>Farbflächen und Themenfarben</b><span>Flächentöne als Tokens in theme.css, Paare in <code>kontrast.mjs</code>, eine Komponente für die deckende Fläche. Prüfen: <code>npm run kontrast</code> grün für alle sechs Töne.</span></li>
+    <li><b>Familien-Navigation</b><span>Kopfzeile mit „moosburg.eu“ und „Über das Projekt“ als CSS in moosburg-design, damit Portal und Stadtrat ohne Build sie bekommen.</span></li>
+    <li><b>Bausteine</b><span>Suche, Chips mit „Alle Themen“, Tab-Leiste, Ecken 4 und 10 px, Status-Variante.</span></li>
+    <li><b>Dunkelmodus</b><span>Neue Tokens mit Kontrastpaaren in <code>kontrast.mjs</code>, dann Projekt für Projekt.</span></li>
+  </ol>
+  <h3 style="margin:40px 0 0">Was ich von dir brauche</h3>
+  <p class="caption">Stand 14.09.: Die Fragen 1 bis 5, 7 und 8 sind vorläufig beantwortet, siehe <a href="#entscheidungen">Vorläufige Entscheidungen</a>. Frage 6 (Farbflächen) ist mit „übernommen“ beantwortet; welche Orte zuerst, zeigt die Probe.</p>
+  <ol class="questions">
+    <li>Welche Titelschrift, Textschrift und Handschrift? Meine Empfehlung ist oben voreingestellt.</li>
+    <li>Kategoriezeile: A (darüber), B (Marke darunter) oder C (Farbklecks)? Und in Satzschreibung oder in Versalien-Sperrsatz?</li>
+    <li>Überlappung: Variante 1, 2 oder 3?</li>
+    <li>Status: Stempel, Rose, Handschrift oder Stripe?</li>
+    <li>Navigation: A in einer Zeile oder B mit Dachzeile?</li>
+    <li>Farbflächen: an welchen der genannten Orte? Und welche Themenfarben kommen in den Kanon?</li>
+    <li>Sitzungstool: Familienschriften und flaches Rot, obwohl es außerhalb der Navigation bleibt?</li>
+  </ol>
+</section>
+
+<section class="wrap" id="befund">
+  <div class="ph"><h2 style="margin:0">Befund der ersten Runde</h2><span class="mark m-open">{{ICON:Info}}Offen</span></div>
+  <div class="prose"><p>Zum Nachschlagen, Stand der GitHub-Pages-Fassungen vom 11.09.2026.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Projekt</th><th>Etiketten</th><th>Überschriften</th><th>Schrift, Icons</th><th>Navigation</th><th>Aufgefallen</th></tr></thead>
+    <tbody>
+      <tr><td>Portal</td><td>„Werkstatt“ über H1</td><td>Versalien</td><td>Playfair, Inter</td><td>keine</td><td>Zwischenüberschriften gut 25 px eingerückt</td></tr>
+      <tr><td>Stadt-Prototyp</td><td>fast jeder Abschnitt, rund 300 Stellen</td><td>Versalien</td><td>Playfair, Inter, Madelon; Phosphor</td><td>oben, Versalien</td><td>52 Script-Überlappungen; einseitiger Kantenakzent in <code>HubPage.tsx:80</code></td></tr>
+      <tr><td>Data Hub</td><td>jeder Abschnitt, jede Karte</td><td>Satzschreibung</td><td>Playfair, Inter</td><td>oben</td><td>„1,656“ mit englischem Trenner; Fußzeile „der Stadt Moosburg“</td></tr>
+      <tr><td>Haushalt</td><td>über H1 und Kennzahlen</td><td>H1 Versalien, H2 Satz</td><td>Playfair, Inter</td><td>Segmente</td><td>Achse schneidet 120 zu 20 ab; Mediävalziffern</td></tr>
+      <tr><td>Stadtrat</td><td>„Alle Themen“</td><td>Satzschreibung</td><td>Playfair, Inter; Material Symbols</td><td>Tabs unten, auch am Desktop</td><td>zehn Chips im roten Kopf</td></tr>
+      <tr><td>Sitzungstool</td><td>Serifen-Versalien</td><td>Satzschreibung</td><td>Noto Serif, Noto Sans</td><td>Kopfzeile</td><td>Verlauf im Kopf; Namen im Sitzring überlappen</td></tr>
+      <tr><td>Baumkarte</td><td>über H1 und jedem Regler</td><td>Versalien</td><td>Playfair, Inter</td><td>Kartenpanel</td><td>acht Versalien-Labels im schmalen Panel</td></tr>
+    </tbody></table></div>
+</section>
+
+<footer class="wrap">Vorschlagsseite, zweite Runde mit vorläufigen Entscheidungen, Stand 14. September 2026. Ausschnitte „Heute“ von den GitHub-Pages-Fassungen; alles andere ist nur hier gesetzt und in keinem Repo umgesetzt.</footer>
+</main>
+
+<template id="phone-tpl">
+  <div class="phone">
+    <div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="appbar"><span class="logo-slot" style="width:26px;height:26px;border-radius:7px;font-size:0"></span>Stadtrat Moosburg<span class="fam" title="moosburg.eu und Über das Projekt">{{ROSE}}</span></div>
+    <div class="scroll">
+      <p class="big">Themen</p>
+      <p class="sum num">173 Sitzungen, 134 von 175 mit Niederschrift</p>
+      <div class="search">{{ICON:MagnifyingGlass}}Thema, Sitzung oder Person</div>
+      <div class="chiprow"><div class="chips"><span class="chip on">Alle</span><span class="chip">Mobilität &amp; Verkehr</span><span class="chip">Bau &amp; Planung</span><span class="chip">Sport &amp; Vereine</span><span class="chip">Bildung</span></div><span class="chip more" style="margin-right:16px">{{ICON:SlidersHorizontal}}<span class="sr">Alle Themen</span></span></div>
+      <div>
+        <div class="pentry"><div><div class="pcat"><span style="color:#3b3f9a;display:flex">{{ICON:SoccerBall}}</span>Sport &amp; Vereine <span style="color:#8b4a2a;display:flex">{{ICON:PencilRuler}}</span>Bau &amp; Planung</div><b>Vereinsheim SGT Istanbul</b><p>Bau eines Vereinsheims für den SGT Istanbul auf dem SGM-Gelände. Nach mehreren Standortvarianten wurde ein Kompromiss gefunden.</p></div>{{ICON:CaretRight:chev}}</div>
+        <div class="pentry"><div><div class="pcat"><span style="color:#8b4a2a;display:flex">{{ICON:PencilRuler}}</span>Bau &amp; Planung</div><b>Sanierung Bahnhof Moosburg</b><p>Seit dem Erwerb des Bahnhofsgebäudes 2019 wird über die Zukunft des Moosburger Bahnhofs diskutiert.</p></div>{{ICON:CaretRight:chev}}</div>
+        <div class="pentry"><div><div class="pcat"><span style="color:#009ac7;display:flex">{{ICON:Bus}}</span>Mobilität &amp; Verkehr</div><b>Parksituation Auf dem Plan</b><p>Nach der Umgestaltung des Platzes kam es zu kontroversen Diskussionen über Falschparker und die Anzahl der Parkplätze.</p></div>{{ICON:CaretRight:chev}}</div>
+        <div class="pentry"><div><div class="pcat"><span style="color:#f4830a;display:flex">{{ICON:GraduationCap}}</span>Bildung &amp; Erziehung</div><b>Theresia-Gerhardinger-Grundschule</b><p>Die Grundschule im Norden Moosburgs wird umfassend erweitert und generalsaniert.</p></div>{{ICON:CaretRight:chev}}</div>
+      </div>
+    </div>
+    <div class="tabbar">
+      <span class="tab on"><span class="pill">{{ICON:ListChecks}}</span>Themen</span>
+      <span class="tab"><span class="pill">{{ICON:CalendarBlank}}</span>Kalender</span>
+      <span class="tab"><span class="pill">{{ICON:UsersThree}}</span>Gremien</span>
+      <span class="tab"><span class="pill">{{ICON:GearSix}}</span>Einstellungen</span>
+    </div>
+  </div>
+</template>
+
+<script>
+const G = (group, list) => list.map(o => ({ group, ...o }));
+const SERIF = [
+  ...G("Nah an Playfair, ausgewogen", [
+    { id: "playfair-display", name: "Playfair Display", stack: '"Playfair Display", Georgia, serif', w1: 700, w2: 700, tags: ["heute"], note: "Hoher Kontrast, großes x, markante Tropfen. Unter etwa 24 px brechen die Haarstriche weg, Ziffern hüpfen." },
+    { id: "playfair", name: "Playfair", stack: '"Playfair", Georgia, serif', w1: 700, w2: 620, tags: ["Empfehlung"], note: "Neuauflage vom selben Gestalter, mit optischen Größen: groß der Kontrast von heute, klein kräftigere Haarstriche. Wiedererkennbar wie heute, nur robuster. 300 bis 900, Kursive." },
+    { id: "gloock", name: "Gloock", stack: '"Gloock", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste"], note: "Didone mit kräftigen Haarstrichen. Markanter als Playfair, trägt große Titel allein. Nur eine Stärke, für kleine Zwischenüberschriften zu dunkel." },
+    { id: "source-serif-4", name: "Source Serif 4", stack: '"Source Serif 4", Georgia, serif', w1: 700, w2: 620, tags: ["vorläufig gewählt"], note: "Adobe, optische Größen 8 bis 60. Im Display-Schnitt nah an Playfair, klein eine ruhige Textserife. Die unaufdringlichste Wahl der Gruppe." },
+    { id: "frank-ruhl-libre", name: "Frank Ruhl Libre", stack: '"Frank Ruhl Libre", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Ruhige Antiqua, 300 bis 900. Weniger Kontrast als Playfair, in jeder Größe stabil; erkennbar eher über das Gewicht als über die Form." },
+    { id: "libre-bodoni", name: "Libre Bodoni", stack: '"Libre Bodoni", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Didone für Textgrößen: Playfair-Kontrast ohne abbrechende Haarstriche. 400 bis 700 mit Kursive." },
+    { id: "dm-serif-display", name: "DM Serif Display", stack: '"DM Serif Display", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Sehr nah an Playfair Display, mit Schwester DM Serif Text für kleine Grade. Auf vielen Vorlagen-Seiten im Einsatz, dadurch schnell austauschbar." },
+    { id: "prata", name: "Prata", stack: '"Prata", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Zurückhaltende Didone, eine Stärke. Elegant und leise, aber ohne fetten Schnitt für Titel." }
+  ]),
+  ...G("Nah an Playfair, aber zu fein oder zu laut", [
+    { id: "bodoni-moda", name: "Bodoni Moda", stack: '"Bodoni Moda", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Bodoni mit optischen Größen. Groß wunderschön, unter 24 px verschwinden die Haarstriche." },
+    { id: "noto-serif-display", name: "Noto Serif Display", stack: '"Noto Serif Display", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Hoher Kontrast, sehr neutral. Klein zu fein." },
+    { id: "cormorant-garamond", name: "Cormorant Garamond", stack: '"Cormorant Garamond", Georgia, serif', w1: 700, w2: 600, h2s: 1.08, tags: ["deine Liste"], note: "Sehr feine Garamond mit Mediävalziffern. Groß elegant, erst ab etwa 40 px sicher lesbar." },
+    { id: "gilda-display", name: "Gilda Display", stack: '"Gilda Display", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Leichte Didone, eine Stärke. Für Überschriften zu dünn." },
+    { id: "libre-caslon-display", name: "Libre Caslon Display", stack: '"Libre Caslon Display", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Caslon für große Grade, eine Stärke, klein zu fein." },
+    { id: "bellefair", name: "Bellefair", stack: '"Bellefair", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Hoher Kontrast, schmal. Brach in der Probe klein auseinander." },
+    { id: "vidaloka", name: "Vidaloka", stack: '"Vidaloka", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Fette Didone, eine Stärke. Plakat, nicht Oberfläche." },
+    { id: "yeseva-one", name: "Yeseva One", stack: '"Yeseva One", Georgia, serif', w1: 400, w2: 400, tags: [], note: "Laut, rund, eine Stärke." },
+    { id: "baskervville", name: "Baskervville", stack: '"Baskervville", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Baskerville-Nachbau mit Mediävalziffern, eher Buch als Titel." },
+    { id: "brygada-1918", name: "Brygada 1918", stack: '"Brygada 1918", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Warme Antiqua mit weniger Kontrast. Schön, aber weiter weg von Playfair." },
+    { id: "fraunces", name: "Fraunces", stack: '"Fraunces", Georgia, serif', w1: 700, w2: 600, tags: [], note: "Weich, verspielt, optische Größen. Der Detector führt sie als überbenutzt." },
+    { id: "instrument-serif", name: "Instrument Serif", stack: '"Instrument Serif", Georgia, serif', w1: 400, w2: 400, h2s: 1.1, tags: [], note: "Schmal, eine Stärke, Trendschrift der letzten zwei Jahre." }
+  ]),
+  ...G("Aus deiner Fontlark-Liste", [
+    { id: "libertinus-serif-display", name: "Libertinus Serif Display", stack: '"Libertinus Serif Display", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste"], note: "Nachfolgerin der Linux Libertine, Display-Schnitt. Klassisch, eher Buch als Plakat; in deiner Liste am nächsten an Playfair." },
+    { id: "libertinus-serif", name: "Libertinus Serif", stack: '"Libertinus Serif", Georgia, serif', w1: 700, w2: 700, tags: ["deine Liste"], note: "Der Text-Schnitt dazu, mit Fett. Sehr gut lesbar, wenig Charakter im Titel." },
+    { id: "charis-sil", name: "Charis SIL", stack: '"Charis SIL", Georgia, serif', w1: 700, w2: 700, tags: ["deine Liste"], note: "SIL, auf Bitstream Charter aufgebaut, für Lesbarkeit gezeichnet. Wenig Kontrast, eher Textschrift." },
+    { id: "doulos-sil", name: "Doulos SIL", stack: '"Doulos SIL", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste", "Fontlark"], note: "SIL, Times-artig, für Lautschrift gedacht. Nur eine Stärke." },
+    { id: "galatia-sil", name: "Galatia SIL", stack: '"Galatia SIL", Georgia, serif', w1: 700, w2: 700, tags: ["deine Liste", "Fontlark"], note: "SIL, eigentlich für Griechisch; der lateinische Teil ist Times-artig. Das €-Zeichen fehlt." },
+    { id: "ponomar", name: "Ponomar", stack: '"Ponomar", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste"], note: "Für Kirchenslawisch gemacht, lateinisch Times-artig." },
+    { id: "eeyek", name: "Eeyek", stack: '"Eeyek", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste", "Fontlark"], note: "SIL, für die Meitei-Schrift; lateinisch Times-artig." },
+    { id: "sneaky-times", name: "Sneaky Times", stack: '"Sneaky Times", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste", "Fontlark"], note: "Collletttivo: eine Times mit verschobenen Details. Witzig, aber das Gegenteil von unaufdringlich." },
+    { id: "lancelot", name: "Lancelot", stack: '"Lancelot", Georgia, serif', w1: 400, w2: 400, tags: ["deine Liste"], note: "Kalligrafisch, mittelalterlich. Nur für Plakate." },
+    { id: "content", name: "Content", stack: '"Content", Georgia, serif', w1: 700, w2: 700, h2s: 0.9, tags: ["deine Liste"], note: "Eigentlich eine Khmer-Schrift; der lateinische Teil läuft breit, fast wie Schreibmaschine." },
+    { id: "allkin", name: "Allkin", stack: '"Allkin", Georgia, serif', w1: 400, w2: 400, h2s: 0.9, tags: ["deine Liste"], note: "Monotype 2025, breit und schreibmaschinenhaft, weit weg von Playfair." },
+    { id: "amdal", name: "Amdal", stack: '"Amdal", Georgia, serif', w1: 400, w2: 400, h2s: 0.85, tags: ["deine Liste", "Fontlark"], note: "Display für Tifinagh. Umlaute, ß und € fehlen: für deutsche Texte nicht nutzbar." }
+  ]),
+  ...G("Erste Runde", [
+    { id: "besley", name: "Besley", stack: '"Besley", Georgia, serif', w1: 800, w2: 700, tags: ["geparkt"], note: "Clarendon, Wirtshausschild. Nicht nah genug an Playfair." },
+    { id: "newsreader", name: "Newsreader", stack: '"Newsreader", Georgia, serif', w1: 600, w2: 600, tags: ["geparkt"], note: "Zeitungsschrift mit optischen Größen, ruhig." },
+    { id: "ultra", name: "Ultra", stack: '"Ultra", Georgia, serif', w1: 400, w2: 400, h2s: 0.84, tags: ["geparkt"], note: "Fette Clarendon, nur Plakat." }
+  ])
+];
+const SANS = [
+  ...G("Für Lesbarkeit und Barrierefreiheit gebaut", [
+    { id: "atkinson", name: "Atkinson Hyperlegible Next", stack: '"Atkinson Hyperlegible Next", system-ui, sans-serif', tags: ["Empfehlung", "vorläufig gewählt"], note: "Braille Institute, 2025 neu aufgelegt: 200 bis 800, über 150 Sprachen. Macht Zeichen unterscheidbar, die Menschen mit Sehschwäche verwechseln (I l 1, 0 O, b d p q). Die Null trägt dafür einen Schrägstrich, auch in Jahreszahlen wie 2026." },
+    { id: "inclusive-sans", name: "Inclusive Sans", stack: '"Inclusive Sans", system-ui, sans-serif', tags: [], note: "Ausdrücklich für Barrierefreiheit gestaltet, 300 bis 700. Wärmer und weniger technisch als Atkinson." },
+    { id: "lexend", name: "Lexend", stack: '"Lexend", system-ui, sans-serif', tags: [], note: "Aus Forschung zur Leseflüssigkeit: weite Laufweite, einfache Formen, entlastet bei Leseschwierigkeiten. Läuft sehr breit." },
+    { id: "andika", name: "Andika", stack: '"Andika", system-ui, sans-serif', tags: [], note: "SIL, für Leseanfänger und Alphabetisierung: eindeutige Formen, einstöckiges a. Freundlich, etwas schulbuchhaft." },
+    { id: "readex-pro", name: "Readex Pro", stack: '"Readex Pro", system-ui, sans-serif', tags: [], note: "Aus der Lexend-Familie, um Arabisch erweitert; gleiche Idee, etwas anderer Rhythmus." },
+    { id: "b612", name: "B612", stack: '"B612", system-ui, sans-serif', tags: [], note: "Für Cockpit-Anzeigen bei Airbus entwickelt: lesbar unter Stress und schlechten Bedingungen. Technisch, kühl, zwei Stärken." }
+  ]),
+  ...G("Bewährt, offene Formen", [
+    { id: "source-sans-3", name: "Source Sans 3", stack: '"Source Sans 3", system-ui, sans-serif', tags: [], note: "Adobe. Offene Formen, schmal, Tabellenziffern. Empfehlung der ersten Runde, weiter solide." },
+    { id: "open-sans", name: "Open Sans", stack: '"Open Sans", system-ui, sans-serif', tags: [], note: "Offene Formen, sehr verbreitet und gut lesbar, dafür ohne Eigenheit." },
+    { id: "noto-sans", name: "Noto Sans", stack: '"Noto Sans", system-ui, sans-serif', tags: [], note: "Google, deckt praktisch jede Sprache ab. Neutral." },
+    { id: "public-sans", name: "Public Sans", stack: '"Public Sans", system-ui, sans-serif', tags: [], note: "Schrift des US-Designsystems für Behördenseiten. Amtlich im guten Sinn." },
+    { id: "fira-sans", name: "Fira Sans", stack: '"Fira Sans", system-ui, sans-serif', tags: [], note: "Mozilla. Humanistisch, stark in kleinen Graden und dichten Tabellen." },
+    { id: "inter", name: "Inter", stack: '"Inter", system-ui, sans-serif', tags: ["heute"], note: "Sehr gut lesbar, aber die Standardschrift schlechthin; läuft breit." }
+  ]),
+  ...G("Erste Runde", [
+    { id: "schibsted", name: "Schibsted Grotesk", stack: '"Schibsted Grotesk", system-ui, sans-serif', tags: ["geparkt"], note: "Charakter vor Barrierefreiheit." }
+  ])
+];
+const SCRIPT = [
+  ...G("Aus deinem Ordner", [
+    { id: "madelon", name: "Madelon Script", stack: '"Madelon Script", cursive', s: 1.05, tags: ["heute", "vorläufig gewählt"], note: "Dünn und gleichmäßig, darum funktioniert die Überlappung heute überhaupt. Lizenz nicht dokumentiert." },
+    { id: "ms-madi", name: "Ms Madi", stack: '"Ms Madi", cursive', s: 1.1, tags: ["Empfehlung", "neu im Ordner"], note: "Leichter, gleichmäßiger Strich wie Madelon, locker verbunden. Liegt über der Überschrift, ohne sie zuzudecken. OFL." },
+    { id: "sacramento", name: "Sacramento", stack: '"Sacramento", cursive', s: 1.15, tags: ["neu im Ordner"], note: "Ebenfalls dünn und gleichmäßig, etwas förmlicher und schmaler als Ms Madi. OFL." },
+    { id: "meow-script", name: "Meow Script", stack: '"Meow Script", cursive', s: 1.05, tags: ["neu im Ordner"], note: "Verspielt, runde Schleifen. Freundlicher als Madelon, etwas unruhiger in der Überlappung." },
+    { id: "satisfy", name: "Satisfy", stack: '"Satisfy", cursive', s: 0.95, tags: ["neu im Ordner"], note: "Kräftiger Pinsel der Fünfziger. Deckt in der Überlappung am meisten zu." },
+    { id: "la-belle-aurore", name: "La Belle Aurore", stack: '"La Belle Aurore", cursive', s: 1.1, tags: [], note: "Füller, sehr persönlich. Stark für Notizen, als Überlappung zu unruhig." },
+    { id: "yellowtail", name: "Yellowtail", stack: '"Yellowtail", cursive', s: 0.95, tags: [], note: "Ladenschild-Pinsel, kräftig." },
+    { id: "sf-burlington", name: "SF Burlington Script", stack: '"SF Burlington Script", cursive', s: 1.05, tags: [], note: "Lizenz verbietet jede Bearbeitung, auch das Umwandeln in woff2." },
+    { id: "open-script", name: "Open Script", stack: '"Open Script", cursive', s: 1, tags: [], note: "Weder Hersteller noch Lizenz im Paket." }
+  ]),
+  ...G("Weitere mit dünnem Strich, Überlappung bleibt lesbar", [
+    { id: "corinthia", name: "Corinthia", stack: '"Corinthia", cursive', s: 1.3, tags: [], note: "Sehr fein und elegant, braucht Größe." },
+    { id: "mea-culpa", name: "Mea Culpa", stack: '"Mea Culpa", cursive', s: 1.1, tags: [], note: "Fein, schwungvoll, dekorativ." },
+    { id: "ephesis", name: "Ephesis", stack: '"Ephesis", cursive', s: 1.1, tags: [], note: "Leicht und locker, nah an Ms Madi." },
+    { id: "parisienne", name: "Parisienne", stack: '"Parisienne", cursive', s: 1, tags: [], note: "Klassische Schreibschrift, Café-Schild." },
+    { id: "pinyon-script", name: "Pinyon Script", stack: '"Pinyon Script", cursive', s: 1, tags: [], note: "Kupferstich-Schreibschrift, förmlich." },
+    { id: "tangerine", name: "Tangerine", stack: '"Tangerine", cursive', s: 1.35, tags: [], note: "Schmal und zierlich." },
+    { id: "estonia", name: "Estonia", stack: '"Estonia", cursive', s: 1.25, tags: [], note: "Schmal, schnell geschrieben." },
+    { id: "herr-von-muellerhoff", name: "Herr Von Muellerhoff", stack: '"Herr Von Muellerhoff", cursive', s: 1.3, tags: [], note: "Unterschrift, nur für ein, zwei Wörter." }
+  ]),
+  ...G("Weitere mit kräftigem Strich, verdecken mehr", [
+    { id: "allura", name: "Allura", stack: '"Allura", cursive', s: 1.05, tags: [], note: "Förmlich, von Hochzeitskarten bekannt." },
+    { id: "great-vibes", name: "Great Vibes", stack: '"Great Vibes", cursive', s: 1, tags: [], note: "Hochzeitskarten-Klischee." },
+    { id: "petit-formal-script", name: "Petit Formal Script", stack: '"Petit Formal Script", cursive', s: 0.9, tags: [], note: "Breit und schwer." },
+    { id: "birthstone", name: "Birthstone", stack: '"Birthstone", cursive', s: 1.05, tags: [], note: "Rund und freundlich." },
+    { id: "mr-dafoe", name: "Mr Dafoe", stack: '"Mr Dafoe", cursive', s: 1, tags: [], note: "Schneller Pinselstrich." },
+    { id: "kristi", name: "Kristi", stack: '"Kristi", cursive', s: 1.05, tags: [], note: "Rau, wie mit trockener Feder." },
+    { id: "nothing-you-could-do", name: "Nothing You Could Do", stack: '"Nothing You Could Do", cursive', s: 0.8, tags: [], note: "Kugelschreiber; eher für Notizen als für Deko." }
+  ])
+];
+const TODAY = { serif: "playfair-display", sans: "inter", script: "madelon", caps: false };
+const REC = { serif: "playfair", sans: "atkinson", script: "ms-madi", caps: false };
+const DECIDED = { serif: "source-serif-4", sans: "atkinson", script: "madelon", caps: false };
+const LISTS = { serif: SERIF, sans: SANS, script: SCRIPT };
+const KEY = "mb-formsprache-3";
+let state = { ...DECIDED, hideParked: false };
+try { const saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved) state = { ...state, ...saved }; } catch (e) {}
+
+const root = document.documentElement;
+const find = (role, id) => LISTS[role].find(o => o.id === id) || LISTS[role][0];
+function apply() {
+  const se = find("serif", state.serif), sa = find("sans", state.sans), sc = find("script", state.script);
+  root.style.setProperty("--f-serif", se.stack);
+  root.style.setProperty("--w1", se.w1);
+  root.style.setProperty("--w2", se.w2);
+  root.style.setProperty("--h2s", se.h2s || 1);
+  root.style.setProperty("--f-sans", sa.stack);
+  root.style.setProperty("--f-script", sc.stack);
+  root.style.setProperty("--s", sc.s);
+  document.body.classList.toggle("caps", !!state.caps);
+  document.body.classList.toggle("hide-parked", !!state.hideParked);
+  for (const role of ["serif", "sans", "script"]) {
+    document.getElementById("sel-" + role).value = state[role];
+    const r = document.querySelector('input[name="' + role + '"][value="' + state[role] + '"]');
+    if (r) r.checked = true;
+  }
+  document.getElementById("caps").checked = !!state.caps;
+  document.getElementById("hideparked").checked = !!state.hideParked;
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+}
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function build(role) {
+  const sel = document.getElementById("sel-" + role);
+  const box = document.getElementById("opts-" + role);
+  let group = null, og = null, list = null;
+  for (const o of LISTS[role]) {
+    if (o.group !== group) {
+      group = o.group;
+      og = document.createElement("optgroup"); og.label = group; sel.appendChild(og);
+      box.appendChild(el("h4", null, group));
+      list = el("div", "optlist"); box.appendChild(list);
+    }
+    const op = document.createElement("option");
+    op.value = o.id;
+    op.textContent = o.name + (o.tags.includes("vorläufig gewählt") ? " (vorläufig gewählt)" : o.tags.includes("heute") ? " (heute)" : o.tags.includes("Empfehlung") ? " (Empfehlung)" : "");
+    og.appendChild(op);
+    const lab = el("label", "opt");
+    const input = document.createElement("input");
+    input.type = "radio"; input.name = role; input.value = o.id;
+    input.addEventListener("change", () => { state[role] = o.id; apply(); });
+    lab.appendChild(input);
+    if (role === "serif") {
+      const s = el("span", "opt-sample serif", "Zwei Haushalte, zwei Logiken");
+      s.style.fontFamily = o.stack; s.style.fontWeight = o.w2;
+      lab.appendChild(s);
+    } else if (role === "sans") {
+      const s = el("span", "opt-sample sans", "Der Verwaltungshaushalt trägt den laufenden Betrieb. I l 1 · 0 O · 1.656");
+      s.style.fontFamily = o.stack;
+      lab.appendChild(s);
+    } else {
+      const w = el("span", "opt-ov"); w.setAttribute("aria-hidden", "true");
+      const hd = el("span", "hd", "Moosburg");
+      const sc = el("span", "sc", "servus");
+      sc.style.fontFamily = o.stack; sc.style.fontSize = "calc(2.5rem * " + o.s + ")";
+      w.appendChild(sc); w.appendChild(hd);
+      lab.appendChild(w);
+    }
+    const meta = el("span", "opt-meta");
+    meta.appendChild(el("b", null, o.name));
+    for (const t of o.tags) meta.appendChild(el("span", "tag" + (t === "Empfehlung" ? " rec" : t === "heute" ? " now" : t === "geparkt" ? " park" : t === "vorläufig gewählt" ? " dec" : ""), t));
+    lab.appendChild(meta);
+    lab.appendChild(el("p", "opt-note", o.note));
+    list.appendChild(lab);
+  }
+  sel.addEventListener("change", () => { state[role] = sel.value; apply(); });
+}
+build("serif"); build("sans"); build("script");
+
+document.querySelectorAll(".roletabs button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".roletabs button").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false"));
+  document.querySelectorAll(".role").forEach(r => { r.hidden = r.dataset.role !== b.dataset.role; });
+}));
+for (const role of ["serif", "sans", "script"]) {
+  document.getElementById("sel-" + role).addEventListener("focus", () => {
+    const b = document.querySelector('.roletabs button[data-role="' + role + '"]'); if (b) b.click();
+  });
+}
+document.getElementById("caps").addEventListener("change", e => { state.caps = e.target.checked; apply(); });
+document.getElementById("hideparked").addEventListener("change", e => { state.hideParked = e.target.checked; apply(); });
+document.getElementById("to-today").addEventListener("click", () => { state = { ...state, ...TODAY }; apply(); });
+document.getElementById("to-rec").addEventListener("click", () => { state = { ...state, ...REC }; apply(); });
+document.getElementById("to-dec").addEventListener("click", () => { state = { ...state, ...DECIDED }; apply(); });
+
+const bseg = document.getElementById("blockseg"), bdemo = document.getElementById("blockdemo");
+bseg.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+  bseg.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+  bdemo.className = "block " + b.dataset.t;
+}));
+const seg = document.getElementById("statusseg"), demo = document.getElementById("statusdemo");
+seg.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+  seg.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+  demo.dataset.v = b.dataset.v;
+}));
+
+const tpl = document.getElementById("phone-tpl");
+document.getElementById("phone-light").appendChild(tpl.content.cloneNode(true));
+const dark = tpl.content.cloneNode(true);
+dark.querySelector(".phone").classList.add("dark");
+document.getElementById("phone-dark").appendChild(dark);
+apply();
+</script>

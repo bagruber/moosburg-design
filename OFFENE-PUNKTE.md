@@ -24,6 +24,15 @@ Bewusst **nicht** in die fuenf Konsumenten dupliziert: das waeren fuenf Kopien
 derselben Aussage, und `hausbasis/baseline.json` folgt genau der Gegenthese -
 eine Quelle statt einer Tabelle je Repo.
 
+## Formsprache in Arbeit (seit 11.09.2026)
+
+Eine Ueberarbeitung der Formsprache laeuft, mit **vorlaeufigen** Entscheidungen
+vom 14.09.2026 (Schriften, Kategorien, Farbflaechen, Navigation und mehr).
+Nichts davon steht in `css/theme.css`. Protokoll und naechste Schritte:
+`docs/formsprache/ENTSCHEIDUNGEN.md`; die Quelle der Vorschlagsseite liegt in
+`docs/formsprache/artefakt/`. Bevor etwas davon in den Kanon wandert, zuerst den
+Punkt oben (taggen und pinnen) erledigen.
+
 ## Haengt an gruber.am
 
 Die Projektliste auf gruber.am liest **nichts** aus diesem Repo. Der Eintrag
