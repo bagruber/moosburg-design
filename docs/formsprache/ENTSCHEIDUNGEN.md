@@ -372,6 +372,44 @@ Vorlage: „Zweite Lesung Stadtrat-Probe“, https://claude.ai/artifact/CjfKtaZw
 - **Icon-Set:** Phosphor (im Stadt-Prototyp schon genutzt); ausdrücklich entschieden für das
   Sitzungstool, am 14.09.2026 vorläufig auch für den Stadtrat.
 
+### 16.09.2026, Stadtrat live; Erkenntnisse für die Familie
+
+Die Probe ist in `main` von council gemergt und über
+`.github/workflows/moosburg-eu.yml` auf moosburg.eu/stadtrat/ deployt. Auswertung:
+`../council/docs/formsprache-probe/ERGEBNIS.md`.
+
+**Im Kanon geändert:** `--radius-xl` von 10 auf 8 px (`css/theme.css` und
+`css/tokens.css`, Commit `dd2f435`). Der Wunsch kam aus dieser Iteration; in den
+anderen Projekten ist noch zu prüfen, ob die Kacheln damit stimmen. Betroffen sind
+alle, die `theme.css` importieren: Stadt-Prototyp (rund 100 `rounded-xl`),
+haushaltvis und datahub (je eine Handvoll) sowie die Token-Kopien in council und
+moosburg-eu (council ist nachgezogen, das Portal noch nicht).
+
+**Für alle Projekte mitzunehmen:**
+
+- **Stripe nur einmal.** Steht der Regenbogen im Kopf, schließt er keine
+  Zwischenebene mehr ab. Das stellt die Zeile „Stripe als unterer Abschluss“ bei
+  den Farbflächen in Abschnitt 4 infrage; im Portal betrifft es „In eigener Sache“.
+- **Farbflächen über die ganze Breite oder gar nicht.** Eine Card mit deckender
+  Farbe bleibt Hervorgehobenem vorbehalten (nächster Termin).
+- **Karten dürfen in die Fläche ragen.** Läuft unter dem Band eine Kartenliste,
+  zieht eine Überlappung von etwa 72 px die Liste an den Kopf. Technik:
+  `margin-inline: calc(50% - 50vw)`, `padding-inline: calc(50vw - 50%)`,
+  `body { overflow-x: clip }`, Überlappung über `:has(+ …)`.
+- **Keine einseitige Farbkante an Karten.** Sie liest sich wie ein generiertes
+  Muster, auch wenn sie Daten trägt. Stattdessen eine Kategoriezeile.
+- **Kategoriezeile und Titel wiederholen sich nicht.** Nennt die Zeile das
+  Gremium, heißt der Titel darunter „2. Sitzung“ plus Datum.
+- **Wiederkehrende Ebenen tragen ihre Farbe als dunklen Ton** derselben Farbe, die
+  Punkte und Diagramme schon nutzen. So gibt es eine Zuordnung, nicht zwei.
+- **Parteifarben taugen nicht als Fläche:** Sie lesen sich wie Werbung, und die
+  meisten erreichen mit keiner Schriftfarbe 4,5:1.
+- **Einstellungen können in „Über das Projekt“ aufgehen.** Impressum und Kontakt
+  stehen dort ohnehin; Barrierefreiheits-Schalter passen dazu und sparen einen Tab.
+  Mobil öffnet ein Info-Knopf das Blatt, der erste Eintrag führt auf moosburg.eu.
+- **Suche:** überall derselbe Bestand, nur die Reihenfolge der Gruppen richtet sich
+  nach dem Ort.
+
 ## 5. Geparkt, nicht verworfen
 
 Stehen eingeklappt und markiert in der Vorschlagsseite.
