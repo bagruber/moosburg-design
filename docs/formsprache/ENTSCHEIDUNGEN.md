@@ -309,6 +309,30 @@ Kanon.
 - **Offen: Gremien als Kategoriezeile** (Erläuterung erbeten) und **Ecken**: 10 px wirken
   tendenziell zu rund.
 
+### 15.09.2026, zweite Lesung zur Stadtrat-Probe
+
+Vorlage: „Zweite Lesung Stadtrat-Probe“, https://claude.ai/artifact/CjfKtaZwwokhbZsCd2p5wk.
+
+- **Kein Klecks in den Themenkarten.** Idee für später: Themen könnten eine eigene
+  Federzeichnung (Ink-Art) bekommen.
+- **Themenfeld mit Band** über die ganze Breite im tiefen Ton der Themenfarbe (60 %
+  abgedunkelt, Creme darauf mindestens 8,4:1), die Dossier-Karten ragen 72 px hinein, kein
+  Stripe. Gebaut.
+- **Dossier ohne Band.** Die Farbgebung erschlösse sich nicht, und der Zeitstrahl ist keine
+  Auflistung, sondern braucht Fluss.
+- **Sitzung mit Band**, aber nach einem festen Schema je Gremium; öffentlich tagen nur
+  Stadtrat, BPU und HVFA. Welches Schema, ist offen. Gebaut ist die Ableitung aus den
+  Gremienfarben von Kalender und Diagrammen: Stadtrat Tiefrot, BPU Erdbraun, HVFA Nachtblau.
+  Die Termin-Card nimmt die Farbe ihres Gremiums.
+- **Fraktion ohne Fläche.**
+- **Termin-Card ohne Stripe.**
+- **Ecken:** Benedict schlägt vor, das 10-px-Token im Kanon auf 8 px zu senken. In der Probe
+  als Überschreibung gesetzt. Der Kanon ist noch nicht geändert: `--radius-xl` steht in
+  `css/theme.css`, daran hängen auch die rund 100 `rounded-xl` im Stadt-Prototyp.
+- **Gremium als Kategoriezeile: ja.** Ohne farbigen Seitenstrich an den Einträgen, der wirkt
+  wie ein generiertes Klischee. Ohne Wiederholung: Steht das Gremium in der Zeile, folgt
+  darunter nur „N. Sitzung“ und das Datum. Gebaut im Kalenderblatt und im Sitzungskopf.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -390,6 +414,17 @@ auf dem gebauten Stand, die Werte stehen hier, damit sie sich wieder herstellen 
   `PersonSimpleCircle`, `HandHeart`; Referent/in `Microphone`, `ChatCircleText`; Ausschuss
   `Users` (erster Vorschlag), `UsersFour`; Vorsitz `Crown`, `Star`; Aufsichtsrat
   `Briefcase` (erster Vorschlag), `Buildings`, `Factory`.
+- **Aus der zweiten Lesung** (Bilder in der Vorlage „Zweite Lesung Stadtrat-Probe“):
+  - Klecks in jeder Themenkarte, 46 px am Desktop und 38 px am Handy, links neben
+    Kategoriezeile, Titel und Anriss, im Ton des ersten Themas.
+  - Themenfeld-Band in Tiefrot für alle Felder, als helle Klecks-Tönung mit Tinte-Schrift und
+    ganz ohne Band mit 72-px-Klecks.
+  - Dossier-Kopf als helles Band in der Klecks-Tönung.
+  - Fraktion mit Band in der Parteifarbe, Schrift je nach Kontrast in Creme oder Tinte. SPD
+    erreicht erst um 5 % abgedunkelt 4,5:1 mit Creme, UMB auch dann nicht.
+  - Ecken 6 px, auch an Chips und Tab-Markierung.
+  - Gremien-Kategoriezeile in der Skizze mit farbigem Seitenstrich am Eintrag (der alte
+    Rahmen `.sheet-event.bpu`) und vollem Sitzungstitel darunter.
 
 ## 6. Werte, die schon nachgerechnet sind
 
