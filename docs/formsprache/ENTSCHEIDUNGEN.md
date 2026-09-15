@@ -258,6 +258,57 @@ Kanon.
   übernommen; beim Website-Konzept bleibt „kein amtlicher Auftritt“ als Metazeile.
 - **Merge:** `probe/formsprache` ist in `main` von moosburg-eu gemergt und damit live.
 
+### 15.09.2026, Probe im Stadtrat umgesetzt
+
+**Vorläufig und nur für den Stadtrat.** Nichts davon ist im Kanon.
+
+- **Wo:** Branch `probe/formsprache` in council, neun Commits von `5f80836` bis `1068ee2`,
+  lokal, nicht gemergt.
+- **Umgesetzt:** AP 1 bis 8 des Briefings (Phosphor, Familienschriften, Satzschreibung,
+  Kategoriezeile mit Klecks, heller Kopf nach Navigation A, Chip-Zeile mit Blatt, Fläche
+  nächste Sitzung, Ecken 10 und 4 px).
+- **Vorlage der offenen Fragen:** „Beschlussvorlage Stadtrat-Probe“,
+  https://claude.ai/artifact/3pZ2PBGcT5tRp7QC5QKUKd, zwölf Tagesordnungspunkte mit allen
+  Vergleichsbildern. Bleibt als Archiv der verworfenen Varianten stehen.
+- **Beim Bauen gefunden:**
+  - Ab dem zweiten Thema war der Themen-Chip in einer Karte ein verschachtelter Link
+    (`.map(categoryChip)` gab den Index als `asLink` weiter); behoben.
+  - `termine.json` wurde von der App nicht geladen.
+  - Der Kontakt-Text behauptete, alle Ergebnisse entsprächen den Niederschriften, obwohl
+    Einzelstimmen auch aus Presse und Mitschrift stammen.
+  - Eine vierte einseitige Kante: `.sheet-event` im Kalenderblatt trägt die Gremienfarbe.
+  - Jede Flächenfarbe kollidiert auf Fraktionsseiten mit einer Parteifarbe (Tiefrot mit SPD,
+    Nachtblau mit AfD und UMB, Aubergine mit Linke).
+
+### 15.09.2026, Entscheidungen von Benedict zur Stadtrat-Probe
+
+- **Aktive Zustände in Rot** (`red-700` auf `red-50`).
+- **Kategoriezeile mit farbigem Text**, wie im Protokoll.
+- **Handschrift-Wörter** „nachvollziehbar“ (Themen), „öffentlich“ (Kalender), „gewählt“
+  (Gremien), auch mobil.
+- **Federzeichnung `rathausC`**, nur auf der Themen-Übersicht, ab 1280 px.
+- **Nächste Sitzung** als Card mit deckender Farbe oben im Kalender; die kompakte Zeile auf
+  der Startseite entfällt. Farbe hängt an der offenen Frage zu Bereichsfarben.
+- **Icons für Merkmale und Funktionen:** `Rainbow`, `GenderFemale`, `GlobeHemisphereWest`,
+  `Wheelchair`, `Megaphone` (noch nicht befriedigend), `UsersThree`, `Gavel`,
+  `BuildingOffice` oder `Factory` (gebaut: `BuildingOffice`).
+- **Texte** für Über das Projekt, Einstellungen und Kontakt übernommen, mit
+  „Stadtverwaltung“ statt „Geschäftsstelle des Stadtrats“, die es nicht gibt.
+- **Klecks am Handy über dem Titel**, am Desktop daneben.
+- **Kanten an `.faction-move` und `.sheet-event`** bleiben als Datenmarken.
+- **Null mit Schrägstrich** in Ordnung.
+- **Offen: Bereichsfarben.** Rückmeldung dazu:
+  - Der Klecks soll ein wiederkehrendes Element werden, am sinnvollsten bei den Themen.
+  - Farbflächen nur über die ganze Breite oder gar nicht. Eine Card mit deckender Farbe passt
+    für Hervorgehobenes wie den nächsten Termin, nicht für Seitenköpfe.
+  - **Der Stripe ist überstrapaziert.** Steht er oben im Kopf, dann nicht noch als Abschluss
+    einer Zwischenebene. Gilt als Hinweis für alle Projekte und stellt die Zeile
+    „Stripe als unterer Abschluss“ der Farbflächen in Abschnitt 4 infrage.
+  - Idee: Listen-Elemente eines Themas ragen teilweise in die farbige Fläche hinein.
+  - Parteiseiten: ausnahmsweise mit der Parteifarbe oder ohne Fläche.
+- **Offen: Gremien als Kategoriezeile** (Erläuterung erbeten) und **Ecken**: 10 px wirken
+  tendenziell zu rund.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -312,6 +363,33 @@ Stehen eingeklappt und markiert in der Vorschlagsseite.
   Empfehlungen der zweiten Runde Playfair (2.0), Ms Madi (als Hauptwahl), Inclusive Sans
 - nicht gewählte Varianten: Kategorien A und B, Mini-Kacheln, Überlappung 2 und 3, Status
   Stempel, Handschrift, Stripe, Navigation B
+
+### Aus der Stadtrat-Probe (15.09.2026)
+
+Bilder aller Varianten in der „Beschlussvorlage Stadtrat-Probe“
+(https://claude.ai/artifact/3pZ2PBGcT5tRp7QC5QKUKd). Die Varianten waren eingespritztes CSS
+auf dem gebauten Stand, die Werte stehen hier, damit sie sich wieder herstellen lassen.
+
+- **Aktive Zustände in Tinte:** gewählter Chip `cream-dark` mit Tinte-Schrift, Kopf-Tab mit
+  Unterstrich in Tinte, Tab-Pille `cream-dark`. Wirkte am Handy zu leise.
+- **Kategoriezeile nur mit farbigem Icon**, Text in `--text-muted` (`#6F6F6F`). Ruhiger bei
+  mehreren Themen je Karte.
+- **Bereichsfarbe als abgerundete Karte im Seitenkopf** der Detailseiten (Variante 2 des
+  Briefings): Fläche mit 10 px Radius, Titel Creme, Metazeile Gold-200, Stripe als
+  Abschluss. Getestet: Themenfeld in Tiefrot, Nachtblau, Aubergine; Sitzung in Gold-700,
+  Tiefrot, Nachtblau, Aubergine; Fraktion in Tiefrot, Nachtblau, Aubergine. Verworfen in
+  dieser Form (nicht über die ganze Breite, Stripe doppelt); die Frage nach Bereichsfarben
+  ist weiter offen.
+- **Handschrift mobil ausgeblendet**, Seitentitel mit 12 px Abstand darüber.
+- **Nächste Sitzung als kompakte Zeile auf der Startseite:** eine Zeile in der Flächenfarbe
+  über „Zahlen zum Bestand“, „Nächste Sitzung“ in Gold-200, dann „Mo., 28. Sept., 18:00 Uhr,
+  Stadtrat“ und Pfeil. Gebaut in council `040b258`, wieder entfernt.
+- **Fläche nächste Sitzung** in Tiefrot und Nachtblau (gebaut war Gold-700).
+- **Icon-Alternativen:** LGBTQ+ `GenderNonbinary`, `Heart`; FLINTA `GenderTransgender`
+  (erster Vorschlag), `GenderIntersex`; Migrantisch `Globe`, `AirplaneTilt`; Barrierefrei
+  `PersonSimpleCircle`, `HandHeart`; Referent/in `Microphone`, `ChatCircleText`; Ausschuss
+  `Users` (erster Vorschlag), `UsersFour`; Vorsitz `Crown`, `Star`; Aufsichtsrat
+  `Briefcase` (erster Vorschlag), `Buildings`, `Factory`.
 
 ## 6. Werte, die schon nachgerechnet sind
 
