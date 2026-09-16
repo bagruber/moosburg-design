@@ -389,7 +389,16 @@ moosburg-eu (council ist nachgezogen, das Portal noch nicht).
 
 - **Stripe nur einmal.** Steht der Regenbogen im Kopf, schließt er keine
   Zwischenebene mehr ab. Das stellt die Zeile „Stripe als unterer Abschluss“ bei
-  den Farbflächen in Abschnitt 4 infrage; im Portal betrifft es „In eigener Sache“.
+  den Farbflächen in Abschnitt 4 infrage. **Ausnahme (16.09.2026):** Der Einschub
+  „In eigener Sache“ im Portal behält seinen Stripe, dort wirkt er nicht
+  aufdringlich.
+- **Gremienfarben eingeloggt** (16.09.2026): Stadtrat Tiefrot `#6d0818`, BPU
+  Erdbraun `#4a2a17`, HVFA Nachtblau `#26295e`, jeweils der dunkle Ton der Farbe
+  aus Kalenderpunkten und Diagrammen. Gilt für Sitzungskopf und Termin-Card.
+- **Logos dürfen vom Icon-Set abweichen** (16.09.2026): LinkedIn steht als
+  schlichtes „in“ ohne Kasten (Font Awesome Free 6.5.1, CC BY 4.0); die übrigen
+  Kontaktzeichen kommen aus Phosphor, im Gewicht `bold`, damit sie in kleinen
+  farbigen Flächen tragen.
 - **Farbflächen über die ganze Breite oder gar nicht.** Eine Card mit deckender
   Farbe bleibt Hervorgehobenem vorbehalten (nächster Termin).
 - **Karten dürfen in die Fläche ragen.** Läuft unter dem Band eine Kartenliste,
