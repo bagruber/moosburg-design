@@ -374,9 +374,16 @@ Entschieden (Punkt 1 bis 7 und 12 jeweils Variante A):
 - **Rot bleibt Rot für Bedienung und Links**, aber die Filterauswahl geht nicht auf Tinte:
   ausgeblasstes gegen kräftiges Gold. Werte in der zweiten Lesung.
 
-Offen und in der zweiten Lesung: Orientierung auf langen Seiten (etwas, das beim Scrollen
-einblendet), klebender aufklappbarer Filter am Handy, die beiden Goldtöne, die Motive der
-Zeichnungen.
+### 17.09.2026, zweite Lesung Data Hub
+
+Vorlage: „Data Hub, zweite Lesung“, https://claude.ai/artifact/K7x9KzUVvjAkREAmkvehPR.
+Vier Punkte vorgelegt, Antworten stehen aus:
+
+- **Orientierung:** Kapitelzeile in der klebenden Leiste (erscheint erst nach dem Kopf, auf Seiten ohne Filter trägt sie allein), gegen Sprungleiste als Chips und Marke am linken Rand.
+- **Filter am Handy:** klebend und aufklappbar in beiden Varianten; eingeklappt entweder Zustand plus gesetzte Filter als Chips oder die wichtigste Kategorie als Chip-Zeile.
+- **Goldtöne** statt Rot für die Filterauswahl, nachgerechnet auf Weiß: Gold-200 1,45:1, heutiges `#b39f7a` 2,57:1, Gold-500 2,80:1, Gold-600 4,07:1, Gold-700 6,63:1. Vorgeschlagen Gold-500 ruhig gegen Gold-700 gewählt plus 2 px Grundstrich (Trennung 2,37:1; der heutige Sprung Gold auf Rot trennt mit 2,29:1). Dann kann `--color-gold-400: #b39f7a` aus dem Data Hub verschwinden.
+- **Motive:** Übersicht `buechereiA` (vorhanden), Bahnhof Bahnsteig mit Schranke und Abgang zur Unterführung, Volksfest Festzelt mit Riesenrad, Bevölkerungsstatistik eine Häuserzeile ohne Kirche. Benedict zeichnet, Lieferformat quadratisch ab 2000 px, reine Strichzeichnung, Motiv links im Blatt.
+
 
 Gefundene Fehler im Data Hub stehen in Abschnitt 7.
 
