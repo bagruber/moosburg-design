@@ -417,6 +417,24 @@ Altersgruppe, 643 keinen Wohnort, 650 keine Nutzungshäufigkeit. Heute verschwei
 Filterleiste das. Vorgeschlagen ist „ohne Angabe“ als eigene, abgesetzte Zeile in der
 Auswahlliste.
 
+### 17.09.2026, Antworten zur dritten Lesung; Briefing Data Hub neu geschrieben
+
+- **Stepper (Punkt 9):** Die Pfeile springen zur nächsten Kapitelüberschrift, mehr nicht.
+  Kein Aufklappen am Namen; für den direkten Sprung gibt es das nicht klebende
+  Inhaltsverzeichnis unter dem Kopf. Ausdrücklich vorläufig, wird am gebauten Stand noch
+  einmal angesehen. Der Ort am Handy (oben in der Leiste oder unten am Daumen) bleibt offen,
+  gebaut wird zunächst oben.
+- **Auswahlliste (Punkt 10):** Variante B, der Balken als Hintergrund der Zeile. **„ohne
+  Angabe“ ist ein Punkt wie jeder andere**: Die Breite skaliert auf das Maximum aller Zeilen
+  einschließlich dieser, die größte Zeile bekommt die volle Breite. In der Bahnhofumfrage ist
+  „ohne Angabe“ bei zwei von drei Filtern die größte Gruppe (314 ohne Altersgruppe, 643 ohne
+  Wohnort, 650 ohne Nutzungshäufigkeit, bei 1.656 Antworten).
+
+Damit ist die Vorbereitung abgeschlossen. `datahub/docs/briefing-formsprache.md` ist neu
+geschrieben (datahub `a8b9c08`): neuer Umfang, alle Entscheidungen, AP 0 bis 13. Die
+Wahlseite erbt die gemeinsamen Bausteine und bekommt vorläufig Nachtblau; entschieden ist das
+nicht und gehört in die Wahl-Runde.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -598,6 +616,20 @@ Nicht gewählt:
 - **Goldpaare:** Gold-200 `#e8d5a3` ruhig gegen Gold-600 `#967a40` gewählt (größter Sprung,
   aber 1,45:1 auf Weiß und damit fast unsichtbar), sowie das heutige `#b39f7a` ruhig gegen
   Gold-700 gewählt.
+
+
+### Aus der dritten Lesung Data Hub (17.09.2026)
+
+Bilder in „Data Hub, dritte Lesung“ (https://claude.ai/artifact/D8g4dAkGrFwFzDtMyqtHjT).
+Nicht gewählt:
+
+- **Stepper, dessen Name die Kapitelliste öffnet**, und der Ort am unteren Rand am Handy
+  (dort, wo im Stadtrat die Tab-Leiste sitzt). Der Ort ist nur zurückgestellt, nicht
+  verworfen.
+- **Balken als eigene Spalte** in der Auswahlliste, alle auf einer Startlinie, Beschriftung
+  auf weißem Grund.
+- **„ohne Angabe“ nur nennen, nicht auswählbar**, sowie die Variante, es wie heute ganz
+  wegzulassen.
 
 
 ## 6. Werte, die schon nachgerechnet sind
