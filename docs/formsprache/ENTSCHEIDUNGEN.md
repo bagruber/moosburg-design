@@ -435,6 +435,25 @@ geschrieben (datahub `a8b9c08`): neuer Umfang, alle Entscheidungen, AP 0 bis 13.
 Wahlseite erbt die gemeinsamen Bausteine und bekommt vorläufig Nachtblau; entschieden ist das
 nicht und gehört in die Wahl-Runde.
 
+### 17.09.2026, Probe im Data Hub umgesetzt
+
+Branch `probe/formsprache` in datahub, AP 0 bis 13, Commits `69f451a` bis `bd76522`.
+Noch nicht gemergt, Freigabe steht aus. Auswertung: `../datahub/docs/formsprache-probe/ERGEBNIS.md`.
+
+- Der Data Hub hing per Lockfile noch am Kanon-Stand vor `dd2f435`; nachgezogen, damit
+  `rounded-xl` auch dort 8 px ist.
+- Die Bahnhof-Zeichnung steht als Beispiel im Band und wird ersetzt, wenn die endgültige kommt.
+- Auslegungen zum Ansehen: Kategoriezeile ohne Icon, wo ein Klecks daneben steht; Auswahlliste
+  mit getöntem Zeilengrund wie in Attrappe B und Gold-500/Gold-700 als Grundstrich; „ohne
+  Angabe“ als Index hinter der letzten Option, bestehende Filter-URLs bleiben gültig;
+  moosburg.eu als erster Eintrag im Panel.
+- Das Band in Gold-700 trägt Gold-200 nur mit 4,57:1, deutlich weniger als die dunklen
+  Themenfarben.
+- Gefunden: Das Weiterleitungs-Skript in `index.html` verschluckt Filter, deren Schlüssel auf
+  „p“ endet (`age_group`); einseitige rote Kante am Hinweis der Hexmap (Wahl-Runde).
+
+Entscheidungen bleiben vorläufig.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -663,7 +682,7 @@ Dunkelmodus (weiter verfolgt, nicht entschieden), Vorschlag aus Runde 1:
 | datahub | „1,656 Antworten“ mit englischem Tausendertrenner neben „2.868.813“ | im Briefing Data Hub, AP 2 |
 | datahub | Fußzeile nennt „Data Hub der Stadt Moosburg“, das Portal betont „kein Auftritt der Stadt“ | offen, inhaltlich mit Benedict klären; im Briefing Data Hub, AP 7 |
 | datahub | Über-Seite verspricht Download und Methodik-Hinweis, beides gibt es nicht | offen, im Briefing Data Hub, AP 7 |
-| datahub | acht Diagramme tragen „Inter Variable“ fest ein | im Briefing Data Hub, AP 1 |
+| datahub | acht Diagramme tragen „Inter Variable“ fest ein | behoben auf `probe/formsprache` (17.09.2026) |
 | datahub | Abschnitt `open_themes` der Bahnhofumfrage wird von keiner Komponente gerendert; zehn ausgewertete Themen liegen im Datensatz, die Seite zeigt den Platzhalter „Für diesen Abschnitt liegen noch keine Visualisierungen vor.“ | gefunden 16.09.2026, wird gebaut (erste Lesung, Punkt 12) |
 | datahub | Fuß verlinkt `moosburg.org` | Fehler laut Benedict (17.09.2026), fällt ersatzlos weg; der Weg zurück steht rechts oben im Info-Panel |
 | datahub | Kennzahl „Quelle“ setzt den Namen des Landesamts als Zahl (Serifenschrift, 36 px, Rot) | wandert in die Kategoriezeile (erste Lesung, Punkt 7) |
