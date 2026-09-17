@@ -387,6 +387,36 @@ Vier Punkte vorgelegt, Antworten stehen aus:
 
 Gefundene Fehler im Data Hub stehen in Abschnitt 7.
 
+### 17.09.2026, Antworten zur zweiten Lesung und dritte Lesung Data Hub
+
+Vorlage: „Data Hub, dritte Lesung“, https://claude.ai/artifact/D8g4dAkGrFwFzDtMyqtHjT.
+
+Entschieden:
+
+- **Filterbalken in zwei Goldtönen** (Punkt 11 A): ruhig Gold-500 `#b8964e`, gewählt
+  Gold-700 `#6e5a30`, dazu 2 px Grundstrich unter dem gewählten Balken, damit die Auswahl
+  nicht allein an der Farbe hängt. Rot fällt an dieser Stelle weg, der app-eigene Ton
+  `--color-gold-400: #b39f7a` im Data Hub ebenfalls. Dieselben Töne tragen die Filterknöpfe
+  und die Balken in der Auswahlliste.
+- **Zeichnungen beginnen mit dem Bahnhof** (Punkt 13): Bahnsteig mit Schranke und Abgang
+  zur Unterführung. Volksfest und Bevölkerungsstatistik folgen, wenn die erste im Band steht.
+
+Zurückgewiesen und neu gestellt:
+
+- **Orientierung (Punkt 9):** Weder die Kapitelzeile mit Aufklappliste noch die Sprungleiste
+  als Chips. Benedicts Entwurf: Kapitelname in der Mitte, Pfeile links und rechts. Als
+  Stepper ausgearbeitet, offen sind Ort (oben in der klebenden Leiste oder am Handy unten am
+  Daumen) und ob der Name zusätzlich die Kapitelliste öffnet.
+- **Filter am Handy (Punkt 10):** Weder Zustandszeile noch Chip-Zeile. Benedicts Entwurf:
+  zwei bis drei Kategorien als dauerhaft sichtbare Knöpfe, die eine Auswahlliste öffnen, mit
+  den Balken als kleinem Element in der Liste. Ausgearbeitet mit echten Zahlen; offen ist,
+  ob der Balken als eigene Spalte oder als Zeilenhintergrund steht.
+
+Nebenbefund aus dem Zählen: In der Bahnhofumfrage haben 314 von 1.656 Antworten keine
+Altersgruppe, 643 keinen Wohnort, 650 keine Nutzungshäufigkeit. Heute verschweigt die
+Filterleiste das. Vorgeschlagen ist „ohne Angabe“ als eigene, abgesetzte Zeile in der
+Auswahlliste.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -552,6 +582,22 @@ Bilder aller Varianten in „Data Hub, erste Lesung“
   auszublenden.
 - **Zeichnungen für alle drei Datensätze gleichzeitig**, statt erst einer Probe.
 - **Filterauswahl in Tinte** statt in Rot, ausdrücklich abgelehnt: zu leise.
+
+
+### Aus der zweiten Lesung Data Hub (17.09.2026)
+
+Bilder in „Data Hub, zweite Lesung“ (https://claude.ai/artifact/K7x9KzUVvjAkREAmkvehPR).
+Nicht gewählt:
+
+- **Kapitelzeile in der klebenden Leiste**, die erst nach dem Kopf einblendet und den Namen
+  des aktuellen Kapitels samt Zählung trägt; ebenso die **Sprungleiste als Chips** mit
+  Pillen-Markierung und die **Marke am linken Rand**, die das Kapitel am Desktop mitführt.
+- **Filterleiste am Handy als Zustandszeile** („412 von 1.656 Antworten“) mit den gesetzten
+  Filtern als Chips darunter, und die Variante mit der **wichtigsten Kategorie als
+  Chip-Zeile** plus Aufklapp für den Rest.
+- **Goldpaare:** Gold-200 `#e8d5a3` ruhig gegen Gold-600 `#967a40` gewählt (größter Sprung,
+  aber 1,45:1 auf Weiß und damit fast unsichtbar), sowie das heutige `#b39f7a` ruhig gegen
+  Gold-700 gewählt.
 
 
 ## 6. Werte, die schon nachgerechnet sind
