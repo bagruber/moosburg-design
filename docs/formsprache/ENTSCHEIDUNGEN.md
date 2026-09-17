@@ -454,6 +454,49 @@ Noch nicht gemergt, Freigabe steht aus. Auswertung: `../datahub/docs/formsprache
 
 Entscheidungen bleiben vorläufig.
 
+### 17./18.09.2026, Diagramme im Data Hub: drei Lesungen, entschieden
+
+Vorlagen: [erste Lesung](https://claude.ai/artifact/GzS2QsS4DaGV81u9bpXdVd),
+[zweite Lesung](https://claude.ai/artifact/NY9ombMSL1RtjmjxfP9nAa),
+[dritte Lesung](https://claude.ai/artifact/RGoMTMAxdu8e6kBvNR7tRP). Gesichtet wurden 14
+Diagrammtypen in fünf Datensätzen; Hexmap und Gremium der Wahlseite bleiben der Wahl-Runde.
+Gebaut ist noch nichts.
+
+**Farben, geprüft mit dem Palettenprüfer der Dataviz-Methode:**
+
+- **Unterscheiden** (sechs Töne aus dem Stripe, in der Helligkeit angepasst): Rot `#c0041e`,
+  Isar-Blau `#1196c1`, Gold `#ab821e`, Indigo `#525ab8`, Orange `#cc6c00`, Purpur `#8b569c`.
+  Schwächstes Nachbarpaar ΔE 20,8 bei Farbschwäche; die ersten drei bestehen auch jeder gegen
+  jeden. Grün `#0f994a` nur als siebter Ton, weil Rot neben Grün knapp trennt und wertet.
+- **Werten** (Skalen, Korrelation), sechs Stufen: `#a21a20` `#ca5650` `#de958e` `#72b5d3`
+  `#1b8cb3` `#00617f`; fünf Stufen mit warmem Grau `#d9d4ca` in der Mitte. Die heutige
+  Rot-Grün-Rampe fällt durch (Stufe 3 gegen 4: ΔE 4,6).
+- **Ordnen** (Preise, Wartezeiten), Gold: `#cfac64` `#b58f3c` `#99741b` `#7b5b01` `#5c4304`.
+- Die Hexwerte in `public/data/*.json` werden künftig ignoriert; die Farbe entscheidet der Code.
+
+**Elemente:** Titel in der Titelschrift mit Basiszeile (zählt mit den Filtern mit); Haarlinien
+ohne Tickstriche, keine Werteachse wo beschriftet; Prozent ohne Leerzeichen, Korrelation als
+„,24“; Legende als durchgehender Verlauf mit Kerbe, 11 bis 12 px; eigener Tooltip; Tabelle
+aufklappbar wie im Haushalt; am Handy Beschriftung über dem Balken, Kopf und Legende mittig.
+
+**Typen:** Balken und Säulen aufgeräumt (Säulen 70 % der Bandbreite); Anteilsbalken für
+geordnete Antworten, Ring mit Liste daneben für ungeordnete; Venn bleibt und wird flächentreu
+(zwei Mengen Kreise, drei Mengen Ellipsen, gerechnet statt konstruiert, größte Abweichung 0,09
+von 189 Personen), Schnittmengen in Schraffur aus den Farben ihrer Mengen; Skalen mit Kerben
+statt Mittellinie und mit dem arithmetischen Mittel als Punkt darunter, ebenso die Preise;
+zwei Lager zentriert auf „beide oder keine Meinung“; Spinnennetz bleibt, eingeklappt
+überlagert, ausgeklappt fünf einzelne Netze; Korrelation als halbe Matrix (Zahl ab ,30,
+negativ ab −,20), am Handy mit Namen auf der Diagonale; Linien monoton statt Catmull-Rom,
+damit keine Zwischenwerte erfunden werden; Alterspyramide feiner, ohne Geschlechterklischee.
+
+**Handschriftliche Notizen** kommen in die Diagramme: von Hand im Datensatz gesetzt, dazu eine
+Einstiegsnotiz an der Filterleiste beim ersten Besuch. Regeln wie am 14.09. festgelegt.
+
+**Gefundene Fehler:** die Rot-Grün-Skala; Prozentwerte ohne Basis (Verkehrsmittel summieren
+sich auf 143 %); geglättete Kurven, die zwischen Zählungen Werte erfinden; Korrelationsmatrix
+und Spinnennetz am Handy unlesbar; Reste der alten Formsprache („ANTWORTEN“ in Versalien,
+Achsentitel mit Pfeil).
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
