@@ -333,6 +333,53 @@ Vorlage: „Zweite Lesung Stadtrat-Probe“, https://claude.ai/artifact/CjfKtaZw
   wie ein generiertes Klischee. Ohne Wiederholung: Steht das Gremium in der Zeile, folgt
   darunter nur „N. Sitzung“ und das Datum. Gebaut im Kalenderblatt und im Sitzungskopf.
 
+### 16./17.09.2026, erste Lesung Data Hub
+
+Vorlage: „Data Hub, erste Lesung“, https://claude.ai/artifact/7yJQBjHVUt2bakmAsVmTXY.
+Umfang auf Benedicts Ansage: Übersicht, die beiden öffentlichen Umfragen (Bahnhof 2023,
+Volksfest 2024), Bevölkerungsstatistik 2022. Wahlergebnisse, Baumkarte, Moosburg
+historisch und Speisekarten laufen getrennt. Gebaut ist nichts.
+
+Entschieden (Punkt 1 bis 7 und 12 jeweils Variante A):
+
+- **Kopf der Übersicht:** Handschrift „nachgefragt“, Federzeichnung `buechereiA` in Gold
+  ab 1280 px, rechts unten angeschnitten. Etikett „Data Hub“ über der H1 fällt weg.
+- **Klecks auf den Kacheln bleibt** (46 px), zusammen mit der Kategoriezeile. Die
+  Stadtrat-Regel „Klecks nur in Köpfen“ meint Listen innerhalb einer Seite, nicht die
+  Kacheln der Übersicht.
+- **Alle drei Herkunftsarten behalten** ihren Grund: weiß für Umfragen, Pergament für
+  amtliche Statistik, Schraffur für eigene Auswertungen.
+- **Anzahl-Zeile** unten über einer Haarlinie. Bei den Karten-Kacheln wird der Restsatz
+  nicht gestrichen, sondern steht als ein Satz über der Zahl.
+- **Kein Aufmacher auf der Übersicht.** Die Farbe sitzt in den Köpfen der Datensatzseiten.
+- **Kopf der Datensatzseiten als Band** über die ganze Breite in der Themenfarbe, dunkler
+  Ton: Bahnhof Isar-Petrol `#123b4a`, Volksfest Tiefrot `#6d0818`, Bevölkerungsstatistik
+  Gold-700 `#6e5a30`. Zuordnung als Konstante nach Datensatz-ID im Code, Tiefrot als
+  Rückfall, keine neuen Felder im Manifest. Kennzahlen im Band, Zahl in Gold-200.
+- **Kennzahlen als Zeile statt als Karten.** Die Quelle ist keine Kennzahl und wandert in
+  die Kategoriezeile („Amtliche Statistik · Bayerisches Landesamt für Statistik“); die
+  dritte Kennzahl der Statistikseite wird die Zahl der Datenpunkte.
+- **„Kapitel N“ wird gestrichen.** Nachsatz Benedict: Bei längeren, vielfältigeren
+  Datensätzen braucht es gelegentlich trotzdem eine Struktur; das löst die Orientierung,
+  nicht die Zeile.
+- **Die offenen Rückmeldungen werden angezeigt.** Der Abschnitt `open_themes` der
+  Bahnhofumfrage (zehn ausgewertete Themen mit Titel, Beschreibung und Icon-Namen) wird
+  als Register mit Klecks gebaut. Bisher zeigte die Seite dort den Platzhalter „Für diesen
+  Abschnitt liegen noch keine Visualisierungen vor.“
+- **Tuschezeichnung je Datensatz: ja.** Motive werden zuerst ausgewählt, Benedict legt die
+  Zeichnungen nach. Technik wie im Portal-Einschub: WebP, die das Bild allein im
+  Alphakanal trägt, dunkel auf der Fläche eingefärbt.
+- **moosburg.org ist ein Fehler** und fällt aus dem Fuß. Der Weg zurück auf moosburg.eu
+  steht wie in den anderen Anwendungen rechts oben im Info-Panel.
+- **Rot bleibt Rot für Bedienung und Links**, aber die Filterauswahl geht nicht auf Tinte:
+  ausgeblasstes gegen kräftiges Gold. Werte in der zweiten Lesung.
+
+Offen und in der zweiten Lesung: Orientierung auf langen Seiten (etwas, das beim Scrollen
+einblendet), klebender aufklappbarer Filter am Handy, die beiden Goldtöne, die Motive der
+Zeichnungen.
+
+Gefundene Fehler im Data Hub stehen in Abschnitt 7.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -473,6 +520,33 @@ auf dem gebauten Stand, die Werte stehen hier, damit sie sich wieder herstellen 
   - Gremien-Kategoriezeile in der Skizze mit farbigem Seitenstrich am Eintrag (der alte
     Rahmen `.sheet-event.bpu`) und vollem Sitzungstitel darunter.
 
+### Aus der ersten Lesung Data Hub (16./17.09.2026)
+
+Bilder aller Varianten in „Data Hub, erste Lesung“
+(https://claude.ai/artifact/7yJQBjHVUt2bakmAsVmTXY). Nicht gewählt, aber aufgehoben:
+
+- **Kopf der Übersicht ohne Federzeichnung**, reine Typografie. Ebenso die anderen
+  Wörter für die Handschrift: „gezählt“, „erhoben“, „Zahlen“, „was zurückkam“.
+- **Kacheln nur mit Kategoriezeile**, ohne Klecks.
+- **Ein Grund für alle Kacheln** (weiß), Unterschied allein über Klecks und Kategoriezeile;
+  sowie die Zwischenstufe „Pergament bleibt, Schraffur fällt“.
+- **Restsätze der Karten-Kacheln streichen** („rund um Moosburg“, „von 1960 bis heute,
+  übereinandergelegt“, „aus 17 Speisekarten, jede mit Quelle und Datum“).
+- **Aufmacher auf der Übersicht:** Farbband über dem Raster für den ersten Nicht-Wahl-Eintrag
+  des Manifests, mit großer Zahl in Gold-200 und Knopf in Creme. Und die Variante, den
+  Aufmacher zurückzustellen, bis die Wahlseite dran ist. Der erste Manifest-Eintrag ist die
+  Kommunalwahl, deshalb wäre er ohne Ausnahmeregel auf sie gefallen.
+- **Datensatzköpfe hell lassen** (Kennzahlen als drei Karten, wie gebaut), und die
+  Zwischenstufe „Band nur bei der Statistik in Gold-700“, bei der die Farbe die Herkunft
+  trüge statt des Gegenstands.
+- **Kennzahlen als Karten behalten** und nur die Quelle verschieben.
+- **„Kapitel N“ als ruhige Zeile** in Satzschreibung, 13 px, gedämpfte Tinte.
+- **Anregungen als Kacheln** statt als Register, und die Variante, den Abschnitt vorerst
+  auszublenden.
+- **Zeichnungen für alle drei Datensätze gleichzeitig**, statt erst einer Probe.
+- **Filterauswahl in Tinte** statt in Rot, ausdrücklich abgelehnt: zu leise.
+
+
 ## 6. Werte, die schon nachgerechnet sind
 
 Kontrast nach WCAG 2.1 (Formel wie `scripts/kontrast.mjs`), am 14.09.2026 von Hand
@@ -505,6 +579,10 @@ Dunkelmodus (weiter verfolgt, nicht entschieden), Vorschlag aus Runde 1:
 | datahub | Fußzeile nennt „Data Hub der Stadt Moosburg“, das Portal betont „kein Auftritt der Stadt“ | offen, inhaltlich mit Benedict klären; im Briefing Data Hub, AP 7 |
 | datahub | Über-Seite verspricht Download und Methodik-Hinweis, beides gibt es nicht | offen, im Briefing Data Hub, AP 7 |
 | datahub | acht Diagramme tragen „Inter Variable“ fest ein | im Briefing Data Hub, AP 1 |
+| datahub | Abschnitt `open_themes` der Bahnhofumfrage wird von keiner Komponente gerendert; zehn ausgewertete Themen liegen im Datensatz, die Seite zeigt den Platzhalter „Für diesen Abschnitt liegen noch keine Visualisierungen vor.“ | gefunden 16.09.2026, wird gebaut (erste Lesung, Punkt 12) |
+| datahub | Fuß verlinkt `moosburg.org` | Fehler laut Benedict (17.09.2026), fällt ersatzlos weg; der Weg zurück steht rechts oben im Info-Panel |
+| datahub | Kennzahl „Quelle“ setzt den Namen des Landesamts als Zahl (Serifenschrift, 36 px, Rot) | wandert in die Kategoriezeile (erste Lesung, Punkt 7) |
+| datahub | Kommunalwahl trägt `kind: "statistik"` und damit Pergament und die Zeile „Amtliche Statistik“ | notiert, gehört zur Wahl-Runde |
 | council-voting-tool | Namen im Sitzring liegen unter den Kreisen („Dick“, „Marschoun“) | offen |
 | council-voting-tool | Noto-Schriften, roter Verlauf im Kopf | Kompromiss entschieden, offen |
 | moosburg | einseitiger Kantenakzent `border-l-4` in `src/pages/HubPage.tsx:80` | offen |
