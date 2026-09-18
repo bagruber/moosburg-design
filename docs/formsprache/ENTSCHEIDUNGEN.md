@@ -497,6 +497,24 @@ sich auf 143 %); geglättete Kurven, die zwischen Zählungen Werte erfinden; Kor
 und Spinnennetz am Handy unlesbar; Reste der alten Formsprache („ANTWORTEN“ in Versalien,
 Achsentitel mit Pfeil).
 
+### 18.09.2026, Diagramme im Data Hub umgesetzt
+
+Branch `probe/diagramme` in datahub, abgezweigt von `probe/formsprache`, AP 1 bis 11.
+Noch nicht gemergt, Freigabe steht aus. Auswertung:
+`../datahub/docs/diagramme-probe/ERGEBNIS.md`.
+
+- Farben liegen jetzt in `src/lib/palette.ts`; die Hexwerte der JSON-Dateien werden
+  ignoriert. Für andere Projekte gilt dieselbe Aufteilung: unterscheiden, werten, ordnen.
+- Neu gebaut: Basiszeile je Diagramm, aufklappbare Tabelle, Skalenleiste mit Kerbe,
+  Mittelwert unter den Skalen, halbe Korrelationsmatrix, Spinnennetz zum Ausklappen,
+  flächentreues Venn mit Ellipsen-Löser und Schraffur.
+- **Berichtigung zur ersten Lesung:** Die Linien waren nie überschwingend geglättet,
+  `LineSeries` nutzt seit jeher `monotone-x`.
+- Offen und in die ETL-Runde verschoben, weil sie ein neues Feld in den JSON-Dateien
+  brauchen: Anteilsbalken für geordnete Antworten und die handschriftlichen Notizen.
+- Der Ellipsen-Löser braucht rund 200 ms, nicht „wenige Millisekunden“ wie in der
+  dritten Lesung geschätzt.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
