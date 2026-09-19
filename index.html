@@ -155,6 +155,44 @@
 
   a { color: inherit; }
   :where(a, button):focus-visible { outline: 2px solid var(--color-red-500); outline-offset: 2px; border-radius: var(--radius-sm); }
+  /* Zweifarbige Tuschezeichnung: zwei Schablonen aus einem Blatt.
+     Die Datei trägt nur die Deckung, die Farbe kommt aus Tokens. */
+  .zeichnung {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1200 / 738;
+    --zeichnung-linie: var(--color-gold-200);
+    --zeichnung-flaeche: var(--color-red-500);
+  }
+  .zeichnung > span {
+    position: absolute;
+    inset: 0;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+  .zeichnung .lage-flaeche {
+    background: var(--zeichnung-flaeche);
+    -webkit-mask-image: url("assets/bahnhofA-farbe.webp");
+    mask-image: url("assets/bahnhofA-farbe.webp");
+  }
+  .zeichnung .lage-linie {
+    background: var(--zeichnung-linie);
+    -webkit-mask-image: url("assets/bahnhofA-tinte.webp");
+    mask-image: url("assets/bahnhofA-tinte.webp");
+  }
+  .zeichnungen { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin-top: 1.25rem; }
+  .zeichnung-probe { padding: 0.9rem; border-radius: var(--radius-xl); }
+  .zeichnung-probe p { margin: 0.6rem 0 0; font-size: 0.8125rem; }
+  .zeichnung-probe--dunkel { background: var(--color-red-900); }
+  .zeichnung-probe--dunkel p { color: var(--color-gold-200); }
+  .zeichnung-probe--gold { background: var(--color-gold-100); }
+  .zeichnung-probe--gold p { color: var(--color-gold-700); }
+  .zeichnung-probe--hell { background: #fff; border: 1px solid var(--color-ink-line); }
+  .zeichnung-probe--hell p { color: var(--color-ink-muted); }
 </style>
 </head>
 <body>
@@ -311,6 +349,54 @@
       <div class="rainbow-stripe" style="margin-top:1rem" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Signatur</p>
+      <h2>Zeichnungen: ein Blatt, zwei Schablonen</h2>
+      <p>
+        Eine Zeichnung im Haus ist kein Bild, sondern eine Schablone: Die Datei
+        trägt nur die Deckung, die Farbe kommt aus einem Token. Deshalb steht
+        dieselbe Zeichnung auf Creme in Gold und auf einer Farbfläche in Creme.
+        Zweifarbige Blätter werden in zwei Schablonen zerlegt, eine für die
+        Linien, eine für die Farbflächen, deckungsgleich beschnitten. Sie liegen
+        übereinander, jede nimmt ihre eigene Farbe. Ein <code>&lt;img&gt;</code>
+        brächte seine Farben mit und fiele damit aus dem Kanon.
+      </p>
+      <div class="zeichnungen">
+        <div class="zeichnung-probe zeichnung-probe--dunkel">
+          <div class="zeichnung" role="img" aria-label="Zeichnung auf dunkler Fläche">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Auf dunkler Fläche: Linien Gold-200 (8,5:1), Flächen Rot-500, Ton in Ton.</p>
+        </div>
+        <div class="zeichnung-probe zeichnung-probe--gold">
+          <div class="zeichnung" style="--zeichnung-linie: var(--color-gold-700)" role="img" aria-label="Zeichnung auf Pergament">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Auf Pergament: Linien Gold-700 (5,6:1), Flächen Rot-500 (5,0:1).</p>
+        </div>
+        <div class="zeichnung-probe zeichnung-probe--hell">
+          <div class="zeichnung" style="--zeichnung-linie: var(--color-ink)" role="img" aria-label="Zeichnung auf hellem Grund">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Auf hellem Grund: Linien Tinte (16:1), Flächen Rot-500 (5,5:1).</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem">
+        <b>Die Linien tragen das Bild, die Flächen schmücken es.</b> Auf dunklem
+        Grund liegt Rot-500 nur bei 2,1:1, das ist gewollt und genau der Ton in
+        Ton, der die Fläche ruhig hält. Deshalb muss die Linienebene dort für
+        sich lesbar sein. Weiß ist für die Linien nicht vorgesehen, es wirkt auf
+        den Farbflächen hart; Gold oder Beige gehören dorthin.
+      </p>
+      <p>
+        Als Wasserzeichen bleibt es bei einer Ebene und 6 bis 9 Prozent Deckung.
+        In voller Deckung als Bild steht die Zeichnung nur dort, wo eine Seite
+        wirbt statt zu informieren.
+      </p>
     </div>
   </section>
 

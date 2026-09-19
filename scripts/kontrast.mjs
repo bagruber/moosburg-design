@@ -44,6 +44,16 @@ const paare = [
   ["cream", "red-900", 4.5, "Fußzeilen-Text auf Tiefrot"],
   ["gold-200", "red-900", 4.5, "Fußzeilen-Überschriften auf Tiefrot"],
   ["ink-line", "cream", 1.2, "Haarlinien, rein dekorativ"],
+
+  // Zweifarbige Tuschezeichnungen: Die Linienebene trägt das Bild und muss
+  // für sich lesbar sein, die Farbebene schmückt. Auf dunklem Grund liegt sie
+  // bewusst Ton in Ton und damit unter 3,0.
+  ["gold-200", "red-900", 3.0, "Zeichnungslinien auf dunkler Fläche"],
+  ["gold-700", "gold-100", 3.0, "Zeichnungslinien auf Pergament"],
+  ["ink", "cream", 3.0, "Zeichnungslinien auf hellem Grund"],
+  ["red-500", "gold-100", 3.0, "Zeichnungsflächen auf Pergament"],
+  ["red-500", "cream", 3.0, "Zeichnungsflächen auf hellem Grund"],
+  ["red-500", "red-900", 1.2, "Zeichnungsflächen auf dunkler Fläche, Ton in Ton"],
 ];
 
 let fehler = 0;

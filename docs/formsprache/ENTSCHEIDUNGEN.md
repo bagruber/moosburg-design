@@ -515,6 +515,47 @@ Noch nicht gemergt, Freigabe steht aus. Auswertung:
 - Der Ellipsen-Löser braucht rund 200 ms, nicht „wenige Millisekunden“ wie in der
   dritten Lesung geschätzt.
 
+### 19.09.2026, zweifarbige Zeichnungen, im Kanon notiert
+
+Entstanden an der Aktionsseite „Pop-up Bahnhof“ (`moosburg-eu`, Bereich
+`/aktionen/`), auf Benedicts Wunsch als Variante in den Kanon zurückgeschrieben.
+
+**Die Technik.** Ein Blatt wird in **zwei Schablonen** zerlegt, eine für die
+Tuschelinien, eine für die Farbflächen, deckungsgleich beschnitten. Beide liegen
+als Maske übereinander, jede nimmt ihre Farbe aus einem Token. Getrennt wird über
+Sättigung und Deckung, nicht über einen festen Farbwert:
+`Deckung = clip((230 − Luma) / 170)`, `farbig = clip((Sättigung − 25) / 65)`, daraus
+`Linien = Deckung × (1 − farbig)` und `Flächen = Deckung × farbig`. Als `LA`-WebP
+mit Qualität 72 gespeichert, zusammen rund so groß wie eine einfarbige Zeichnung
+(im ersten Fall 95 plus 28 KB). Ein `<img>` scheidet aus, es brächte seine Farben
+mit und fiele aus dem Kanon.
+
+**Die drei Varianten** (Werte in Abschnitt 6, geprüft von `scripts/kontrast.mjs`):
+
+| Grund | Linien | Flächen |
+|---|---|---|
+| dunkle Fläche (Tiefrot, Petrol, Nachtblau …) | Gold-200 | Rot-500, Ton in Ton |
+| Pergament Gold-100 | Gold-700 | Rot-500 |
+| heller Grund (Creme, Weiß) | Tinte | Rot-500 |
+
+**Die Regel dazu: Die Linien tragen das Bild, die Flächen schmücken es.** Auf
+dunklem Grund liegt Rot-500 bei 2,1:1; das ist gewollt und hält die Fläche ruhig,
+verlangt aber, dass die Linienebene für sich lesbar ist. **Weiß ist für die Linien
+nicht vorgesehen** (Benedict, 19.09.2026): Es wirkt auf den Farbflächen hart, Gold
+oder Beige gehören dorthin.
+
+**Deckung.** Als Wasserzeichen bleibt es bei einer Ebene und 6 bis 9 Prozent. In
+voller Deckung als Bild steht eine Zeichnung nur, wo eine Seite wirbt statt zu
+informieren; bisher nur auf Aktionsseiten.
+
+**Fürs Zeichnen:** die zweite Farbe als Fläche anlegen, nicht als dünne Linie,
+sonst bleibt nach dem Trennen zu wenig übrig. Sonst gilt das Übliche: quadratisch
+oder querformatig, mindestens 2000 px, reine Strichzeichnung, kein Rahmen, keine
+Signatur.
+
+Gezeigt wird das Ganze im Showcase (`index.html`, Abschnitt „Zeichnungen: ein
+Blatt, zwei Schablonen“), die Beispieldateien liegen in `assets/`.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -725,6 +766,18 @@ gerechnet, **noch nicht** in `kontrast.mjs` eingetragen:
 | Erdbraun `#4a2a17` | 12,1:1 | 8,9:1 | 4,6:1 |
 | Nachtblau `#26295e` | 12,6:1 | 9,3:1 | 4,8:1 |
 | Aubergine `#3f2248` | 12,8:1 | 9,4:1 | 4,9:1 |
+
+Zweifarbige Zeichnungen, am 19.09.2026 gerechnet und **in `kontrast.mjs`
+eingetragen**:
+
+| Paar | Wert | Rolle |
+|---|---|---|
+| Gold-200 auf Tiefrot | 8,5:1 | Linien auf dunkler Fläche |
+| Gold-700 auf Gold-100 | 5,6:1 | Linien auf Pergament |
+| Tinte auf Creme | 16,0:1 | Linien auf hellem Grund |
+| Rot-500 auf Gold-100 | 5,0:1 | Flächen auf Pergament |
+| Rot-500 auf Creme | 5,5:1 | Flächen auf hellem Grund |
+| Rot-500 auf Tiefrot | 2,1:1 | Flächen auf dunkler Fläche, Ton in Ton, dekorativ |
 
 Dunkelmodus (weiter verfolgt, nicht entschieden), Vorschlag aus Runde 1:
 
