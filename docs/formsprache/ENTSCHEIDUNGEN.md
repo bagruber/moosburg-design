@@ -556,6 +556,91 @@ Signatur.
 Gezeigt wird das Ganze im Showcase (`index.html`, Abschnitt „Zeichnungen: ein
 Blatt, zwei Schablonen“), die Beispieldateien liegen in `assets/`.
 
+### 26.09.2026, erste Lesung Website-Konzept
+
+Vorlage: „Website-Konzept, erste Lesung“, https://claude.ai/artifact/RoXPJU5xYuszioVQmbTP3G.
+Protokoll: `../moosburg/docs/formsprache/konzept-erste-lesung.md`. Nur Vorschläge,
+gebaut ist nichts, Antworten stehen aus.
+
+- **Vorgabe von Benedict:** funktionale Logik, Vielfalt der Seitenstrukturen und
+  gezielte Lenkung bleiben; mehr als Rot für Farbflächen; Themenseiten dürfen einen
+  eigenen Charakter haben; Ergänzungen zum Kanon sind erwünscht.
+- **13 Punkte**, darunter Farbe nach Gegenstand (familienweit abgeglichen mit Stadtrat
+  und Data Hub), Foto-Kopf ohne Text auf abgedunkeltem Bild, zweifarbige Zeichnungen auf
+  Identity-Köpfen, Handschrift als Wegweiser, Gastelement auf Themenseiten.
+- **Zwölf Kanon-Ergänzungen K1 bis K12**, für diesen Abschnitt am wichtigsten:
+  - **K2 Ton in Ton für alle Themenfarben.** Rot-500 auf Petrol, Grün oder Braun ist kein
+    Ton in Ton mehr. Flächentöne auf 2,2:1 gegen das Band gerechnet: Tannengrün
+    `#157840`, Isar-Petrol `#117393`, Erdbraun `#9b5309`, Nachtblau `#5159b6`,
+    Aubergine `#7f4e8f`. Nicht in `kontrast.mjs`.
+  - **K3 Trennformel:** Chroma (`max − min`) statt HSV-Sättigung. Beim Hirschen zog die
+    Sättigung die dunklen Tuschelinien in die Farbebene.
+  - **K4 Deckung der Farbebene:** im Mittel 56 % (Bahnhof) und 66 % (Hirschen), Rot-500
+    wird auf Creme rosa. Normieren oder als Aquarell wollen.
+  - **K12 Deckkraft der Wasserzeichen:** Kanon 6 bis 9 %, der Stadt-Prototyp hat 11 bis
+    22 % je Grund gemessen.
+- **Neues Material:** zweifarbiger Hirschen als `hirschenC-tinte.webp` und
+  `hirschenC-farbe.webp` in `../moosburg/public/sketches/`; 32 Fotos vom 21.09.2026 in
+  `../moosburg/public/images/stadt/`.
+
+### 26.09.2026, Antworten zur ersten Lesung Website-Konzept
+
+Grundsätzlich angenommen, mit den empfohlenen Varianten und K1 bis K12 (K4: normieren).
+Für den Kanon wichtig:
+
+- **Rot-600 bleibt** als Hinweis-Fläche für Stellen mit Aufmerksamkeitscharakter
+  (Jubiläen, besondere Feste), nicht als allgemeine Themenfläche. Creme darauf 6,69:1,
+  Gold-200 4,93:1.
+- **Gold-700 doppelt belegt:** amtliche Statistik im Data Hub, Mitmachen im Konzept.
+- **Madelon Script bleibt.**
+- **Gastelement auf Themenseiten (K9):** festgehalten, noch nicht angenommen, wird
+  überarbeitet.
+- **Gesichter-Regel:** verschoben, Personenfotos kommen nach.
+- Zwei weitere zweifarbige Zeichnungen liegen vor (Rathaus, Stalag VII A), noch nicht
+  zerlegt.
+
+Die Umsetzung, auch die Kanon-Schritte in diesem Repo (taggen und pinnen, Schriften und
+Themenfarben in `theme.css`, Paare in `kontrast.mjs`), steht als Anweisung in
+`../moosburg/docs/formsprache/briefing-umsetzung.md`.
+
+### 26.09.2026, im Kanon umgesetzt
+
+Erste Phase des Briefings, in diesem Repo abgeschlossen. `version` steht auf `0.3.0`.
+
+- **Schriften getauscht.** `--font-display` auf Source Serif 4, `--font-sans` auf Atkinson
+  Hyperlegible Next, beide als `@fontsource-variable`-Paket in `^5.3.0`. Der Import von
+  Source Serif 4 geht bewusst auf `/opsz.css`, sonst fehlt die Achse der optischen Größen.
+  Madelon Script bleibt. Playfair und Inter sind aus dem Kanon heraus.
+- **Farben.** Die sechs Themenfarben als `--color-thema-*`, die Ton-in-Ton-Flächen als
+  `--color-zeichnung-*`, das tiefe Rot der Portal-Probe als `--color-red-950`. Tiefrot ist
+  derselbe Wert wie `red-900` und steht zusätzlich unter seinem Gegenstandsnamen, damit
+  eine Seite ihre Farbe benennen kann statt eine Stufe der Rot-Skala. `red-600` behält
+  seinen Wert und bekommt die Rolle als Hinweis-Fläche.
+- **`kontrast.mjs`.** Themenfarben gegen Creme, Gold-200 und Gold-500; Gold-200 auf den
+  Ton-in-Ton-Flächen; Creme und Gold-200 auf `red-600`, `gold-700` und `red-950`. Dazu ein
+  zweiter Prüfteil mit einer **Obergrenze** statt einer Untergrenze: eine Ton-in-Ton-Fläche
+  soll ruhig sein, nicht kontrastreich, und darf nicht aus ihrem Band herausspringen
+  (gemessen 2,20 bis 2,23:1, erlaubt bis 2,6). Alle Werte des Briefings bestätigt.
+- **`README.md`.** K1 als Tabelle „Farbe nach Gegenstand“ samt der Doppelbelegung von
+  Gold-700, dazu K2 bis K12 als kurze Regeln, die Rot-600-Regel und die Flächenfolge.
+- **Showcase.** Neuer Abschnitt zu Ton in Ton je Themenfarbe, zur Trennung über Chroma und
+  zur Normierung, letztere als Vorher-Nachher nebeneinander
+  (`assets/bahnhofA-farbe-normiert.webp`, neu). Das Bahnhof-Paar selbst bleibt
+  unverändert, weil die live geschaltete Aktionsseite in `moosburg-eu` es nutzt.
+
+**Nicht gepinnt, bewusst.** Das Briefing sah vor, zuerst `v0.2.0` zu taggen und die fünf
+Konsumenten darauf festzunageln. Benedict hat am 26.09.2026 entschieden, alle Projekte
+zügig auf den neuen Stand zu bringen; ein Pin auf den alten Kanon würde genau das
+aufhalten. Der Schriftwechsel soll die fünf erreichen. Entsprechend sind die beiden
+Schriftpakete in `hausbasis/baseline.json` eingetragen und in allen fünf Konsumenten
+gesetzt, Inter und Playfair dort entfernt. `baumkarte` und `moosburg-historisch` haben
+ihre CSS-Importe mitbekommen; ihre Versalien-`.headline` bleibt vorerst, das ist Teil der
+Nacharbeit je Projekt.
+
+**Offen für Projekte ohne Build-Step.** `fonts/` führt weiter Inter- und
+Playfair-Subsets; `moosburg-eu` und das Sitzungstool hängen damit noch an den alten
+Schriften. Siehe `OFFENE-PUNKTE.md`.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026

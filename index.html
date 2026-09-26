@@ -193,6 +193,18 @@
   .zeichnung-probe--gold p { color: var(--color-gold-700); }
   .zeichnung-probe--hell { background: #fff; border: 1px solid var(--color-ink-line); }
   .zeichnung-probe--hell p { color: var(--color-ink-muted); }
+  /* Die normierte Farbebene als eigene Datei, damit sich der Unterschied
+     nebeneinander zeigen lässt (K4). */
+  .zeichnung--normiert .lage-flaeche {
+    -webkit-mask-image: url("assets/bahnhofA-farbe-normiert.webp");
+    mask-image: url("assets/bahnhofA-farbe-normiert.webp");
+  }
+  .zeichnung-probe--creme { background: var(--color-cream); border: 1px solid var(--color-ink-line); }
+  .zeichnung-probe--creme p { color: var(--color-ink-muted); }
+  .tonprobe--tannengruen { background: var(--color-thema-tannengruen); }
+  .tonprobe--isarpetrol { background: var(--color-thema-isarpetrol); }
+  .tonprobe--aubergine { background: var(--color-thema-aubergine); }
+  .tonprobe p { color: var(--color-gold-200); }
 </style>
 </head>
 <body>
@@ -396,6 +408,72 @@
         Als Wasserzeichen bleibt es bei einer Ebene und 6 bis 9 Prozent Deckung.
         In voller Deckung als Bild steht die Zeichnung nur dort, wo eine Seite
         wirbt statt zu informieren.
+      </p>
+
+      <h3 style="margin-top:2rem">Ton in Ton gilt für jede Themenfarbe</h3>
+      <p>
+        Rot-500 ist der ruhige Partner von Tiefrot, sonst nichts. Auf Petrol,
+        Grün oder Aubergine wäre es ein zweiter Farbton und damit eine zweite
+        Aussage. Jedes Band hat deshalb seinen eigenen Flächenton, gerechnet auf
+        2,2:1 gegen das Band — dieselbe Ruhe, die Rot-500 auf Tiefrot mit 2,1:1
+        hat. Die Töne stehen als <code>zeichnung-*</code> bereit.
+      </p>
+      <div class="zeichnungen">
+        <div class="zeichnung-probe tonprobe tonprobe--isarpetrol">
+          <div class="zeichnung" style="--zeichnung-flaeche: var(--color-zeichnung-isarpetrol)" role="img" aria-label="Zeichnung auf Isar-Petrol">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Isar-Petrol mit <code>zeichnung-isarpetrol</code>.</p>
+        </div>
+        <div class="zeichnung-probe tonprobe tonprobe--tannengruen">
+          <div class="zeichnung" style="--zeichnung-flaeche: var(--color-zeichnung-tannengruen)" role="img" aria-label="Zeichnung auf Tannengrün">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Tannengrün mit <code>zeichnung-tannengruen</code>.</p>
+        </div>
+        <div class="zeichnung-probe tonprobe tonprobe--aubergine">
+          <div class="zeichnung" style="--zeichnung-flaeche: var(--color-zeichnung-aubergine)" role="img" aria-label="Zeichnung auf Aubergine">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Aubergine mit <code>zeichnung-aubergine</code>.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:2rem">Wie die zwei Schablonen entstehen</h3>
+      <p>
+        Getrennt wird über die <b>Chroma</b> eines Pixels, also
+        <code>max − min</code> der drei Kanäle — nicht über die HSV-Sättigung.
+        Bei dunklen Pixeln springt die Sättigung schon durch JPEG-Rauschen hoch,
+        und die fast schwarzen Tuschelinien landen dann in der Farbebene. Mit
+        Chroma ist die Trennung sauber. Beide Ebenen werden gemeinsam
+        beschnitten, sonst sitzen sie nicht mehr übereinander.
+      </p>
+      <p>
+        Danach wird die Farbebene <b>auf volle Deckung normiert</b>: Alpha durch
+        das 90. Perzentil der Nicht-Null-Werte, bei 1 gekappt. Ohne das liegt die
+        mittlere Deckung bei gut der Hälfte, und Rot-500 wirkt auf Creme nicht
+        rot, sondern rosa.
+      </p>
+      <div class="zeichnungen">
+        <div class="zeichnung-probe zeichnung-probe--creme">
+          <div class="zeichnung" style="--zeichnung-linie: var(--color-ink)" role="img" aria-label="Farbebene wie aus der Trennung, 52 Prozent Deckung">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Wie aus der Trennung: 52 % mittlere Deckung, das Rot wirkt rosa.</p>
+        </div>
+        <div class="zeichnung-probe zeichnung-probe--creme">
+          <div class="zeichnung zeichnung--normiert" style="--zeichnung-linie: var(--color-ink)" role="img" aria-label="Farbebene normiert, 89 Prozent Deckung">
+            <span class="lage-flaeche"></span><span class="lage-linie"></span>
+          </div>
+          <p>Normiert: 89 %, und Rot-500 ist wieder Rot-500.</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem">
+        Das Verfahren steht als Skript in
+        <code>moosburg/scripts/zeichnung_zerlegen.py</code>.
+        <b>Beschriftung:</b> Ortsnamen dürfen in der Zeichnung stehen —
+        „Moosburg“ am Bahnhof — Betriebsnamen nicht, sonst wirbt der Kanon für
+        einen einzelnen Betrieb.
       </p>
     </div>
   </section>

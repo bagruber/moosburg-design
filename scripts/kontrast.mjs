@@ -54,9 +54,62 @@ const paare = [
   ["red-500", "gold-100", 3.0, "Zeichnungsflächen auf Pergament"],
   ["red-500", "cream", 3.0, "Zeichnungsflächen auf hellem Grund"],
   ["red-500", "red-900", 1.2, "Zeichnungsflächen auf dunkler Fläche, Ton in Ton"],
+
+  // Themenfarben (K1, 26.09.2026): Farbe nach Gegenstand. Jede trägt Creme,
+  // Gold-200 und — nur für große Schrift und Grafik — Gold-500.
+  ...["thema-tiefrot", "thema-erdbraun", "thema-nachtblau",
+      "thema-isarpetrol", "thema-tannengruen", "thema-aubergine"].flatMap((band) => [
+    ["cream", band, 4.5, `Fließtext auf ${band}`],
+    ["gold-200", band, 4.5, `Etikett, große Zahl und Handschrift auf ${band}`],
+    ["gold-500", band, 3.0, `Gold-500 auf ${band}, nur große Schrift und Grafik`],
+  ]),
+
+  // Ton in Ton (K2): die Farbebene der Zeichnung liegt bewusst nah am Band und
+  // bleibt unter 3,0 — sie schmückt, sie trägt nichts. Geprüft wird nur, dass
+  // sie nicht aus dem Band herausspringt. Die Linienebene darüber muss dagegen
+  // für sich lesbar sein.
+  ...["erdbraun", "nachtblau", "isarpetrol", "tannengruen", "aubergine"].map((ton) =>
+    ["gold-200", `zeichnung-${ton}`, 3.0, `Zeichnungslinien auf der Fläche Ton in Ton (${ton})`]),
+
+  // Hinweis-Fläche red-600 (26.09.2026): Jubiläen und besondere Feste,
+  // höchstens eine pro Seite.
+  ["cream", "red-600", 4.5, "Text auf der Hinweis-Fläche"],
+  ["gold-200", "red-600", 4.5, "Überschrift und Handschrift auf der Hinweis-Fläche"],
+
+  // Gold-700 als Fläche: amtliche Statistik im Data Hub, Mitmachen im
+  // Stadt-Konzept. Doppelt belegt, bewusst (Benedict, 26.09.2026).
+  ["cream", "gold-700", 4.5, "Text auf der Fläche Gold-700"],
+  ["gold-200", "gold-700", 4.5, "Überschrift und Handschrift auf Gold-700"],
+
+  // Tiefes Rot: Einschub im Portal.
+  ["cream", "red-950", 4.5, "Text auf dem tiefen Rot"],
+  ["gold-200", "red-950", 4.5, "Überschrift und Handschrift auf dem tiefen Rot"],
+];
+
+// Ton-in-Ton-Flächen gegen ihr Band: das Paar soll ruhig sein, nicht
+// kontrastreich. Hier gilt eine Obergrenze statt einer Untergrenze — springt
+// der Ton heraus, liest sich die Zeichnung als zweite Fläche.
+const tonInTon = [
+  ["zeichnung-erdbraun", "thema-erdbraun"],
+  ["zeichnung-nachtblau", "thema-nachtblau"],
+  ["zeichnung-isarpetrol", "thema-isarpetrol"],
+  ["zeichnung-tannengruen", "thema-tannengruen"],
+  ["zeichnung-aubergine", "thema-aubergine"],
+  ["red-500", "thema-tiefrot"],
 ];
 
 let fehler = 0;
+for (const [flaeche, band] of tonInTon) {
+  const wert = kontrast(flaeche, band);
+  // 2,2:1 ist der gerechnete Zielwert (K2), 2,6 lässt Luft nach oben.
+  const ok = wert <= 2.6;
+  if (!ok) fehler++;
+  console.log(
+    `${ok ? "ok  " : "ZU LAUT"} ${flaeche} auf ${band}: ${wert.toFixed(2)}:1` +
+      ` (max 2.6) Zeichnungsfläche Ton in Ton`
+  );
+}
+
 for (const [vg, grund, min, wo] of paare) {
   const wert = kontrast(vg, grund);
   const ok = wert >= min;

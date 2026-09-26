@@ -18,9 +18,18 @@
   --color-red-50: #fdf3f5;
   --color-red-100: #fbe5e9;
   --color-red-500: #c8102e;
+  /* Seit 26.09.2026 keine allgemeine Themenfläche mehr, sondern die
+     Hinweis-Fläche für Stellen mit Aufmerksamkeitscharakter: Jubiläen,
+     besondere Feste. Höchstens eine pro Seite. Creme darauf 6,69:1,
+     Gold-200 4,93:1. */
   --color-red-600: #b00e28;
   --color-red-700: #a50d24;
   --color-red-900: #6d0818;
+  /* Tiefer als red-900, aus der Portal-Probe (16.09.2026): trägt dort den
+     Einschub „In eigener Sache“ (moosburg-eu `--flaeche-einschub`). Creme
+     darauf 14,1:1, Gold-200 10,4:1. Gegen Tinte nur 1,13:1 — zwei solche
+     Flächen aneinander trennt allein der Stripe. */
+  --color-red-950: #52060f;
 
   --color-gold-100: #f6ecd5;
   --color-gold-200: #e8d5a3;
@@ -43,6 +52,32 @@
   --color-purple-accent: #6b3e7a;
   --color-turquoise-accent: #18ada4;
 
+  /* Themenfarben: Farbe nach Gegenstand, nicht nach Bereich (K1, 26.09.2026).
+     Eine Farbe trägt in allen Projekten denselben Gegenstand, damit es eine
+     Zuordnung gibt und nicht je Projekt eine eigene. Belegt sind sie in
+     `datahub/src/lib/themenfarbe.ts` (Band je Datensatz) und in
+     `council/css/style.css` (`--gremium-*`); die Tabelle steht in README.md.
+     Tiefrot ist derselbe Wert wie red-900 und steht hier unter seinem
+     Gegenstandsnamen, damit eine Seite ihre Farbe benennen kann statt eine
+     Stufe der Rot-Skala. Creme darauf 11,2:1 bis 12,8:1. */
+  --color-thema-tiefrot: #6d0818;
+  --color-thema-erdbraun: #4a2a17;
+  --color-thema-nachtblau: #26295e;
+  --color-thema-isarpetrol: #123b4a;
+  --color-thema-tannengruen: #1f3b2d;
+  --color-thema-aubergine: #3f2248;
+
+  /* Ton in Ton: die Farbebene einer zweifarbigen Zeichnung auf der jeweiligen
+     Themenfläche (K2, 26.09.2026). Je Ton auf 2,2:1 gegen sein Band gerechnet —
+     dieselbe Ruhe, die red-500 auf Tiefrot mit 2,1:1 hat. Auf Tiefrot bleibt
+     deshalb red-500 die Flächenfarbe, ein eigener Ton wäre doppelt.
+     Dekorativ, nie Textfarbe. Gold-200-Linien darauf 3,7 bis 4,3:1. */
+  --color-zeichnung-erdbraun: #9b5309;
+  --color-zeichnung-nachtblau: #5159b6;
+  --color-zeichnung-isarpetrol: #117393;
+  --color-zeichnung-tannengruen: #157840;
+  --color-zeichnung-aubergine: #7f4e8f;
+
   /* Rainbow-Stripe: neun feste Segmente in dieser Reihenfolge, 4 px hoch,
      nie als Verlauf. */
   --color-rb-1: #e91e8c;
@@ -55,12 +90,25 @@
   --color-rb-8: #8b4a2a;
   --color-rb-9: #1a1a1a;
 
-  /* Drei Schriftrollen: Playfair-Versalien für Display, Inter für alles
-     andere, Madelon Script als seltener Akzent. Das @font-face für Madelon
-     bleibt beim Projekt, das die Datei ausliefert. */
-  --font-display: "Playfair Display", ui-serif, Georgia, serif;
-  --font-script: "Madelon Script", "Playfair Display", cursive;
-  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Drei Schriftrollen. Seit 26.09.2026 Source Serif 4 für Display und
+     Atkinson Hyperlegible Next für alles andere (Entscheidung vom 14.09.2026,
+     ENTSCHEIDUNGEN.md Abschnitt 4). Beide OFL. Playfair und Inter sind damit
+     aus dem Kanon heraus; Inter war als austauschbare Standardschrift
+     aufgefallen, Atkinson ist auf Lesbarkeit hin entworfen.
+
+     Das Projekt muss die Pakete selbst importieren, die Tokens benennen nur
+     die Familie:
+       @import "@fontsource-variable/source-serif-4/opsz.css";
+       @import "@fontsource-variable/atkinson-hyperlegible-next";
+     Der opsz-Import ist Absicht: Source Serif 4 bringt optische Größen 8 bis
+     60, und die Titelgrade holen sich daraus die richtige Zeichnung.
+
+     Madelon Script bleibt als seltener Akzent (Benedict, 26.09.2026). Das
+     @font-face dafür bleibt beim Projekt, das die Datei ausliefert; die
+     Lizenz ist weiter offen, Ersatz mit gleichem Charakter wäre Ms Madi. */
+  --font-display: "Source Serif 4 Variable", "Source Serif 4", ui-serif, Georgia, serif;
+  --font-script: "Madelon Script", "Source Serif 4 Variable", cursive;
+  --font-sans: "Atkinson Hyperlegible Next Variable", "Atkinson Hyperlegible Next", ui-sans-serif, system-ui, sans-serif;
 
   --text-display-1: 4rem;
   --text-display-2: 3rem;

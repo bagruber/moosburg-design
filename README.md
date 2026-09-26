@@ -70,8 +70,10 @@ Der Kanon ist verbindlich, aber nicht überall gleich streng. Es gibt zwei
 Profile, und jedes Projekt weiß, zu welchem es gehört:
 
 **Auftritt** (Portal, Stadt-Prototyp, Data Hub, Karten): das volle Programm.
-Playfair-Versalien für Display, Kicker in Gold, Rainbow-Stripe als Signatur,
-Script-Akzent sparsam.
+Große Serifen-Titel, Rainbow-Stripe als Signatur, Script-Akzent sparsam,
+Farbflächen nach Gegenstand. Versalien sind seit dem 14.09.2026 nicht mehr
+Teil davon; Kicker über der Überschrift nur, wo sie etwas anderes sagen als
+die Überschrift.
 
 **Werkzeug** (council, Sitzungstool): hohe Informationsdichte schlägt
 Markenauftritt. Einfachere Schriftgrade, dichtere Abstände und abweichende
@@ -105,11 +107,96 @@ Werte ersetzen:
   als Textfarbe nirgends freigegeben und mit weißer Schrift (2,8:1) auch
   als Badge-Grund nicht.
 
-**Schriften.** Playfair Display und Inter kommen in den Vite-Projekten als
-`@fontsource`-Pakete, in Projekten ohne Build als lokal gehostete
-woff2-Subsets (Vorlage: `moosburg-eu/public/assets/fonts/`). Madelon Script
-liegt nur im Repo `moosburg` und bleibt dort; andere Projekte setzen den
-Script-Akzent nicht ein.
+**Schriften.** Seit dem 26.09.2026 Source Serif 4 für Display und Atkinson
+Hyperlegible Next für alles andere, beide OFL. In den Vite-Projekten als
+`@fontsource-variable`-Pakete, Version über `hausbasis/baseline.json`:
+
+```
+@import "@fontsource-variable/source-serif-4/opsz.css";
+@import "@fontsource-variable/atkinson-hyperlegible-next";
+```
+
+Der `opsz`-Import ist Absicht: Source Serif 4 bringt optische Größen 8 bis 60,
+und nur damit holen sich die Titelgrade die richtige Zeichnung. In Projekten
+ohne Build als lokal gehostete woff2-Subsets (Vorlage:
+`moosburg-eu/public/assets/fonts/`). Playfair Display und Inter sind aus dem
+Kanon heraus — Inter war als austauschbare Standardschrift aufgefallen,
+Atkinson ist auf Lesbarkeit hin entworfen. Madelon Script liegt nur im Repo
+`moosburg` und bleibt dort; andere Projekte setzen den Script-Akzent nicht ein.
+
+**Versalziffern.** Kennzahlen, Uhrzeiten und Telefonnummern tragen
+`font-variant-numeric: lining-nums tabular-nums`. Monate werden ausgeschrieben
+(„15. April 2026“), nicht abgekürzt.
+
+**Farbe nach Gegenstand (K1).** Eine Farbe trägt in allen Projekten denselben
+Gegenstand. Nicht nach Bereich oder Projekt vergeben, sonst gibt es je Projekt
+eine eigene Zuordnung statt einer gemeinsamen.
+
+| Token | Wert | Gegenstand | Belegt in |
+|---|---|---|---|
+| `thema-tiefrot` | `#6d0818` | Rat, Feste | Stadtrat (`--gremium-stadtrat`), Data Hub (Volksfest), Konzept (Stadtrat, Veranstaltungen, Highlights) |
+| `thema-erdbraun` | `#4a2a17` | Bauen, Boden, Geschichte | Stadtrat (BPU), Konzept (Stadtentwicklung, Wohnen, Geschichte) |
+| `thema-nachtblau` | `#26295e` | Geld, Wahlen, Recht | Stadtrat (HVFA), Data Hub (Kommunalwahl), Konzept (Stadtfinanzen, Wahlen, Satzungen) |
+| `thema-isarpetrol` | `#123b4a` | Wege, Wasser, Ankommen | Data Hub (Bahnhofumfrage), Konzept (Mobilität, Anreise, Umziehen) |
+| `thema-tannengruen` | `#1f3b2d` | Natur, draußen | Konzept (Umwelt & Klima, Freizeit & Sport, Fair Trade) |
+| `thema-aubergine` | `#3f2248` | Bildung, Kultur, Begegnung | Konzept (Familie & Bildung, Vereinsleben, Ehrenamt, Partnerstädte) |
+| `gold-700` | `#6e5a30` | Mitmachen | Data Hub (amtliche Statistik), Konzept (Bürgerbeteiligung, Mängel melden) |
+| `ink` | `#1c1c1c` | Übersicht, Verzeichnis | Portal (Fuß), Konzept (Verzeichnis-Spotlights) |
+
+`gold-700` ist **bewusst doppelt belegt** (Benedict, 26.09.2026): im Data Hub
+steht es für die Herkunft „amtliche Statistik“, im Stadt-Konzept für den
+Gegenstand „Mitmachen“. Die beiden begegnen sich nicht auf einer Seite.
+
+**Hinweis-Fläche `red-600`.** Keine Themenfläche, sondern die Ausnahme für
+Stellen mit Aufmerksamkeitscharakter: Jubiläen, besondere Feste. Höchstens
+eine pro Seite. Creme darauf 6,69:1, Gold-200 4,93:1. Rot bleibt im Übrigen
+Bedienfarbe, nicht Flächenfarbe.
+
+**Flächenfolge.** Über die ganze Breite oder gar nicht — eine Karte mit
+deckender Farbe bleibt Hervorgehobenem vorbehalten. Höchstens eine dunkle
+Fläche pro Bildschirm, zwei dunkle nie direkt aneinander; wo die Zuordnung das
+verlangt, wird eine der beiden Creme oder `cream-dark`. Der Stripe steht nur im
+Kopf und schließt keine Zwischenebene mehr ab (Ausnahme: der Einschub „In
+eigener Sache“ im Portal). Karten dürfen etwa 72 px in die Fläche darüber
+ragen.
+
+**Ton in Ton (K2).** Die Farbebene einer zweifarbigen Zeichnung auf einer
+dunklen Fläche nimmt den Ton ihres Bandes, nicht `red-500` — auf Petrol, Grün
+oder Braun wäre Rot kein Ton in Ton mehr. Die Töne sind auf 2,2:1 gegen ihr
+Band gerechnet, dieselbe Ruhe wie `red-500` auf Tiefrot (2,1:1), und stehen als
+`zeichnung-*` bereit. Auf Tiefrot bleibt `red-500`. Dekorativ, nie Textfarbe;
+Gold-200-Linien darauf erreichen 3,7 bis 4,3:1.
+
+**Zweifarbige Zeichnungen: Trennung und Deckung (K3, K4).** Die beiden
+Schablonen werden über **Chroma** (`max − min` der Kanäle) getrennt, nicht über
+die HSV-Sättigung: bei dunklen Pixeln springt die Sättigung schon durch
+JPEG-Rauschen hoch, und die fast schwarzen Tuschelinien landen dann in der
+Farbebene. Die Farbebene wird anschließend auf volle Deckung normiert (Alpha
+durch das 90. Perzentil der Nicht-Null-Werte, bei 1 gekappt) — ohne das liegt
+die mittlere Deckung bei 56 bis 66 % und `red-500` wirkt auf Creme rosa.
+
+**Wo Zeichnungen stehen (K5, K6).** Volle Deckung auf Identity-Köpfen und
+Themenseiten, nie auf Service-Seiten. Identity-Flächen gelten als werbend,
+deshalb ist dort volle Deckung erlaubt. Die Fläche zeigt auf den Gegenstand der
+Seite, nicht auf ihren Bereich. Wasserzeichen stehen bei 6 bis 9 % Deckkraft,
+je Grund nachgemessen (K12).
+
+**Beschriftung in Zeichnungen (K11).** Ortsnamen ja, Betriebsnamen nein. Sonst
+wird die Zeichnung zur Werbung für einen einzelnen Betrieb.
+
+**Fotos (K7, K8).** Kein Text auf abgedunkeltem Foto und kein Verlauf darüber;
+der Nachweis steht klein unter dem Bild. Bildstil „Blick durch die Blumen“,
+Format WebP in 1200 und 2400 px, Dateiname aus Motiv und Aufnahmenummer. Ein
+Motiv je Bereich, nicht mehrfach genutzt.
+
+**Handschrift (K10).** Eine Überlappung im Kopf: etwa 1,45 × die Überschrift,
+`gold-500` mit 55 % Deckkraft, −6°, hinter der Überschrift, `aria-hidden`; die
+Überschrift muss lesbar bleiben. Eine zweite Handschrift auf derselben Seite
+wird Notiz — `gold-700`, Pfeil in `gold-500`, zeigt auf eine konkrete Stelle —
+oder fällt weg. Höchstens eine Notiz pro Bildschirm, nie auf Service-Seiten.
+
+**Gastelement auf Themenseiten (K9).** Ein einzelnes Element, das nur auf
+dieser Seite vorkommt. Festgehalten, noch nicht angenommen (26.09.2026).
 
 ## Verantwortung
 
