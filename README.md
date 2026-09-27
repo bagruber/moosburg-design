@@ -178,8 +178,11 @@ die mittlere Deckung bei 56 bis 66 % und `red-500` wirkt auf Creme rosa.
 **Wo Zeichnungen stehen (K5, K6).** Volle Deckung auf Identity-Köpfen und
 Themenseiten, nie auf Service-Seiten. Identity-Flächen gelten als werbend,
 deshalb ist dort volle Deckung erlaubt. Die Fläche zeigt auf den Gegenstand der
-Seite, nicht auf ihren Bereich. Wasserzeichen stehen bei 6 bis 9 % Deckkraft,
-je Grund nachgemessen (K12).
+Seite, nicht auf ihren Bereich. Die Deckkraft eines Wasserzeichens wird **am
+gebauten Stand nachgemessen, nicht gerechnet** (K12): dieselbe Zahl wirkt auf
+Creme deutlich leiser als auf Tinte, weil der Kontrastumfang nach unten kleiner
+ist. Der Richtwert von 6 bis 9 % gilt auf hellem Grund; im Stadt-Prototyp liegen
+die gemessenen Werte je nach Grund zwischen 11 und 22 %.
 
 **Beschriftung in Zeichnungen (K11).** Ortsnamen ja, Betriebsnamen nein. Sonst
 wird die Zeichnung zur Werbung für einen einzelnen Betrieb.
