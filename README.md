@@ -56,6 +56,7 @@ ersetzt, nie editiert.
 | `haushaltvis` | npm-Dependency | Theme, eigene Diagramm-Farben |
 | `baumkarte` | npm-Dependency | Theme, eigene Karten- und Rampen-Tokens |
 | `moosburg-historisch` | npm-Dependency | Theme |
+| `foodhub` | npm-Dependency | Theme, eigene Merkmalsfarben für die Ernährungsformen |
 | `moosburg-eu` | Kopie von `tokens.css` | Portalseite, ohne Build-Step |
 | `council` | geplant: Kopie von `tokens.css` | Werkzeug-Profil, Umstellung mit der anstehenden Modularisierung |
 | `council-voting-tool` | bewusst nicht angeschlossen | mandantenfähig, jeder Rat bringt eigene Farben mit; der Moosburg-Mandant nutzt die council-Werkzeug-Palette |
