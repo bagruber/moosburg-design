@@ -641,6 +641,159 @@ Nacharbeit je Projekt.
 Playfair-Subsets; `moosburg-eu` und das Sitzungstool hängen damit noch an den alten
 Schriften. Siehe `OFFENE-PUNKTE.md`.
 
+### 26.09.2026, erste Lesung Karten
+
+Vorlage: „Karten, erste Lesung“, https://claude.ai/artifact/P9KpGjEkzRw94DcB2hZ8Rw.
+Umfang: Baumkarte, Historische Karten, Speisekarten (alle unter `/data/`). Wahlkarte und
+Straßennamen vorgeschlagen als nicht dabei, Bestätigung steht aus. Gebaut ist nichts,
+Antworten stehen aus.
+
+- **Zwölf Punkte**, Empfehlung jeweils A: ein Kopf statt zwei (Stripe plus Band in der
+  Themenfarbe als einzige Leiste, mit Rücklink „Data Hub“, Titel, Kennzahl und Rose);
+  Themenfarben Tannengrün, Erdbraun, Aubergine (B: Speisekarten Tiefrot); Stripe oben;
+  ein Blatt, das in Ruhe genau das Instrument zeigt, am Desktop schwebend oder bei Listen
+  angedockt; 8 px statt eckigem Papier; gesetzte Filter in Gold; Zeiger in Rot;
+  Grundkarte mit Creme multipliziert; Zoomknöpfe nur mit Maus, Standort am Daumen; Klecks
+  als Auswahlmarke; Handschrift als Notiz am Ort; Rose als Ladezeichen im Band.
+- **Kanon-Kandidaten:** Kopf für Vollbildanwendungen, Ruhelage zeigt das Instrument,
+  „Filter in Gold, Navigation in Rot“, Grundkarte im Grund der Familie, Klecks als
+  Auswahlmarke, Notiz am Ort, 12 px als kleinster Lesegrad.
+- **Gefunden:** Keine der drei Karten führt zum Data Hub oder zu moosburg.eu zurück.
+  basemap.de antwortete am 26.09. abends mit 503; die Baumkarte fällt dann auf bunte
+  OSM-Kacheln, die Speisekarten zeigen Punkte ohne Karte und ohne Hinweis (TopPlusOpen
+  grau war erreichbar). Beschriftungen um 9,6 bis 11 px. Die Speisekarten laden noch Inter
+  und Playfair und fehlen in „Wer nutzt was“. „17 Speisekarten“ auf der Kachel passt nicht
+  zu 16 Häusern mit Gerichten.
+- Quelle der Vorlage im Session-Scratchpad (`karten-lesung.src.html`, `build.py`).
+
+### 27.09.2026, Antworten zur ersten Lesung Karten; Briefing geschrieben
+
+Wo nichts anderes steht, gilt die Empfehlung (U, 1A, 2A, 3A, 5A, 8A, T). Abweichend:
+
+- **4B:** Am Desktop in allen drei Karten eine angedockte Seitenleiste (400 px), nicht nur
+  bei den Speisekarten. Am Telefon bleibt die Regel „in Ruhe zeigt das Blatt das Instrument“.
+- **6, Probe Gold:** gesetzte Filter Gold-700 auf Gold-100 mit Rand Gold-500. **Ersatz:** der
+  heutige Stand der Speisekarten, voll Rot (`red-500`) mit weißer Schrift, wie im Stadtrat.
+  **Ausdrücklich keine Familienregel:** Wie gesetzte Filter und aktive Zustände familienweit
+  aussehen (Data Hub Gold, Stadtrat Rot), ist noch zu entscheiden.
+- **7, Probe C:** Zeiger in der Themenfarbe der Karte. **Ersatz A:** Rot-700.
+- **9A mit feinerem Maßstab:** ohne Kasten und Fläche, Haarlinie mit kurzen Endstrichen,
+  Zahl 12 px darüber, Hof in Creme.
+- **10A mit Hof:** Klecks als Auswahlmarke, dazu ein bleibender weicher Hof in Rot-500 und ein
+  Ring, der beim Wählen einmal auseinanderläuft.
+- **11 nein:** keine Handschrift in den Karten. „Notiz am Ort“ bleibt geparkt, gedacht für ein
+  späteres Tutorial.
+- **12A, zweistufig** (Benedicts Frage nach drehender Rose oder dem Laden aus dem Profil des
+  Stadt-Konzepts): drei hüpfende Rosen wie der `RoseLoader` beim ersten Laden, mittlere Kachel
+  in der Themenfarbe; drehende Rose (`.rose-spin`) im Band beim Nachladen.
+
+Nachgearbeitete Attrappen (N1 bis N4) in Version 2 der Vorlage. Antworten darauf, ebenfalls
+27.09.2026: N1 und N4 wie gezeigt; N3 Hof und Ring zusammen; N2 statt der feinen Haarlinie
+ein **Meterstab** wie auf gedruckten Karten, vier Felder im Wechsel Tinte und Creme, 5 px,
+Rahmen Tinte, „0“ links und Strecke rechts darüber in 12 px (Version 3 der Vorlage). Umsetzung als Arbeitsablauf
+für eine andere Session: `briefing-karten.md` in diesem Ordner, AP 0 bis 10.
+
+### 28.09.2026, Probe in den Karten umgesetzt
+
+Das Briefing ist abgearbeitet, AP 0 bis 10. Nichts gemergt, nichts gepusht.
+
+| Repo | Branch | Commits |
+|---|---|---|
+| baumkarte | `probe/formsprache` | `ed89c4d` bis `5a05320` (3) |
+| moosburg-historisch | `probe/formsprache` | `09b0d31` bis `656e12c` (2) |
+| foodhub | `probe/formsprache` | `ff3747a` bis `610b9f3` (2) |
+| datahub | `probe/karten` | `df3fb36` (1) |
+| hausbasis | `main` | `f366f44` (Phosphor in die Baseline) |
+
+Ergebnisse je Repo in `docs/formsprache-probe/ERGEBNIS.md`. Was Benedict ansehen
+sollte:
+
+- **Punkt 7C in der Baumkarte.** Tannengrün `#1f3b2d` und das dunkle Ende der
+  Höhenrampe `#0b3d20` stehen 1,01:1 zueinander. Bei hoher Mindesthöhe sitzt der
+  Zeiger direkt unter diesem Ende, und Bedienung und Daten lesen sich als dasselbe.
+  In den anderen beiden Karten tritt das nicht auf.
+- **Punkt 6 in den Speisekarten.** Gold liest sich am gebauten Stand ruhiger als das
+  bisherige volle Rot und trennt Bedienung von Daten, die in dieser App selbst rot
+  sind. Gold-700 auf Gold-100 5,64:1 gegen 5,88:1 für Weiß auf Rot-500.
+- **Drei Befunde** in den Ergebnissen: MapLibres Stylesheet stand in allen drei Karten
+  im Bundle hinter den eigenen Regeln und überschrieb sie; `isSourceLoaded` taugt
+  nicht als Signal fürs Nachladen; `Marker.addTo()` liest die Koordinaten sofort.
+- **basemap.de nutzt ausschließlich `rgb()`** (557 Ebenen, 614 Farbangaben, am
+  28.09.2026 nachgezählt). `papierton()` ist darauf gekürzt, Hex bleibt als übliche
+  zweite Schreibweise.
+
+Nichts davon ist in den Kanon zurückgeschrieben. Die Kandidaten aus der Lesung werden
+erst am gebauten Stand entschieden, und Punkt 6 ist ausdrücklich keine Regel.
+
+### 29.09.2026, erste Lesung Bilder im Website-Konzept
+
+Vorlage: „Bilder im Konzept, erste Lesung“, https://claude.ai/artifact/DK32rZZcKCeeULf6qvnTGA.
+Protokoll: `../moosburg/docs/formsprache/bilder-erste-lesung.md`. Nur Vorschläge,
+Antworten stehen aus.
+
+- **Elf Ideen**, jede im Ausschnitt der Seite, auf die sie gehört, mit umschaltbaren
+  Varianten und lauffähigen Effekten: Stadtfenster, Diptychon, Anschnitt im Wechsel,
+  goldener Rahmen (versetzt, Ecken, voll), Abzug, Klecks als Bildmaske,
+  Bildunterschrift (Serif und Ortszeile, Kartenlink, Notiz, senkrecht), Hover,
+  Scroll-Effekte, Zeichnung wird Foto, „Moosburg im Jahr“.
+- **Kandidaten für den Kanon**, falls angenommen: kein Text auf dem Foto; höchstens ein
+  Effekt und ein gerahmtes Bild pro Bildschirm; keine Bewegung im Seitenkopf; Bildfokus,
+  Titel und Ort je Foto im Bildregister; der goldene Rahmen als handgezeichnetes Element
+  neben den Federzeichnungen.
+- Die Rahmen und die Linien für „Zeichnung wird Foto“ sind in der Vorlage gerechnet,
+  als Stellvertreter für Zeichnungen von Benedict.
+
+### 29.09.2026, Antworten zur ersten Lesung Bilder; Briefing geschrieben
+
+Angenommen: Stadtfenster (1), Diptychon versetzt (2 B), Bilder in der Spalte, aber
+querer als 4:3 (3 B), goldener Rahmen versetzt mit Ecken als Ersatz (4 A/B), und zwar
+**in allen Bildplatzierungen**, nicht nur bei freistehenden Bildern; Bildunterschrift mit
+Ortszeile und Kartenlink (7 B), Notiz als Option für Einzelelemente im Bild (7 C); Hover
+zeichnet den Rahmen nach (8 B); Scharfstellen oder Zoom über 4 % (9, Wahl am gebauten
+Stand). Abgelehnt: Klecks als Bildmaske (6). Verschoben: Abzug (5, später etwa für
+Partnerstädte), Zeichnung wird Foto (10, Benedict hat eine Idee andersherum), Moosburg
+im Jahr (11).
+
+Für den Kanon wichtig, sobald die Rahmen von Hand kommen: **Lieferformat** ist eine
+Mittellinie mit einheitlicher Stärke, als einzelne lange Linien statt fertiger Rahmen.
+Nur so bleibt die Stärke beim Strecken konstant, das Zittern bei jedem Bildformat gleich
+stark, und nur ein Strich lässt sich beim Hover nachzeichnen. Einzelheiten und der
+Umsetzungsplan: `../moosburg/docs/formsprache/briefing-bilder.md`.
+
+### 29.09.2026, Bilder im Stadt-Prototyp gebaut
+
+Alle sechs Phasen umgesetzt, auf Branch `probe/bilder`, nicht gemergt. Drei Punkte
+warten auf Benedicts Wahl am gebauten Stand und sind dafür über die Adresse
+umschaltbar (`?wz=`, `?rahmen=`, `?fx=`), damit kein Umschalter in der Seite steht.
+
+**Kanon-Kandidaten aus der Umsetzung** — erst in `README.md` eintragen, wenn Benedict
+sie am gebauten Stand bestätigt hat:
+
+- **Ein Bildregister je Projekt.** Titel, Fokuspunkt, Ort und Nachweis stehen einmal
+  an einer Stelle, die Seiten nennen nur den Schlüssel. Vorher stand der Nachweis in
+  fünfzehn Aufrufen; eine Korrektur wäre an vierzehn davon liegen geblieben.
+- **Ein Ort steht nur, wo das Motiv ihn zeigt.** Kein „Altstadt“ auf Verdacht. Eine
+  falsche Ortsangabe ist schlechter als keine, weil sie aussieht wie eine Auskunft.
+- **Der Ort ist ein Weg.** Hat das Foto einen Kartenpunkt, führt die Unterschrift auf
+  die Karte an diese Stelle. Damit wird aus einer Bildlegende eine Navigation.
+- **Rahmen als vier Linien, nicht als Rechteck.** Jede Kante in einem eigenen
+  Koordinatensystem, gedreht an ihren Platz; beim Formatwechsel streckt sich nur die
+  Länge. Das ist die Bedingung dafür, dass eine Handzeichnung ohne Umbau eingesetzt
+  werden kann, und gilt für jedes gezeichnete Element, das sich an Inhalt anpassen
+  muss.
+- **Höchstens ein ruhender Rahmen pro Bildschirm**, Hover-Rahmen zählen nicht.
+- **Ein Bild über die volle Breite bekommt keinen Rahmen.** Dort fehlen die Seiten,
+  und eine einzelne Linie oben oder unten wäre der verbotene Kantenakzent.
+- **Ein Bild über die volle Breite wiegt wie eine dunkle Fläche** und fällt damit
+  unter dieselbe Regel: nie zwei nebeneinander, höchstens eines pro Bildschirm.
+- **Scroll-Fortschritt als CSS-Variable, nicht als `animation-timeline`.** Firefox
+  kann Letzteres nur hinter einem Schalter. Dieselbe Stelle war schon beim
+  Johannisturm aufgefallen.
+- **Bewegung nur unterhalb des ersten Bildschirms**, nie im Seitenkopf.
+
+**Nicht in den Kanon, sondern in die Projekte:** die Zuordnung Foto zu Seite. Sie
+hängt am Bestand, nicht an der Formsprache.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026
@@ -838,6 +991,33 @@ Nicht gewählt:
   wegzulassen.
 
 
+### Aus der ersten Lesung Karten (26./27.09.2026)
+
+Bilder in „Karten, erste Lesung“ (https://claude.ai/artifact/P9KpGjEkzRw94DcB2hZ8Rw).
+Nicht gewählt:
+
+- **Kopf im Blatt** (1B): kein Band, Stripe und Kopf in Themenfarbe oben im Blatt, Karte bis
+  zur Oberkante. **Familienleiste mit Karte darunter** (1C), cremefarben, 64 px, ohne
+  Themenfarbe.
+- **Speisekarten in Tiefrot** (2B) statt Aubergine.
+- **Karten ohne Stripe** (3B), die frühere Entscheidung der Baumkarte.
+- **Blatt am Desktop schwebend** (4A), oben links, 312 px, nur die Speisekarten angedockt.
+- **Eckiges Papier** (5B), 2 px, als Eigenheit der Kartenblätter.
+- **Gesetzte Filter voll Rot mit weißer Schrift** (heutiger Stand der Speisekarten, wie im
+  Stadtrat): **Ersatz für die Gold-Probe**, nicht verworfen. Dazu die leise Variante Rot-700
+  auf Rot-50 mit Rand Rot-700 (6B).
+- **Zeiger in Rot-700** (7A): **Ersatz für die Probe C**. Zeiger in der Farbe der Skala (7B),
+  wie heute in der Baumkarte (`#14522a` für die Höhe, `#6d0818` für den Zeitraum).
+- **Grundkarte wie geliefert** (8B).
+- **Zoomknöpfe auch am Telefon** (9B); Maßstab als Kasten mit Rand und Fläche (Lesung 9A);
+  **feiner Maßstab** als 1-px-Haarlinie `ink-soft` mit 4 px Endstrichen, Zahl 12 px darüber,
+  Hof in Creme (N2 der zweiten Fassung, abgelöst vom Meterstab).
+- **Klecks nur mit Hof** oder nur mit Ring (N3); gewählt ist beides zusammen.
+- **Punkt mit Hof** statt Klecks (10B), 20 px, 3 px Rand, Hof 5 px in Rot bei 22 %.
+- **Notiz am Ort** (11A): Handschrift mit Pfeil, gebunden an Koordinate, Zoomstufe und
+  Ausgabe, Hof in Creme. Geparkt für ein Tutorial.
+- **Ladetext im Blatt** (12B); **Tuschezeichnung als Ladebild**.
+
 ## 6. Werte, die schon nachgerechnet sind
 
 Kontrast nach WCAG 2.1 (Formel wie `scripts/kontrast.mjs`), am 14.09.2026 von Hand
@@ -886,6 +1066,11 @@ Dunkelmodus (weiter verfolgt, nicht entschieden), Vorschlag aus Runde 1:
 | datahub | Fuß verlinkt `moosburg.org` | Fehler laut Benedict (17.09.2026), fällt ersatzlos weg; der Weg zurück steht rechts oben im Info-Panel |
 | datahub | Kennzahl „Quelle“ setzt den Namen des Landesamts als Zahl (Serifenschrift, 36 px, Rot) | wandert in die Kategoriezeile (erste Lesung, Punkt 7) |
 | datahub | Kommunalwahl trägt `kind: "statistik"` und damit Pergament und die Zeile „Amtliche Statistik“ | notiert, gehört zur Wahl-Runde |
+| baumkarte, moosburg-historisch, foodhub | kein Weg zurück zum Data Hub oder zu moosburg.eu | behoben auf den Probe-Branches (28.09.2026), Rücklink und Panel im Band |
+| baumkarte, foodhub | fällt basemap.de aus (26.09. abends und 27.09. ganztags, 503), zeigt die Baumkarte bunte OSM-Kacheln, die Speisekarten Punkte ohne Karte und ohne Hinweis | behoben auf den Probe-Branches (28.09.2026), beide fallen auf die graue TopPlusOpen zurück |
+| baumkarte, moosburg-historisch, foodhub | Beschriftungen zwischen 9,6 und 11 px | behoben auf den Probe-Branches (28.09.2026), 12 px als Untergrenze |
+| foodhub | lädt noch Inter und Playfair; fehlt in „Wer nutzt was“ im README dieses Repos | behoben (28.09.2026), Schriften auf dem Probe-Branch, README-Zeile hier |
+| datahub | Kachel „aus 17 Speisekarten“, im Datensatz haben 16 von 49 Häusern Gerichte; Kacheltitel „Moosburg historisch“ gegen „Historische Karten“ in der Anwendung | behoben auf `probe/karten` (28.09.2026) |
 | council-voting-tool | Namen im Sitzring liegen unter den Kreisen („Dick“, „Marschoun“) | offen |
 | council-voting-tool | Noto-Schriften, roter Verlauf im Kopf | Kompromiss entschieden, offen |
 | moosburg | einseitiger Kantenakzent `border-l-4` in `src/pages/HubPage.tsx:80` | offen |
