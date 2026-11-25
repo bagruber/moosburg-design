@@ -794,6 +794,42 @@ sie am gebauten Stand bestätigt hat:
 **Nicht in den Kanon, sondern in die Projekte:** die Zuordnung Foto zu Seite. Sie
 hängt am Bestand, nicht an der Formsprache.
 
+### 25.11.2026, Betreiberzeile und Fußzeile als Baustein
+
+Anlass: Wer über eine Suche auf einer Unterseite landet und den Stadtnamen liest, hält
+die Seite leicht für amtlich. Der Hinweis „Privates Projekt, kein Auftritt der Stadt“
+stand sichtbar nur im Kopf des Portals, das Panel „Über das Projekt“ war siebenmal
+gebaut. Entwurf und Wortlaut hat Benedict freigegeben.
+
+- **Ort und Bauart:** `bausteine/` mit zwei HTML-Teilstücken und einem Stylesheet. Kein
+  JavaScript, alle Adressen absolut: Die Betreiberangabe steht im ersten Bild und läuft
+  auf GitHub Pages wie auf moosburg.eu. Ein Skript von der Domain-Wurzel hätte auf Pages
+  gefehlt und sieben Tage im Cache gelegen.
+- **Betreiberzeile:** direkt unter dem Stripe, über dem Kopf des Projekts, nicht klebend,
+  nicht schließbar. Wortlaut: „Bürgerschaftliches Projekt, kein Auftritt der Stadt.
+  Amtlich ist moosburg.de · Wer dahintersteht“, davor die Rose mit „moosburg.eu“ als
+  Rücklink. Sie löst den Hinweis aus der Zeile „Navigation“ in Abschnitt 4 ab.
+- **Ton:** ein Vermerk, kein Banner. Tinte auf Creme, 13 px, der Satz in 600, eine
+  Haarlinie zum Kopf. Keine Signalfarbe, kein Icon außer der Rose, kein farbiger Balken.
+- **Schmal** (unter 40 rem) bleibt vom Rücklink die Rose, der Name nur für Screenreader.
+  Mit ihm bräche die Zeile bei 390 px auf drei Zeilen um. Gemessen im Portal: eine
+  Zeile und 34 px Höhe bei 1440 px, zwei Zeilen und 53 px bei 390 und bei 360 px, drei
+  Zeilen erst bei 320 px.
+- **Variante ohne Rücklink** (`betreiberzeile--ohne-ruecklink`) für das Sitzungstool,
+  das eigene Mandantenfarben trägt. Farben und Schrift laufen deshalb über
+  `--betreiber-*` und `--fusszeile-*`, mit Rückfall erst auf die Tokens, dann auf feste
+  Werte. Noch nirgends eingesetzt.
+- **Fußzeile:** „Bürgerschaftlich betrieben, ohne Auftrag und ohne Gewähr“, darunter
+  Impressum, Datenschutz, Wer dahintersteht und Quellcode. Unterste Zeile im vorhandenen
+  Fuß, erbt dessen Farben. Impressum und Datenschutz liegen dafür auf eigenen Adressen
+  (`moosburg.eu/impressum/`, `/datenschutz/`, `/ueber/`) statt hinter einem Sprungziel
+  der Startseite.
+- **Stand des Einbaus:** Portal (Startseite und die drei neuen Seiten) über
+  `moosburg-eu/scripts/hole-kanon.mjs`. Die übrigen Portalseiten und alle anderen
+  Projekte folgen, der Einbau für die Vite-Projekte ist noch nicht gebaut.
+- **Offen:** Im Portal steht „moosburg.eu“ mit Rose jetzt zweimal übereinander, in der
+  Zeile und im Kopf darunter.
+
 ---
 
 ## 4. Vorläufige Entscheidungen vom 14.09.2026

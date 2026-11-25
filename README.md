@@ -18,6 +18,7 @@ Ansicht der Tokens und Regeln:
 | `scripts/tokens.mjs` | Erzeugt `tokens.css` neu (`npm run tokens`). |
 | `scripts/kontrast.mjs` | Prüft die freigegebenen Farbpaare gegen WCAG 2.1 AA (`npm run kontrast`). |
 | `index.html` | Der Showcase auf GitHub Pages, liest `css/tokens.css` direkt. |
+| `bausteine/` | Betreiberzeile und Fußzeile als HTML-Teilstücke mit eigenem CSS, siehe „Bausteine“. |
 
 Nach jeder Änderung an `theme.css` gehören beide Skripte ausgeführt und die
 generierte `tokens.css` mit committet.
@@ -47,6 +48,47 @@ importieren das Theme vor den eigenen Regeln:
 ab. Die Kopie behält ihren Generiert-Kopf und wird nur durch eine neue Kopie
 ersetzt, nie editiert.
 
+## Bausteine
+
+`bausteine/` hält, was auf jeder Seite unter moosburg.eu gleich lauten muss:
+wer die Seite betreibt und wo Impressum und Datenschutz stehen.
+
+| Datei | Inhalt |
+|---|---|
+| `betreiberzeile.html` | Die Zeile direkt unter dem Rainbow-Stripe, über dem Kopf des Projekts: Rücklink mit Rose, der Satz „Bürgerschaftliches Projekt, kein Auftritt der Stadt.“, Verweise auf moosburg.de und auf „Wer dahintersteht“. |
+| `fusszeile.html` | Die unterste Zeile im vorhandenen Fuß. `{{quellcode}}` ist ein Platzhalter für das Repo des Projekts, den der Einbau füllt. |
+| `bausteine.css` | Die Gestaltung beider Teile. Nach dem Stylesheet des Projekts einbinden. |
+
+Reines HTML und CSS, alle Adressen absolut: Die Betreiberangabe steht ohne
+JavaScript im ersten Bild und läuft auf GitHub Pages wie auf moosburg.eu.
+
+**Einbau ohne Build-Step:** ein Skript setzt die Teilstücke zwischen Markern
+ein (`<!-- kanon:betreiberzeile -->` bis `<!-- /kanon:betreiberzeile -->`,
+ebenso `fusszeile`) und legt `bausteine.css` als erzeugte Kopie mit
+Herkunftskopf ab. Vorlage: `moosburg-eu/scripts/hole-kanon.mjs`. Der Einbau
+in die Vite-Projekte steht noch aus.
+
+**Anpassen, ohne zu kopieren:** Farben, Schrift und Flucht laufen über
+Variablen, die ein Projekt an einem Vorfahren setzt. Ohne Angabe gelten die
+Tokens, ohne Tokens feste Werte.
+
+| Variable | Wirkung | Rückfall |
+|---|---|---|
+| `--betreiber-grund` | Grund der Zeile | `cream` |
+| `--betreiber-tinte` | Satz und Verweise | `ink` |
+| `--betreiber-tinte-leise` | übriger Text | `ink-soft` |
+| `--betreiber-linie` | Haarlinie zum Kopf | `ink-line` |
+| `--betreiber-rose` | Rose im Rücklink | `red-500` |
+| `--betreiber-schrift` | Schrift der Zeile | `font-sans` |
+| `--betreiber-breite`, `--betreiber-rand` | Breite und Seitenrand, auf die Flucht des Kopfs darunter | volle Breite, 1 rem |
+| `--fusszeile-tinte`, `--fusszeile-link` | Text und Verweise im Fuß | erben vom Fuß |
+| `--fusszeile-linie` | Haarlinie über der Zeile | halbtransparentes Grau |
+| `--fusszeile-schrift` | Schrift der Zeile | `font-sans` |
+
+Die Klasse `betreiberzeile--ohne-ruecklink` blendet Rose und Namen aus. Sie
+ist für das Sitzungstool gedacht, das nicht zur Familien-Navigation gehört,
+und bisher nirgends eingesetzt.
+
 ## Wer nutzt was
 
 | Repo | Bezug | Umfang |
@@ -57,7 +99,7 @@ ersetzt, nie editiert.
 | `baumkarte` | npm-Dependency | Theme, eigene Karten- und Rampen-Tokens |
 | `moosburg-historisch` | npm-Dependency | Theme |
 | `foodhub` | npm-Dependency | Theme, eigene Merkmalsfarben für die Ernährungsformen |
-| `moosburg-eu` | Kopie von `tokens.css` | Portalseite, ohne Build-Step |
+| `moosburg-eu` | Kopie von `tokens.css`, Bausteine über `scripts/hole-kanon.mjs` | Portalseite, ohne Build-Step |
 | `council` | geplant: Kopie von `tokens.css` | Werkzeug-Profil, Umstellung mit der anstehenden Modularisierung |
 | `council-voting-tool` | bewusst nicht angeschlossen | mandantenfähig, jeder Rat bringt eigene Farben mit; der Moosburg-Mandant nutzt die council-Werkzeug-Palette |
 
