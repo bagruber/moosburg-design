@@ -1,0 +1,136 @@
+/* Betreiberzeile und Fußzeile für die Projekte unter moosburg.eu.
+   Gehört zu betreiberzeile.html und fusszeile.html im selben Ordner.
+
+   Jeder Wert läuft über eine eigene Variable mit zwei Rückfallstufen: erst
+   das Token des Kanons, dann ein fester Wert. So sieht der Baustein auch in
+   einem Projekt mit älterem Token-Stand oder ganz ohne tokens.css ordentlich
+   aus, und ein Projekt mit eigenen Farben (Sitzungstool) setzt nur
+   --betreiber-* und --fusszeile-* an einem Vorfahren.
+
+   Nach dem Stylesheet des Projekts einbinden. Die Selektoren sind mit
+   Absicht zweistufig: Eine Projektregel wie `footer a` oder `.site-footer p`
+   würde die Zeilen sonst je Projekt anders färben und setzen. */
+
+/* ── Betreiberzeile ───────────────────────────────────────────────── */
+/* Steht direkt unter dem Rainbow-Stripe, über dem Kopf des Projekts. Nicht
+   klebend und nicht schließbar: Sie ist ein Vermerk, kein Hinweisbanner.
+   Deshalb Tinte auf Creme und eine Haarlinie, keine Signalfarbe. */
+.betreiberzeile {
+  background: var(--betreiber-grund, var(--color-cream, #faf7f2));
+  border-bottom: 1px solid var(--betreiber-linie, var(--color-ink-line, #e4e0d7));
+  color: var(--betreiber-tinte-leise, var(--color-ink-soft, #555555));
+  font-family: var(--betreiber-schrift, var(--font-sans, system-ui, sans-serif));
+}
+/* --betreiber-breite und --betreiber-rand bringen die Zeile auf die Flucht
+   des Kopfs darunter; ohne Angabe läuft sie über die ganze Breite. */
+.betreiberzeile .betreiberzeile-innen {
+  box-sizing: border-box;
+  max-width: var(--betreiber-breite, none);
+  margin: 0 auto;
+  padding: 0.4375rem var(--betreiber-rand, 1rem);
+  /* 13 px. Die Untergrenze des Kanons liegt bei 12 px. */
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+.betreiberzeile .betreiberzeile-innen strong {
+  font-weight: 600;
+  color: var(--betreiber-tinte, var(--color-ink, #1c1c1c));
+}
+.betreiberzeile .betreiberzeile-innen a {
+  color: var(--betreiber-tinte, var(--color-ink, #1c1c1c));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+.betreiberzeile .betreiberzeile-innen a:hover { text-decoration-thickness: 2px; }
+.betreiberzeile .betreiberzeile-innen a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Rücklink: die Rose mit dem Namen der Domain. Die Rose steht als SVG im
+   Teilstück und nicht als Maske mit url(), weil der Baustein auch auf GitHub
+   Pages läuft, wo es /assets/rose.svg nicht gibt. */
+.betreiberzeile .betreiberzeile-innen .betreiberzeile-ruecklink {
+  margin-right: 0.625rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.betreiberzeile .betreiberzeile-innen .betreiberzeile-ruecklink:hover { text-decoration: underline; }
+.betreiberzeile .betreiberzeile-rose {
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-right: 0.375rem;
+  vertical-align: -0.125em;
+  color: var(--betreiber-rose, var(--color-red-500, #c8102e));
+}
+
+/* Schmal bleibt vom Rücklink die Rose, der Name ist nur noch für
+   Screenreader da. Mit ihm bräche die Zeile bei 390 px auf drei Zeilen um.
+   Das Padding vergrößert die Trefferfläche auf 24 px, ohne die Zeile höher
+   zu machen: senkrechtes Padding an einem Inline-Element zählt nicht zur
+   Zeilenhöhe. */
+@media (max-width: 40rem) {
+  .betreiberzeile .betreiberzeile-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .betreiberzeile .betreiberzeile-innen .betreiberzeile-ruecklink {
+    margin: 0 0 0 -0.3125rem;
+    padding: 0.3125rem;
+  }
+  .betreiberzeile .betreiberzeile-rose { margin-right: 0; }
+}
+
+/* Ohne Rücklink: für Projekte, die nicht zur Familien-Navigation gehören
+   und eigene Farben tragen. Der Satz und die beiden Verweise bleiben. */
+.betreiberzeile--ohne-ruecklink .betreiberzeile-innen .betreiberzeile-ruecklink { display: none; }
+
+/* ── Fußzeile ─────────────────────────────────────────────────────── */
+/* Unterste Zeile im vorhandenen Fuß des Projekts. Der Fuß ist je Projekt
+   anders gefärbt, deshalb erbt die Zeile Schrift- und Linkfarbe, solange
+   das Projekt nichts anderes setzt. Die Linie ist ein halbtransparentes
+   Grau, das auf hellem wie auf dunklem Grund als Haarlinie liest. */
+.fusszeile {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--fusszeile-linie, rgb(128 128 128 / 0.35));
+  color: var(--fusszeile-tinte, inherit);
+  font-family: var(--fusszeile-schrift, var(--font-sans, system-ui, sans-serif));
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+.fusszeile .fusszeile-vermerk,
+.fusszeile .fusszeile-wege {
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+}
+/* Steht die Zeile allein im Fuß, gibt es nichts, wovon sie zu trennen wäre. */
+.fusszeile:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+/* 1,85 × 13 px ergibt 24 px je Zeile: Brechen die Verweise um, liegen die
+   Trefferflächen nicht aufeinander. */
+.fusszeile .fusszeile-wege { line-height: 1.85; }
+.fusszeile .fusszeile-wege a {
+  color: var(--fusszeile-link, inherit);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+.fusszeile .fusszeile-wege a:hover { text-decoration-thickness: 2px; }
+.fusszeile .fusszeile-wege a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
